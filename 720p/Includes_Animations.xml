@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <includes>
+	
+	<include name="WallDelayAnimation">
+	<animation type="Conditional" reversible="false" condition="!Container.OnNext + !Container.OnPrevious">
+		    <effect type="fade" end="100" time="200" delay="2500" />			
+        </animation>
+		<animation type="Conditional" reversible="false" condition="!Container(56).Column(0)">					
+            <effect type="fade" end="100" time="200" delay="2500" />			
+        </animation>
+		<animation type="Conditional" reversible="false" condition="!Container(56).Column(1)">					
+            <effect type="fade" end="100" time="200" delay="2500" />			
+        </animation>
+		<animation type="Conditional" reversible="false" condition="!Container(56).Column(2)">					
+            <effect type="fade" end="100" time="200" delay="2500" />			
+        </animation>
+		<animation type="Conditional" reversible="false" condition="!Container(56).Column(3)">					
+            <effect type="fade" end="100" time="200" delay="2500" />			
+        </animation>
+		<animation type="Conditional" reversible="false" condition="!Container(56).Column(4)">					
+            <effect type="fade" end="100" time="200" delay="2500" />			
+        </animation>
+		<animation type="Conditional" reversible="false" condition="!Container(56).Row(0)">					
+            <effect type="fade" end="100" time="200" delay="2500" />			
+        </animation>
+		<animation type="Conditional" reversible="false" condition="!Container(56).Row(1)">					
+            <effect type="fade" end="100" time="200" delay="2500" />			
+        </animation>
+	</include>
+	
+	<include name="OSDDiscAnimation">		
+		<animation effect="rotate" start="0" end="-360" center="auto" time="4500" loop="true" reversible="false" condition="Player.HasVideo">Conditional</animation>
+	</include>
+	
+	<include name="ListDiscAnimation">
+	    <animation effect="fade" time="350" delay="100">Visible</animation>
+		<animation effect="slide" start="-135,0" end="0,0" time="400" delay="500" condition="![Container.OnNext | Container.OnPrevious | Container.Scrolling]">Conditional</animation>
+		<animation effect="fade" start="0" end="100" delay="420" time="300" condition="![Container.OnNext | Container.OnPrevious | Container.Scrolling]">Conditional</animation>
+		<animation effect="rotate" reversible="false" end="-360" center="auto" time="6400" delay="500" loop="false" tween="cubic" easing="inout" condition="![Container.OnNext | Container.OnPrevious | Container.Scrolling]">Conditional</animation>
+		<animation effect="rotate" start="0" end="-360" center="auto" time="3000" loop="true" reversible="false" condition="Player.HasVideo">Conditional</animation>
+		<animation effect="rotate" reversible="false" end="-360" center="auto" time="6400" delay="0" loop="false" tween="cubic" easing="inout">WindowOpen</animation>
+	</include> 
+
+	<include name="LowListDiscAnimation">
+	    <animation effect="fade" time="350" delay="100">Visible</animation>
+		<animation effect="slide" start="0,135" end="0,0" time="400" delay="500" condition="![Container.OnNext | Container.OnPrevious | Container.Scrolling]">Conditional</animation>
+		<animation effect="fade" start="0" end="100" delay="420" time="300" condition="![Container.OnNext | Container.OnPrevious | Container.Scrolling]">Conditional</animation>
+		<animation effect="rotate" reversible="false" end="-360" center="auto" time="6400" delay="500" loop="false" tween="cubic" easing="inout" condition="![Container.OnNext | Container.OnPrevious | Container.Scrolling]">Conditional</animation>
+		<animation effect="rotate" start="0" end="-360" center="auto" time="3000" loop="true" reversible="false" condition="Player.HasVideo">Conditional</animation>
+		<animation effect="rotate" reversible="false" end="-360" center="auto" time="6400" delay="0" loop="false" tween="cubic" easing="inout">WindowOpen</animation>
+	</include>
+	
+	<include name="RightListDiscAnimation">
+	    <animation effect="fade" time="350" delay="100">Visible</animation>
+		<animation effect="slide" start="-135,0" end="0,0" time="400" delay="500" condition="![Container.OnNext | Container.OnPrevious | Container.Scrolling]">Conditional</animation>
+		<animation effect="fade" start="0" end="100" delay="420" time="300" condition="![Container.OnNext | Container.OnPrevious | Container.Scrolling]">Conditional</animation>
+		<animation effect="rotate" reversible="false" end="-360" center="auto" time="6400" delay="500" loop="false" tween="cubic" easing="inout" condition="![Container.OnNext | Container.OnPrevious | Container.Scrolling]">Conditional</animation>
+		<animation effect="rotate" start="0" end="-360" center="auto" time="3000" loop="true" reversible="false" condition="Player.HasVideo">Conditional</animation>
+		<animation effect="rotate" reversible="false" end="-360" center="auto" time="6400" delay="0" loop="false" tween="cubic" easing="inout">WindowOpen</animation>
+	</include>
+	
+	<include name="ShowcaseDiscAnimation">
+	    <animation effect="fade" time="350" delay="100">Visible</animation>
+		<animation effect="slide" start="0,135" end="0,0" time="400" delay="500" condition="![Container.OnNext | Container.OnPrevious | Container.Scrolling]">Conditional</animation>
+		<animation effect="fade" start="0" end="100" delay="420" time="300" condition="![Container.OnNext | Container.OnPrevious | Container.Scrolling]">Conditional</animation>
+		<animation effect="rotate" reversible="false" end="-360" center="auto" time="6400" delay="500" loop="false" tween="cubic" easing="inout" condition="![Container.OnNext | Container.OnPrevious | Container.Scrolling]">Conditional</animation>
+		<animation effect="rotate" start="0" end="-360" center="auto" time="3000" loop="true" reversible="false" condition="Player.HasVideo">Conditional</animation>
+		<animation effect="rotate" reversible="false" end="-360" center="auto" time="6400" delay="0" loop="false" tween="cubic" easing="inout">WindowOpen</animation>
+	</include>
+	
+	<include name="PosterDiscAnimation">
+	    <animation type="Focus" reversible="false">
+	        <effect type="slide" start="-135,0" end="0,0" time="400" delay="500" />
+			<effect type="fade" start="0" end="100" delay="420" time="300" />
+		    <effect type="rotate" reversible="false" end="-360" center="auto" time="6400" delay="0" loop="false" tween="cubic" easing="inout" />			
+        </animation>	    
+		<animation effect="rotate" start="0" end="-360" center="auto" time="3000" loop="true" reversible="false" condition="Player.HasVideo">Conditional</animation>	
+	</include>
+</includes>								

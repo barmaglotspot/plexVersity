@@ -1,0 +1,708 @@
+<includes>
+<!---------------------------------------- View List Video --------------------------------------->
+<include name="View_List">
+
+<control type="group">
+	<visible>Control.IsVisible(50)</visible>
+	
+<!-- Background Vertical -->
+	<include>Background_V</include> 
+	
+<!-- Time -->
+<control type="group">   
+	<include>ClockGrey</include>	
+</control>	
+	
+<!-- Media Flags -->	
+<control type="group">   
+    <posx>60</posx>
+    <posy>23</posy>
+	<include>MediaFlagsGreyRight</include>	
+</control>
+	
+<!-- Numbers Items and Section -->
+    <include>ItemsSectionWhite</include>
+
+<!-- Scrollbar -->
+    <include>scrollbar</include>	
+	
+<control type="group">    
+	<control type="image">	
+	<posx>377</posx>
+	<posy>665</posy>
+   		<description>Separator Bottom</description>
+   		<width>905</width>
+		<height>1</height>
+		<texture>views/Separator_Columns.png</texture>
+		<colordiffuse>58353533</colordiffuse>
+		<visible>!IsEmpty(Listitem.Property(mediaTag-videoCodec)) | !IsEmpty(Listitem.Property(mediaTag-audioCodec)) | !IsEmpty(Listitem.Property(mediaTag-contentRating))</visible>
+   	</control>
+</control>
+
+<control type="group">			
+	<!-- Plot Video -->
+	<control type="textbox">
+      	<posx>36</posx>
+        <posy>545</posy>
+	    <width>285</width>
+	    <height>138</height>
+		<label>$VAR[ListItemFullInfoPlot]</label>
+	    <visible>true</visible>
+	    <font>aller_2_16</font>
+	    <textcolor>FFFFFFFF</textcolor>
+	    <align>justify</align>
+	    <autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>		
+	</control>
+		
+	<control type="group">
+		<posx>0</posx>
+		<posy>0</posy>	
+	
+		<!-- HD Tag -->
+		<control type="image">
+		<animation effect="slide" start="0" end="-18,307" time="0" condition="Container.Content(episodes) + !IsEmpty(Container.Property(mixedParents))">Conditional</animation>
+		<animation effect="slide" start="0" end="-18,287" time="0" condition="Container.Content(episodes) + IsEmpty(Container.Property(mixedParents))">Conditional</animation>
+			<posx>322</posx>
+			<posy>102</posy>
+			<width>44</width>
+		    <height>94</height>
+			<aspectratio>keep</aspectratio>
+			<texture>$INFO[Listitem.Property(mediaTag-videoResolution),views/,.png]</texture>
+			<visible>!Skin.HasSetting(HDIcon)</visible>
+		</control>
+		<!-- Simulate DiscArt -->
+        <include>SimDiscArtList</include>
+		<!-- Poster -->
+		<control type="image">
+			<posx>28</posx>
+			<posy>29</posy>
+			<width>300</width>
+		    <height>600</height>
+			<aspectratio>keep</aspectratio>
+			<texture border="20" background="true">frames/frame_movie_large_2.png</texture>
+			<visible>!Container.Content(episodes) + !ListItem.Type(videoplaylist) + !ListItem.Type(musicplaylist)</visible>
+		</control>
+		<control type="image">		
+			<posx>35</posx>
+			<posy>123</posy>
+			<width>285</width>
+		    <height>412</height>
+			<texture diffuse="frames/mask_movie_large_2.png" background="false">$INFO[ListItem.Thumb]</texture>
+			<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+			<visible>!Container.Content(episodes)</visible>
+		</control>
+		<control type="image">
+			<posx>27</posx>
+			<posy>27</posy>
+			<width>302</width>
+		    <height>604</height>
+			<aspectratio>keep</aspectratio>
+			<texture>$VAR[ClearCases0Var]</texture>
+			<visible>!Skin.HasSetting(ShowClearCases) + !Container.Content(episodes)</visible>
+		</control>
+	</control> 
+	
+	<!-- Kyo Episode Preview Thumb -->	
+	<control type="image">
+		<posx>19</posx>
+		<posy>205</posy>
+		<aspectratio>keep</aspectratio>
+	    <texture border="20" background="true">frames/frame_episode_large.png</texture>
+		<visible>Container.Content(episodes) + IsEmpty(Container.Property(mixedParents))</visible>
+	</control>
+	<control type="image">
+		<posx>26</posx>
+		<posy>211</posy>
+		<width>329</width>
+		<height>209</height>
+	    <texture diffuse="frames/mask_episode_large.png" background="false">$INFO[ListItem.Thumb]</texture>
+		<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+		<visible>Container.Content(episodes) + IsEmpty(Container.Property(mixedParents))</visible>
+	</control>
+	
+	<!-- Kyo All Episodes Preview Thumb -->
+	<control type="image">
+		<posx>19</posx>
+		<posy>225</posy>
+		<width>343</width>
+		<height>222</height>
+		<aspectratio>stretch</aspectratio>
+	    <texture border="20" background="true">frames/frame_episode_large.png</texture>
+		<colordiffuse>FFFFFFFF</colordiffuse>
+		<visible>Container.Content(episodes) + !IsEmpty(Container.Property(mixedParents))</visible>
+	</control>
+	<control type="image">
+		<posx>25</posx>
+		<posy>231</posy>
+		<width>330</width>
+		<height>210</height>
+	    <texture diffuse="frames/mask_episode_large.png" background="false">$INFO[ListItem.Thumb]</texture>
+		<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+		<visible>Container.Content(episodes) + !IsEmpty(Container.Property(mixedParents))</visible>
+	</control>
+
+	<!-- Kyo "Season X - Episode Y" and TV Show Name -->
+	    <control type="group">
+	        <control type="label">
+		        <posx>35</posx>
+		        <posy>450</posy>
+		        <width>340</width>
+	            <font>aller_4_22</font>
+	        	<align>left</align>
+				<textcolor>FFFFFFFF</textcolor>
+            	<label>[UPPERCASE]$INFO[Container.FirstTitle][/UPPERCASE]</label>	        	
+	        	<visible>Container.Content(episodes) + IsEmpty(Container.Property(mixedParents))</visible>
+	        </control>
+	        <control type="grouplist">
+      		<posx>35</posx>
+      		<posy>480</posy>
+      		<width>340</width>
+      		<height>300</height>
+      		<itemgap>8</itemgap>
+      		<scrolltime>200</scrolltime>
+      		<orientation>horizontal</orientation>
+      		<usecontrolcoords>false</usecontrolcoords>		
+			<control type="label">
+				<width min="29" max="800">auto</width>
+		        <height>30</height>
+				<font>aller_4_22</font>
+				<align>left</align>
+	        	<textcolor>FFFFFFFF</textcolor>
+		        <label>[UPPERCASE]$LOCALIZE[32005] $INFO[ListItem.Season][/UPPERCASE]</label>
+				<visible>Container.PlexContent(Episodes) + !IsEmpty(Container.Property(mixedParents))</visible> 
+			</control>
+			<control type="label">
+				<width>10</width>
+				<height>30</height>
+				<font>aller_4_28</font>
+				<align>left</align>
+				<textcolor>FFFFFFFF</textcolor>
+				<label>&#xB7;</label>
+				<visible>Container.Content(episodes)</visible>
+			</control>
+			<control type="label">		
+				<textoffsety>100</textoffsety>
+				<width>800</width>
+				<height>30</height>
+				<font>aller_4_22</font>
+				<align>left</align>
+				<textcolor>FFFFFFFF</textcolor>
+				<label>[UPPERCASE]$LOCALIZE[32004] $INFO[ListItem.Episode][/UPPERCASE]</label>
+				<visible>Container.Content(episodes)</visible>
+			</control>
+	    </control>	
+	</control>
+</control>
+
+<control type="group">
+
+<!-- List Video -->			
+	<control type="fixedlist" id="50"> 
+	<animation effect="slide" start="0" end="-70,0" time="300" condition="Skin.HasSetting(ShowSimDiscArt)">Conditional</animation>
+		<posx>450</posx>
+		<posy>27</posy>
+		<width>850</width>
+		<height>550</height>
+		<onleft>23</onleft>
+		<onright>Control.setFocus(998)</onright>
+		<onup>50</onup>
+		<ondown>50</ondown>
+		<focusposition>3</focusposition>
+		<pagecontrol>23</pagecontrol>
+		<viewtype label="List">List</viewtype>
+		<scrolltime>200</scrolltime>
+      	<itemlayout height="60" condition="Container.Content(homemovies) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(channel) | ListItem.Type(videoplaylist) | ListItem.Type(videoplayqueue) | ListItem.Type(musicplaylist) | ListItem.Type(musicplayqueue)">
+        	<control type="label">
+        		<posx>100</posx>
+	       		<width>680</width>
+          		<height>30</height>
+				<font>aller_3_23</font>
+        		<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+        		<textcolor>greyl</textcolor>
+	       		<scroll>false</scroll>
+				<visible>IsEmpty(Container.Property(mixedParents))</visible>
+        	</control>
+        	<control type="label">
+        		<posx>100</posx>
+	       		<width>700</width>
+          		<height>30</height>
+				<font>aller_3_23</font>
+        		<label>[UPPERCASE]$INFO[ListItem.TVShowTitle][/UPPERCASE] &#xB7; $INFO[ListItem.Label]</label>
+				<textcolor>greyl</textcolor>
+	       		<scroll>false</scroll>
+				<visible>!IsEmpty(Container.Property(mixedParents))</visible>
+        	</control>
+			<control type="label">
+        		<posx>63</posx>	       		
+          		<height>30</height>
+				<font>aller_3_20</font>
+        		<label>$VAR[NumberItemVar]&#xB7;</label>
+        		<textcolor>greyl</textcolor>
+	       		<scroll>false</scroll>
+				<visible>Container.Content(channel)</visible>
+        	</control>
+			<!-- Watched/Unwatched -->
+			<control type="image">
+				<posx>55</posx>
+				<posy>10</posy>
+				<texture>overlay icons/list/$INFO[ListItem.Overlay]</texture>
+				<aspectratio>keep</aspectratio>
+				<colordiffuse>-</colordiffuse>
+				<visible>!Container.Content(channel) + !Skin.HasSetting(WatUnwIndicator)</visible>
+			</control>
+		</itemlayout> 
+		<!-- Kyo Videos -->
+		<focusedlayout condition="Container.Content(homemovies)" height="90">  
+	        <control type="label">
+		        <posx>50</posx>
+				<posy>6</posy>
+		        <width>771</width>
+		        <height>30</height>
+				<font>aller_4_40</font>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+		        <textcolor>greyd</textcolor>		        
+	        </control>
+			<!-- Star Rating -->
+			<control type="image">	
+                <posx>48</posx>
+	            <posy>45</posy>		        
+                <height>17</height>
+                <texture>views/star.png</texture>
+                <colordiffuse>FF666666</colordiffuse>       
+		        <visible>!IsEmpty(ListItem.Property(Rating))</visible>
+            </control> 
+			<control type="label">
+				<posx>79</posx>
+				<posy>39</posy>
+				<width>800</width>				
+				<font>aller_2_18</font>
+				<label>[UPPERCASE]$INFO[ListItem.RatingAndVotes] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
+				<textcolor>98353533</textcolor>
+				<selectedcolor>98353533</selectedcolor>					
+			</control>
+			<!-- Watched/Unwatched -->
+			<control type="image">
+				<posx>15</posx>
+				<posy>17</posy>
+				<texture>overlay icons/list/$INFO[ListItem.Overlay]</texture>
+				<aspectratio>keep</aspectratio>
+				<colordiffuse>FF666666</colordiffuse>
+				<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+			</control>
+	    </focusedlayout>
+		<!-- Kyo Movies -->
+		<focusedlayout condition="Container.Content(movies)" height="90">
+	        <control type="label">
+		        <posx>50</posx>
+				<posy>6</posy>
+		        <width>771</width>
+		        <height>30</height>
+				<font>aller_4_40</font>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+		        <textcolor>greyd</textcolor>		        
+	        </control>
+		    <!-- Star Rating -->
+			<control type="image">	
+                <posx>48</posx>
+	            <posy>45</posy>		        
+                <height>17</height>
+                <texture>views/star.png</texture>
+                <colordiffuse>FF666666</colordiffuse>       
+		        <visible>!IsEmpty(ListItem.Property(Rating))</visible>
+            </control> 
+			<control type="label">
+				<posx>79</posx>
+				<posy>39</posy>
+				<width>800</width>				
+				<font>aller_2_18</font>
+				<label>[UPPERCASE]$INFO[ListItem.RatingAndVotes] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
+				<textcolor>98353533</textcolor>
+				<selectedcolor>98353533</selectedcolor>					
+			</control>
+			<!-- Watched/Unwatched -->
+			<control type="image">
+				<posx>15</posx>
+				<posy>17</posy>
+				<texture>overlay icons/list/$INFO[ListItem.Overlay]</texture>
+				<aspectratio>keep</aspectratio>
+				<colordiffuse>FF666666</colordiffuse>
+				<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+			</control>	
+		</focusedlayout>
+		<!-- Kyo TV Shows -->
+		<focusedlayout condition="Container.Content(tvshows)" height="90">
+		    <control type="label">
+				<posx>50</posx>
+				<posy>6</posy>
+			    <width>771</width>
+			    <height>30</height>
+				<font>aller_4_40</font>			   
+			    <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<textcolor>greyd</textcolor>
+		    </control>
+			<!-- Star Rating -->
+			<control type="image">	
+                <posx>48</posx>
+	            <posy>45</posy>		        
+                <height>17</height>
+                <texture>views/star.png</texture>
+                <colordiffuse>FF666666</colordiffuse>       
+		       	<visible>!IsEmpty(ListItem.Property(Rating))</visible>
+            </control>
+			<control type="label">
+				<posx>79</posx>
+				<posy>39</posy>
+				<width>800</width>
+				<font>aller_2_18</font>
+				<label>[UPPERCASE]$INFO[ListItem.Rating] &#xB7; $INFO[ListItem.Year] &#xB7; $LOCALIZE[31137] $LOCALIZE[31139]: $INFO[ListItem.Property(UnWatchedEpisodes)] &#xB7; $INFO[ListItem.Episode][/UPPERCASE]</label>
+				<textcolor>98353533</textcolor>
+				<selectedcolor>98353533</selectedcolor>
+			</control>
+			<!-- Watched/Unwatched -->
+			<control type="image">
+				<posx>15</posx>
+				<posy>17</posy>
+				<texture>overlay icons/list/$INFO[ListItem.Overlay]</texture>
+				<aspectratio>keep</aspectratio>
+				<colordiffuse>FF666666</colordiffuse>
+				<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+			</control>
+	    </focusedlayout>
+		<!-- Kyo Seasons -->
+		<focusedlayout condition="Container.Content(seasons)" height="90">
+	        <control type="label">
+		        <posx>50</posx>
+				<posy>6</posy>
+		        <width>771</width>
+		        <height>30</height>
+				<font>aller_4_40</font>		        
+		        <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<textcolor>greyd</textcolor>
+	        </control>
+			<control type="label">
+				<posx>50</posx>
+				<posy>37</posy>
+				<width>800</width>
+				<font>aller_2_18</font>
+				<label>[UPPERCASE]$LOCALIZE[31137] $LOCALIZE[31139]: $INFO[ListItem.Property(UnWatchedEpisodes)] &#xB7; $INFO[ListItem.Episode][/UPPERCASE]</label>
+				<textcolor>98353533</textcolor>
+				<selectedcolor>98353533</selectedcolor>
+			</control>
+			<!-- Watched/Unwatched -->
+			<control type="image">
+				<posx>15</posx>
+				<posy>17</posy>
+				<texture>overlay icons/list/$INFO[ListItem.Overlay]</texture>
+				<aspectratio>keep</aspectratio>
+				<colordiffuse>FF666666</colordiffuse>
+				<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+			</control>
+	    </focusedlayout>
+		<!-- Kyo Episodes -->
+		<focusedlayout condition="Container.Content(episodes)" height="90">
+	        <control type="label">
+		        <posx>50</posx>
+				<posy>6</posy>
+		        <width>771</width>
+		        <height>30</height>
+				<font>aller_4_40</font>		        
+		        <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<textcolor>greyd</textcolor>
+				<visible>IsEmpty(Container.Property(mixedParents))</visible>
+	        </control>
+	        <control type="label">
+		        <posx>50</posx>
+			    <posy>6</posy>
+		        <width>771</width>
+		        <height>30</height>
+			    <font>aller_4_30</font>
+         		<label>[UPPERCASE]$INFO[ListItem.TVShowTitle][/UPPERCASE] &#xB7; $INFO[ListItem.Label]</label>
+         		<textcolor>greyd</textcolor>
+			<visible>!IsEmpty(Container.Property(mixedParents))</visible>
+	        </control>
+			<control type="label">
+				<posx>50</posx>
+				<posy>31</posy>
+				<width>800</width>
+				<font>aller_2_18</font>
+				<label>$INFO[ListItem.Season]-$INFO[ListItem.Episode] &#xB7; $INFO[ListItem.DurationStr] &#xB7; $INFO[ListItem.Date]</label>
+				<textcolor>98353533</textcolor>
+				<selectedcolor>98353533</selectedcolor>
+				<visible>!IsEmpty(Container.Property(mixedParents))</visible>
+			</control>
+			<control type="label">
+				<posx>50</posx>
+				<posy>37</posy>
+				<width>800</width>
+				<font>aller_2_18</font>
+				<label>$INFO[ListItem.DurationStr] &#xB7; $INFO[ListItem.Date]</label>
+				<textcolor>98353533</textcolor>
+				<selectedcolor>98353533</selectedcolor>
+				<visible>IsEmpty(Container.Property(mixedParents))</visible>
+			</control>			
+			<!-- Watched/Unwatched -->
+			<control type="image">
+				<posx>15</posx>
+				<posy>15</posy>
+				<texture>overlay icons/list/$INFO[ListItem.Overlay]</texture>
+				<aspectratio>keep</aspectratio>
+				<colordiffuse>FF666666</colordiffuse>
+				<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+			</control>			
+	    </focusedlayout>
+		<!-- Kyo Channel/Addons -->
+		<focusedlayout condition="Container.Content(channel)" height="90">
+	        <control type="label">
+		        <posx>85</posx>
+				<posy>6</posy>
+		        <width>850</width>
+		        <height>30</height>
+				<font>aller_4_40</font>		        
+		        <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<textcolor>greyd</textcolor>
+	        </control>
+			<control type="label">
+        		<posx>20</posx>
+	       		<posy>6</posy>
+          		<height>30</height>
+				<font>aller_4_40</font>
+        		<label>$VAR[NumberItemVar]&#xB7;</label>
+        		<textcolor>greyd</textcolor>
+	       		<scroll>false</scroll>				
+        	</control>
+		</focusedlayout>
+		<!-- Kyo Playlists -->
+		<focusedlayout condition="ListItem.Type(videoplaylist) | ListItem.Type(videoplayqueue) | ListItem.Type(musicplaylist) | ListItem.Type(musicplayqueue)" height="90">
+	        <control type="label">
+		        <posx>50</posx>
+				<posy>6</posy>
+		        <width>771</width>
+		        <height>30</height>
+				<font>aller_4_40</font>		        
+		        <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<textcolor>greyd</textcolor>
+	        </control>
+		</focusedlayout>
+	    </control>  
+      </control>
+    </control>
+</include>
+
+<!---------------------------------------- View List Music --------------------------------------->
+<include name="Music_List">
+
+<control type="group">
+<visible>Control.IsVisible(50)</visible>
+
+<!-- Background Vertical -->
+	<include>Background_V</include>
+	
+<!-- Time -->
+<control type="group">   
+	<include>ClockGrey</include>	
+</control>		
+	
+<!-- Artist Logo -->	
+	<control type="group">
+		<posx>-65</posx>
+		<posy>-75</posy>	
+        <include>ArtistLogo</include>
+		<visible>!Skin.HasSetting(ArtistLogo)</visible>
+	</control>
+	
+<!-- Media Flags -->	
+<control type="group">  <!-- Channel Labels -->	
+    <posx>60</posx>
+    <posy>23</posy>
+	<include>MediaFlagsGreyRight</include>
+</control>	
+	
+<!-- Numbers Items and Section -->
+    <include>ItemsSectionWhite</include>
+
+<control type="group">    
+	<control type="image">	
+	<posx>377</posx>
+	<posy>665</posy>
+   		<description>Separator Bottom</description>
+   		<width>905</width>
+		<height>1</height>
+		<texture>views/Separator_Columns.png</texture>
+		<colordiffuse>58353533</colordiffuse>
+		<visible>Container.Content(songs)</visible>
+   	</control>
+</control>
+
+<control type="group">
+	<posx>0</posx>
+	<posy>10</posy>
+	
+	<!-- Summary Music -->
+	<control type="textbox">
+     	<posx>45</posx>
+        <posy>545</posy>
+      	<width>280</width>
+      	<height>138</height>
+		<label>$VAR[ListItemFullInfoPlot]</label>
+      	<visible>true</visible>
+      	<font>aller_2_16</font>
+      	<textcolor>FFFFFFFF</textcolor>
+      	<pulseonselect></pulseonselect>
+      	<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>			
+	</control>
+	
+	<!-- Poster -->	
+	<control type="image">
+		<visible>!IsEmpty(ListItem.Thumb)</visible>
+		<posx>39</posx>
+		<posy>204</posy>
+		<aspectratio>keep</aspectratio>
+		<texture>frames/frame_album_large.png</texture>
+		<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(plugins) | Container.Content(plugincontent)</visible>
+	</control>
+	<control type="image">
+		<posx>46</posx>
+		<posy>210</posy>
+		<width>280</width>
+		<height>280</height>
+		<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+	    <texture diffuse="frames/mask_album_large.png">$INFO[ListItem.Thumb]</texture>
+		<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(plugins) | Container.Content(plugincontent)</visible>
+	</control>
+	<control type="image">
+		<posx>40</posx>
+		<posy>204</posy>
+		<width>292</width>
+		<height>292</height>
+		<aspectratio>keep</aspectratio>
+		<texture border="1">$VAR[MusicCasesVar]</texture>
+		<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+	</control>
+	
+<!-- Albums Info -->
+	<control type="label">
+		<posx>16</posx>
+		<posy>110</posy>
+	    <width>340</width>
+	    <height>30</height>
+		<font>aller_4_30</font>
+		<textcolor>White</textcolor>
+		<label>[UPPERCASE]$INFO[Container.SecondTitle][/UPPERCASE]</label>
+		<visible>Container.Content(albums) + Skin.HasSetting(ArtistLogo)</visible>
+		<align>center</align>
+    </control>
+	<control type="label">
+	    <posx>16</posx>
+		<posy>110</posy>
+	    <width>340</width>
+	    <height>30</height>
+		<font>aller_4_30</font>
+	    <textcolor>E7FFFFFF</textcolor>
+	    <label>[UPPERCASE]$INFO[Container.FirstTitle][/UPPERCASE]</label>
+		<visible>Container.Content(songs) + Skin.HasSetting(ArtistLogo)</visible>
+		<align>center</align>
+    </control>
+	<control type="label">
+	    <posx>16</posx>
+		<posy>155</posy>
+	    <width>340</width>
+	    <height>30</height>
+		<font>aller_2_24</font>
+	    <textcolor>E7FFFFFF</textcolor>
+	    <label>[UPPERCASE]$INFO[Container.SecondTitle][/UPPERCASE]</label>
+		<visible>Container.Content(songs)</visible>
+		<align>center</align>
+    </control>		
+	<control type="label">
+		<posx>210</posx>
+		<posy>155</posy>
+		<width>340</width>
+		<height>30</height>
+		<label>$INFO[ListItem.Year]</label>
+		<font>aller_2_24</font>
+		<textcolor>E7FFFFFF</textcolor>
+		<align>right</align>
+		<visible>Container.PlexContent(Albums)</visible>
+	</control>
+	<control type="label">
+		<posx>45</posx>
+		<posy>505</posy>
+		<width>340</width>
+		<height>30</height>
+		<label>$INFO[ListItem.Genre]</label>
+		<font>aller_2_24</font>
+		<textcolor>E7FFFFFF</textcolor>
+		<align>left</align>
+		<visible>Container.PlexContent(Artists) | Container.PlexContent(Albums)</visible>
+	</control>	
+</control> 
+                   
+<control type="group">
+
+<!-- Scrollbar -->
+<include>scrollbar</include>
+
+<!-- List Music -->			
+	<control type="fixedlist" id="50">
+		<posx>390</posx>
+		<posy>55</posy>
+		<width>850</width>
+		<height>550</height>
+		<onleft>23</onleft>
+		<onright>Control.setFocus(998)</onright>
+		<onup>50</onup>
+		<ondown>50</ondown>
+		<focusposition>3</focusposition>
+		<pagecontrol>23</pagecontrol>
+		<viewtype label="List">List</viewtype>
+		<scrolltime>200</scrolltime>
+      	<itemlayout height="45">
+			<control type="label">
+				<posx>90</posx>
+				<posy>25</posy>
+				<width>675</width>
+				<height>30</height>
+				<font>aller_3_23</font>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<textcolor>greyl</textcolor>
+				<scroll>false</scroll>
+			</control>
+			<control type="label">  <!-- Kyo Time Songs UnFocused -->
+		        <posx>775</posx>
+				<posy>25</posy>
+			    <width>695</width>
+			    <height>30</height>
+		        <label>: $INFO[ListItem.DurationStr]</label>
+		        <font>aller_2_24</font>
+		        <textcolor>greyl</textcolor>
+		        <align>left</align>
+		        <visible>Container.PlexContent(Songs)</visible>
+	        </control>
+		</itemlayout>
+		<focusedlayout height="85">
+			<control type="label">
+			    <posx>40</posx>
+				<posy>40</posy>
+			    <width>667</width>
+			    <height>30</height>
+				<font>aller_4_40</font>
+			    <textcolor>greyd</textcolor>
+			    <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+		    </control>
+			<control type="label">  <!-- Kyo Time Songs Focused -->
+		        <posx>718</posx>
+				<posy>40</posy>
+			    <width>350</width>
+			    <height>30</height>
+		        <label>: $INFO[ListItem.DurationStr]</label>
+		        <font>aller_4_40</font>
+		        <textcolor>greyd</textcolor>
+		        <align>left</align>
+		        <visible>Container.PlexContent(Songs)</visible>
+	        </control>
+	    </focusedlayout>
+	        </control>	
+         </control>			
+      </control>
+   </include>
+</includes>

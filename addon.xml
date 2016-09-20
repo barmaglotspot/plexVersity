@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="skin.plexVersity" version="2.1" name="Versity" provider-name="Kyo">
+	<requires>
+		<import addon="xbmc.gui" version="4.0.0"/>		
+	</requires>
+	
+	<extension point="xbmc.gui.skin" defaultthemename="textures.xbt" debugging="false" effectslowdown="0.75">
+		<res width="1280" height="720" aspect="16:9" default="true" folder="720p"/>		
+	</extension>	
+	<extension point="xbmc.addon.metadata">
+	
+	    <platform>all</platform>
+		
+		<summary lang="en">Versity is a beautiful skin clean and versatile, suitable for the operation Plex Home Theater 1.4.1</summary>
+		<description lang="en">Completely changed, while maintaining absolutely the same original style. I thank warmly Saintjuste, for creating this wonderful skin named Woody!!</description>
+		<summary lang="it">Versity è una skin bella pulita e versatile, adatta per il funzionamento di Plex Home Theater 1.4.1</summary>
+		<description lang="it">Completamente modificata, pur mantenendo assolutamente lo stesso stile originale. Ringrazio calorosamente Saintjuste, per aver creato questa magnifica skin dal nome Woody!</description>
+		
+		<license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+		<forum>https://forums.plex.tv/</forum>	
+		
+	</extension>
+</addon>

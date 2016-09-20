@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-------------------------------------------- Kyo Top Info Menu ------------------------------------------> 
+	
+    <!-- Kyo Animations Top Slide Info Menu -->	
+    <include name="Top_Slide_Info_Menu">	
+		<animation effect="slide" start="0,0" end="0,330" time="300" condition="!Skin.HasSetting(TopInfoPanel) | ControlGroup(999).HasFocus()">Conditional</animation>
+    </include>
+		
+	<include name="Top_Background_Info_Menu">
+		<control type="group">
+			<posx>5</posx>			
+			<control type="image">
+				<posy>-460</posy>
+				<height>460</height>
+				<width>1270</width>
+				<texture background="true">top info menu/Top_Background.png</texture>
+			</control>
+		</control>		
+	</include>
+	
+	<include name="Top_Info_Menu">                                  
+		
+		<control type="group" id="990">	                        
+		    <include>Top_Background_Info_Menu</include>
+			<include>Top_Slide_Info_Menu</include>	
+						
+		<control type="group">	
+		    <posy>-277</posy>
+	        <!-- Star Rating -->		
+		    <control type="image">	
+                   <posx>43</posx>
+                   <posy>7</posy>		        
+                   <height>17</height>
+                   <texture>views/star.png</texture>
+                   <colordiffuse>FF666666</colordiffuse>       
+	            <visible>!IsEmpty(ListItem.Property(Rating))</visible>
+               </control>  				
+		    <control type="label">
+		        <posx>73</posx>		       
+		    	<width>720</width>				
+		    	<font>aller_2_18</font>
+		    	<label>[UPPERCASE]$INFO[ListItem.RatingAndVotes] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
+		    	<textcolor>98353533</textcolor>
+		    	<selectedcolor>98353533</selectedcolor>					
+		    </control>
+		</control>
+				
+		<control type="group">
+		    <posy>-277</posy>
+            <!-- Director/Writer -->	    
+			<control type="label">
+			    <description>Director</description>
+			    <posx>46</posx>	
+				<posy>34</posy>
+				<height>17</height>
+				<width>720</width>
+				<font>aller_2_18</font>
+				<label>[UPPERCASE]$LOCALIZE[32012][/UPPERCASE]: $INFO[ListItem.Director]</label>					
+				<align>left</align>
+				<textcolor>98353533</textcolor>
+		    	<selectedcolor>98353533</selectedcolor>				
+			</control>
+			<control type="label">
+			    <description>Writer</description>
+			    <posx>46</posx>	
+				<posy>61</posy>
+				<height>17</height>
+				<width>720</width>
+				<font>aller_2_18</font>
+				<label>[UPPERCASE]$LOCALIZE[32013][/UPPERCASE]: $INFO[ListItem.Writer]</label>
+				<align>left</align>
+				<textcolor>98353533</textcolor>
+		    	<selectedcolor>98353533</selectedcolor>					
+			</control>			
+		</control>	
+		
+		<!-- Plot Video -->
+	    <control type="textbox">
+         	<posx>45</posx>
+            <posy>-150</posy>
+	        <width>785</width>
+	        <height>123</height>
+	    	<label>$VAR[ListItemFullInfoPlot]</label>
+	        <visible>true</visible>
+	        <font>aller_2_16</font>
+	        <textcolor>greyd</textcolor>
+	    	<align>justify</align>
+	        <autoscroll delay="14000" time="3500" repeat="10000">true</autoscroll>		
+	    </control>
+			
+		<!-- Fanart -->
+	    <control type="image">
+	        <posx>860</posx>
+           	<posy>-277</posy>
+			<height>262</height>
+	        <width>368</width>		        
+	    	<aspectratio>keep</aspectratio>
+	    	<texture border="20" background="true">frames/frame_episode_large.png</texture>	
+			<visible>!Container.Content(episodes)</visible>
+	    </control>
+	    <control type="image">
+	        <posx>867</posx>
+           	<posy>-259</posy>
+			<height>226</height>
+	        <width>355</width>		        			
+	    	<texture diffuse="frames/mask_episode_large.png" background="false">$INFO[Listitem.Property(Fanart_Image)]</texture>
+	    	<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+			<visible>!Container.Content(episodes)</visible>
+        </control>
+			
+			<control type="button">				
+				<posx>150</posx>
+				<posy>10</posy>
+				<height>460</height>
+				<width>1270</width>
+				<onfocus>Control.setFocus(999)</onfocus>
+				<onunfocus>-</onunfocus>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<visible allowhiddenfocus="true">false</visible>
+			</control>	
+			<control type="grouplist" id="999">							
+				<posy>0</posy>
+				<posx>0</posx>				
+				<width>1270</width>
+				<aligny>top</aligny>
+				<onleft>50</onleft>
+			    <onright>50</onright>
+				<onup>50</onup>
+		        <ondown>50</ondown>	
+				<orientation>horizontal</orientation>
+				<itemgap>20</itemgap>
+				    <control type="button" id="299">
+				    </control>
+			</control>
+		</control>	
+	</include>	
+
+	<!-------------------------------------------- Kyo Music Top Info Menu ------------------------------------------> 
+	
+    <!-- Kyo Animations Top Slide Info Menu -->	
+    <include name="Music_Top_Slide_Info_Menu">	
+		<animation effect="slide" start="0,0" end="0,330" time="300" condition="!Skin.HasSetting(MusicTopInfoPanel) | ControlGroup(997).HasFocus()">Conditional</animation>
+    </include>
+		
+	<include name="Top_Background_Info_Menu">
+		<control type="group">
+			<posx>5</posx>			
+			<control type="image">
+				<posy>-460</posy>
+				<height>460</height>
+				<width>1270</width>
+				<texture background="true">top info menu/Top_Background.png</texture>
+			</control>
+		</control>		
+	</include>
+	
+	<include name="Music_Top_Info_Menu">                                  
+		
+		<control type="group" id="990">	                        
+		    <include>Top_Background_Info_Menu</include>
+			<include>Music_Top_Slide_Info_Menu</include>	
+			     		
+		<control type="group">	
+		    <posy>-277</posy>
+		    <!-- Star Rating -->		
+		    <control type="image">	
+                   <posx>43</posx>
+                   <posy>7</posy>		        
+                   <height>17</height>
+                   <texture>views/star.png</texture>
+                   <colordiffuse>FF666666</colordiffuse>       
+	            <visible>!IsEmpty(ListItem.Property(Rating))</visible>
+               </control>  				
+		    <control type="label">
+		        <posx>73</posx>		       
+		    	<width>720</width>				
+		    	<font>aller_2_18</font>
+		    	<label>[UPPERCASE]$INFO[ListItem.RatingAndVotes] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
+		    	<textcolor>98353533</textcolor>
+		    	<selectedcolor>98353533</selectedcolor>					
+		    </control>
+		</control>
+				
+		<control type="group">
+		    <posy>-277</posy>	
+            <!-- Biography -->			
+			<control type="label">
+			    <description>Biography</description>
+			    <posx>46</posx>	
+				<posy>96</posy>
+				<height>17</height>
+				<width>720</width>
+				<font>aller_2_18</font>
+				<label>[UPPERCASE]$LOCALIZE[32016][/UPPERCASE]:</label>
+				<align>left</align>
+				<textcolor>98353533</textcolor>
+		    	<selectedcolor>98353533</selectedcolor>	
+			</control>			
+		</control>	
+		
+		<!-- Summary Music -->
+	    <control type="textbox">
+         	<posx>45</posx>
+            <posy>-150</posy>
+	        <width>785</width>
+	        <height>123</height>
+	    	<label>$VAR[ListItemFullInfoPlot]</label>
+	        <visible>true</visible>
+	        <font>aller_2_16</font>
+	        <textcolor>greyd</textcolor>
+	    	<align>justify</align>
+	        <autoscroll delay="14000" time="3500" repeat="10000">true</autoscroll>		
+	    </control>
+			
+		<!-- Fanart -->
+	    <control type="image">
+	        <posx>860</posx>
+           	<posy>-277</posy>
+			<height>262</height>
+	        <width>368</width>		        
+	    	<aspectratio>keep</aspectratio>
+	    	<texture border="20" background="true">frames/frame_episode_large.png</texture>	
+			<visible>!Container.Content(episodes)</visible>
+	    </control>
+	    <control type="image">
+	        <posx>867</posx>
+           	<posy>-259</posy>
+			<height>226</height>
+	        <width>355</width>		        			
+	    	<texture diffuse="frames/mask_episode_large.png" background="false">$INFO[Listitem.Property(Fanart_Image)]</texture>
+	    	<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+			<visible>!Container.Content(episodes)</visible>
+        </control>
+			
+			<control type="button">				
+				<posx>150</posx>
+				<posy>10</posy>
+				<height>460</height>
+				<width>1270</width>
+				<onfocus>Control.setFocus(997)</onfocus>
+				<onunfocus>-</onunfocus>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<visible allowhiddenfocus="true">false</visible>
+			</control>	
+			<control type="grouplist" id="997">					
+				<posy>0</posy>
+				<posx>0</posx>				
+				<width>1270</width>
+				<aligny>top</aligny>
+				<onleft>50</onleft>
+			    <onright>50</onright>
+				<onup>50</onup>
+		        <ondown>50</ondown>	
+				<orientation>horizontal</orientation>
+				<itemgap>20</itemgap>
+				    <control type="button" id="299">
+				    </control>
+			</control>
+		</control>	
+	</include>	
+</includes>

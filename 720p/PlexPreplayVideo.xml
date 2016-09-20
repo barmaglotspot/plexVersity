@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="10090">
+	<defaultcontrol always="false">102</defaultcontrol>	
+	<allowoverlay>no</allowoverlay>
+	<onunload>Skin.Reset(SectionType)</onunload>
+	<onunload>Dialog.Close(all,true)</onunload>
+	<onunload>Skin.SetString(OSD.ContentRating,$INFO[Listitem.Property(mediaTag-contentRating)])</onunload>
+	<onunload>Skin.SetString(OSD.Fanart,$INFO[ListItem.Art(fanart)])</onunload>
+	<onunload>Skin.SetString(OSD.Studio,$INFO[Listitem.Property(mediaTag-Studio)])</onunload>
+	<controls>
+		
+		<!-- Preplay screens (ViewsPreplay.xml) -->
+		<include>Preplay_Movie</include>
+		<include>Preplay_Episode</include>
+
+		<include>Left_Side_Menu_Preplay</include>
+		
+	</controls>
+</window>

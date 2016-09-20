@@ -1,0 +1,9 @@
+﻿<window id="120">
+<defaultcontrol always="true">1</defaultcontrol>
+<allowoverlay>yes</allowoverlay>
+  
+<controls>
+    <include>MusicOSD</include> 
+</controls>
+  
+</window>

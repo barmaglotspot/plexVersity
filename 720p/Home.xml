@@ -1,0 +1,265 @@
+<window id="0">
+<defaultcontrol always="true">300</defaultcontrol>
+<allowoverlay>yes</allowoverlay>
+ 
+	<!--animation type="WindowOpen">
+		<effect type="fade" start="0" end="100" time="200"/>
+	</animation>
+	<animation type="WindowClose">
+		<effect type="fade" start="100" end="0" time="200"/>
+	</animation-->
+
+<controls>
+<!--Background-->
+<control type="group">
+	<include condition="!Skin.HasSetting(slideshow)">Background_H</include>
+</control>
+<control type="group">
+	<include condition="Skin.HasSetting(slideshow)">Background_H_Slideshow</include>
+</control>
+
+<!-- Time --> 
+<include>ClockGrey</include>
+
+
+<control type="group" id="7000"> 
+	<posy>-50</posy>
+<!--------------------------------------------Main Menu------------------------------------------>             
+	<control type="wraplist" id="300">
+		<posx>-30</posx>
+		<posy>430</posy>
+		<width>1375</width>
+		<height>250</height>
+		<visible>true</visible>
+		<onup>400</onup>		
+        <ondown>350</ondown>
+		<onleft>300</onleft>
+		<onright>300</onright>
+		<orientation>horizontal</orientation>
+    	<focusposition>1</focusposition>
+		<scrolltime>200</scrolltime>
+		<itemlayout width="470" height="80">
+			<control type="label">
+				<posx>205</posx>
+				<posy>80</posy>
+				<width>400</width>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<font>aller_4_48</font>
+				<textcolor>greyl</textcolor>
+          		<scroll>false</scroll>
+          		<align>center</align>
+			</control>
+			<control type="label">
+				<posx>205</posx>
+				<posy>117</posy>
+				<width>400</width>
+				<label>$INFO[ListItem.Label2]</label>
+				<font>aller_1_26</font>
+				<textcolor>99666666</textcolor>
+          		<align>center</align>
+				<visible>!IsEmpty(ListItem.Label2)</visible>
+			</control>
+		</itemlayout>
+		<focusedlayout width="470" height="80">
+			<control type="label">
+				<posx>205</posx>
+				<posy>80</posy>
+				<width>400</width>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<font>aller_4_48</font>
+				<textcolor>greyd</textcolor>
+          		<align>center</align>
+			</control>
+			<control type="label">
+				<posx>205</posx>
+				<posy>117</posy>
+				<width>400</width>
+				<label>$INFO[ListItem.Label2]</label>
+				<font>aller_1_26</font>
+				<textcolor>99666666</textcolor>
+          		<align>center</align>
+				<visible>!IsEmpty(ListItem.Label2)</visible>
+			</control>
+		</focusedlayout>
+		<content>	
+			<!--item id="299">
+				<label>DVD</label>
+				<label2>dvd</label2>
+				<visible>System.HasMediadvd</visible>
+				<onclick>XBMC.PlayDVD</onclick>
+			</item-->			
+			<item id="306">
+				<description>System</description>
+				<label>$LOCALIZE[31060]</label>
+				<onclick>XBMC.ActivateWindow(Settings)</onclick>
+				<visible>Skin.HasSetting(HideSettings)</visible>
+			</item>			
+			<item id="307">
+				<description>Quit</description>
+				<label>$LOCALIZE[31007]</label>
+				<include condition="Skin.HasSetting(popup)">popup1</include>
+		        <include condition="Skin.HasSetting(quit)">quit1</include>
+		        <include condition="Skin.HasSetting(sleep)">sleep1</include>
+		        <include condition="Skin.HasSetting(shutdown)">shutdown1</include>
+		        <include condition="!Skin.HasSetting(popup) + !Skin.HasSetting(quit) + !Skin.HasSetting(shutdown) + !Skin.HasSetting(sleep)">popup1</include>
+				<visible>Skin.HasSetting(HideQuit)</visible>
+			</item>	
+		</content>
+      </control>
+</control>
+
+<!-------------------------------------------- Labels On Deck / Added / Used ------------------------------------------> 	
+    <!-- Photo / Music --> 
+	<control type="label">
+		<visible allowhiddenfocus="true">Control.IsVisible(11000) + [Container(11000).ListItem(0).Type(album) | Container(11000).ListItem(0).Type(photo)]</visible>
+		<animation effect="fade" start="0" end="100" time="200" delay="0">Visible</animation>
+		<posx>415</posx>
+		<posy>426</posy>
+		<width>450</width>
+		<label>[UPPERCASE]$LOCALIZE[31045][/UPPERCASE]</label>
+		<font>aller_2_24</font>
+		<textcolor>99666666</textcolor>
+		<scroll>false</scroll>
+        <align>center</align>
+	</control>
+	<!-- Channel --> 
+	<control type="label">
+		<visible allowhiddenfocus="true">Control.IsVisible(11002)</visible>
+		<animation effect="fade" start="0" end="100" time="200" delay="0">Visible</animation>
+		<posx>415</posx>
+		<posy>426</posy>
+		<width>450</width>
+		<label>[UPPERCASE]$LOCALIZE[31049][/UPPERCASE]</label>
+		<font>aller_2_24</font>
+		<textcolor>99666666</textcolor>
+		<scroll>false</scroll>
+        <align>center</align>
+	</control>
+	<!-- Playlist -->
+	<control type="label">
+		<visible allowhiddenfocus="true">Control.IsVisible(11005)</visible>
+		<animation effect="fade" start="0" end="100" time="200" delay="0">Visible</animation>
+		<posx>415</posx>
+		<posy>426</posy>
+		<width>450</width>
+		<label>[UPPERCASE]$LOCALIZE[32011][/UPPERCASE]</label>
+		<font>aller_2_24</font>
+		<textcolor>99666666</textcolor>
+		<scroll>false</scroll>
+        <align>center</align>
+	</control>
+
+<!--------------------------------------------Focus Control Button------------------------------------------>  
+	<control type="group" id="350">
+		<posy>900</posy>
+		<control type="button">
+			<visible>Control.IsVisible(11001) + !Control.IsVisible(11000)</visible>
+			<onfocus>SetFocus(11001)</onfocus>
+		</control>
+		<control type="button">
+			<visible>!Control.IsVisible(11001) + Control.IsVisible(11000)</visible>
+			<onfocus>SetFocus(11000)</onfocus>
+		</control>
+		<control type="button">
+			<visible>Control.IsVisible(11001) + Control.IsVisible(11000) + !Skin.HasSetting(recentlyaddedfirst)</visible>
+			<onfocus>SetFocus(11001)</onfocus>
+		</control>
+		<control type="button">
+			<visible>Control.IsVisible(11001) + Control.IsVisible(11000) + Skin.HasSetting(recentlyaddedfirst)</visible>
+			<onfocus>SetFocus(11000)</onfocus>
+		</control>
+		<control type="button">
+			<visible>Control.IsVisible(11002)</visible>
+			<onfocus>SetFocus(11002)</onfocus>
+		</control>
+		<control type="button">
+			<visible>Control.IsVisible(11003)</visible>
+			<onfocus>SetFocus(11003)</onfocus>
+		</control>
+		<control type="button">
+			<visible>Control.IsVisible(11005)</visible>
+			<onfocus>SetFocus(11005)</onfocus>
+		</control>
+		<!--control type="button">
+			<visible>Stringcompare(Container(300).ListItem(0).Label2,chan)</visible>
+			<onfocus>SetFocus(304,0)</onfocus>
+		</control-->
+		<!--control type="button">
+			<visible>Stringcompare(Container(300).ListItem(0).Label2,dvd)</visible>
+			<onfocus>SetFocus(303,0)</onfocus>
+		</control-->
+	</control>
+
+<!-------------------------------------------- Buttons Top Home Quit / System / Choose Addon / Search ------------------------------------------>  
+<control type="grouplist" id="400">
+        <posx>60</posx>
+		<posy>35</posy>
+		<itemgap>20</itemgap>
+	    <orientation>horizontal</orientation>			    
+        <ondown>300</ondown>
+		<onleft>300</onleft>
+		<onright>300</onright>
+	<control type="button" id="301">
+		<description>Quit</description>
+		<height>25</height>
+		<width>25</width>
+        <texturefocus>home_quit_focused.png</texturefocus>
+        <texturenofocus>home_quit_unfocused.png</texturenofocus>
+     	<focusedcolor>greyd</focusedcolor>
+		<include condition="Skin.HasSetting(popup)">popup1</include>
+		<include condition="Skin.HasSetting(quit)">quit1</include>
+		<include condition="Skin.HasSetting(sleep)">sleep1</include>
+		<include condition="Skin.HasSetting(shutdown)">shutdown1</include>
+		<include condition="!Skin.HasSetting(popup) + !Skin.HasSetting(quit) + !Skin.HasSetting(shutdown) + !Skin.HasSetting(sleep)">popup1</include>
+		<visible>!Skin.HasSetting(HideQuit)</visible>
+	</control>
+	<control type="button" id="302">
+		<description>System</description>
+		<height>25</height>
+		<width>25</width>
+	    <texturefocus>home_settings_focused.png</texturefocus>
+		<texturenofocus>home_settings_unfocused.png</texturenofocus>
+        <focusedcolor>greyd</focusedcolor>
+        <onclick>XBMC.ActivateWindow(Settings)</onclick>
+		<visible>!Skin.HasSetting(HideSettings)</visible>
+	</control>
+	<control type="button" id="303">
+		<description>Addon</description>
+		<height>25</height>
+		<width>25</width>
+		<texturefocus>home_add_focused.png</texturefocus>
+		<texturenofocus>home_add_unfocused.png</texturenofocus>
+		<focusedcolor>greyd</focusedcolor>
+		<onclick>Plex.ActivateWindow(1,plexserver://channeldirectory,return)</onclick>
+		<visible>!Skin.HasSetting(applications)</visible>
+	</control>
+	<control type="button" id="304">
+		<description>Search</description>
+		<height>25</height>
+		<width>25</width>
+		<texturefocus>home_search_focused.png</texturefocus>
+		<texturenofocus>home_search_unfocused.png</texturenofocus>
+		<focusedcolor>greyd</focusedcolor>
+		<onclick>Plex.ActivateWindow(10051)</onclick>
+		<visible>!Skin.HasSetting(HideSearch)</visible>
+	</control>
+	<control type="button" id="305">
+		<description>Login</description>
+		<height>25</height>
+		<width>25</width>
+		<texturefocus>login_focused.png</texturefocus>
+		<texturenofocus>login_unfocused.png</texturenofocus>
+		<focusedcolor>greyd</focusedcolor>
+		<onclick>Plex.ActivateWindow(plexlogin)</onclick>
+		<visible>!Skin.HasSetting(HideLogin)</visible>
+	</control>
+</control>
+
+<!----------------------On Deck 11001 / Recently Added 11000 / Channels 11002 / Queue 11003---------------------->  
+
+<include condition="Skin.HasSetting(recentlyaddedfirst)">recentlyaddedfirst</include>
+<include condition="!Skin.HasSetting(recentlyaddedfirst)">ondeckfirst</include>
+<include condition="Skin.HasSetting(recentlyaddedfirst) | !Skin.HasSetting(recentlyaddedfirst)">recentlyused</include>
+
+</controls>	
+</window>

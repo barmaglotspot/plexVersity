@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- info formatting -->
+	<include name="LeftInfoFormatGrey">
+		<width min="29" max="200">auto</width>
+		<height>20</height>
+		<font>aller_2_18</font>
+		<textcolor>greyl</textcolor>		
+	</include>
+	<include name="LeftInfoFormatGreyd">
+		<width min="29" max="600">auto</width>
+		<height>20</height>
+		<font>aller_2_18</font>
+		<textcolor>greyd</textcolor>
+		<shadowcolor>FF999999</shadowcolor>
+	</include>
+	<!-- extras -->
+	<include name="ExtraThumb">
+		<control type="image">
+			<posx>13</posx>
+			<posy>13</posy>
+			<width>220</width>
+			<height>124</height>
+			<texture background="true">default-thumb-small.png</texture>
+		</control>
+		<control type="image">
+			<posx>13</posx>
+			<posy>13</posy>
+			<width>220</width>
+			<height>124</height>
+			<texture background="true" diffuse="mask-wide-big.png">$INFO[ListItem.Art(thumb)]</texture>
+			<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+		</control>
+	</include>
+	<include name="ExtraThumbCard">
+		<control type="image">
+			<posx>13</posx>
+			<posy>97</posy>
+			<width>220</width>
+			<height>100</height>
+			<include>Card</include>
+			<animation effect="fade" start="0" end="40" time="400" condition="true">Conditional</animation>
+		</control>
+	</include>
+	<include name="ExtraIconPlay">
+		<control type="image">
+			<posx>92</posx>
+			<posy>44</posy>
+			<width>64</width>
+			<height>64</height>
+			<texture>left menu/b-play-extra-s.png</texture>
+			<animation effect="fade" start="20" end="90" time="1900" pulse="true" condition="true">Conditional</animation>
+		</control>
+	</include>	
+	<include name="ExtraThumbSelectedBorder">
+		<control type="image">
+		    <posy>10</posy>
+		    <posx>10</posx>
+			<width>227</width>
+			<height>131</height>			
+			<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			<texture>left menu/transparentwhite.png</texture>
+		    <bordertexture border="10">left menu/border.png</bordertexture>			
+			<bordersize>3</bordersize>
+		</control>
+	</include>
+	<include name="ExtraTypeTitle">
+		<posy>109</posy>
+		<posx>24</posx>
+		<width>190</width>
+		<height>20</height>
+		<align>left</align>
+		<aligny>center</aligny>
+		<label>$INFO[ListItem.Property(extraTypeStr)]</label>
+		<font>aller_3_21</font>		
+	</include>
+	<include name="ExtraTitle">
+		<posy>146</posy>
+		<posx>24</posx>
+		<width>190</width>
+		<height>20</height>
+		<align>left</align>
+		<aligny>center</aligny>
+		<label>$INFO[ListItem.Label]</label>
+		<font>aller_2_13</font>		
+	</include>
+	<include name="ExtraSecondTitle">
+		<control type="label">
+			<posy>113</posy>
+		    <posx>179</posx>
+			<width>190</width>
+			<height>20</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>aller_2_13</font>			
+			<label>$INFO[ListItem.DurationStr]</label>
+			<include>LeftInfoFormatGreyd</include>
+		</control>
+	</include>
+	<!-- poster movie -->
+	<include name="MoviePosterBig">
+	    <control type="largeimage">
+			<posy>62</posy>
+			<posx>111</posx>
+			<width>373</width>
+			<height>553</height>
+			<texture border="20" background="true">frames/frame_movie_large_2.png</texture>
+			<aspectratio scalediffuse="false" align="center" aligny="top">stretch</aspectratio>
+			<animation effect="fade" start="0" end="100" time="0" condition="true">Conditional</animation>
+			</control>
+		<control type="largeimage">
+			<posy>68</posy>
+			<posx>117</posx>
+			<width>360</width>
+			<height>540</height>
+			<texture diffuse="frames/mask_movie_large_2.png" background="false">default-poster.png</texture>
+		</control>
+		<control type="largeimage">
+			<posy>68</posy>
+			<posx>117</posx>
+			<width>360</width>
+			<height>540</height>
+			<texture diffuse="frames/mask_movie_large_2.png" background="false">$INFO[ListItem.Art(bigThumb)]</texture>
+			<!--><texture background="true" diffuse="preplay-poster-big-mask.png">$INFO[ListItem.Art(bigPoster)]</texture>-->
+			<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			<animation effect="fade" start="0" end="100" time="0" condition="true">Conditional</animation>
+		</control>
+	</include>	
+	<!-- Unavailable Indicator -->
+	<include name="UnavailableIndicator">
+		<control type="group">
+			<visible>!IsEmpty(ListItem.Property(Unavailable))</visible>
+			<control type="image">
+				<posy>5</posy>
+				<width>210</width>
+				<height>26</height>
+				<texture>left menu/b-unavailable.png</texture>
+			</control>
+			<control type="label">
+				<posy>4</posy>
+				<width>210</width>
+				<height>26</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$LOCALIZE[32109]</label>
+				<font>aller_2_c_18</font>
+				<textcolor>ff999999</textcolor>
+			</control>
+		</control>
+	</include>
+	
+	<!-- PRE-PLAY -->
+	
+	<!-- Pre-play Episode -->
+	<include name="Preplay_Episode">
+		<control type="group" id="777">
+			<posy>-28</posy>
+			<visible>Container.PlexContent(Episode)</visible>
+			<!-- backgrounds -->
+			<control type="group">
+				<control type="largeimage">
+					<posy>419</posy>
+					<posx>510</posx>
+					<width>16</width>
+					<height>195</height>
+					<texture>left menu/separator_indicator.png</texture>
+					<aspectratio>scale</aspectratio>
+					<visible>!IsEmpty(ListItem.Plot)</visible>
+				</control>
+			</control>
+			<!-- poster -->
+			<control type="largeimage">
+				<posy>61</posy>
+				<posx>286</posx>
+				<width>203</width>
+				<height>293</height>
+				<texture border="20" background="true">frames/frame_movie_large_2.png</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">stretch</aspectratio>
+				<animation effect="fade" start="0" end="100" time="0" condition="true">Conditional</animation>
+			</control>
+			<control type="largeimage">
+				<posy>67</posy>
+				<posx>293</posx>
+				<width>190</width>
+				<height>280</height>
+				<texture diffuse="frames/mask_movie_large_2.png" background="false">$INFO[ListItem.GrandparentThumb]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">stretch</aspectratio>
+				<animation effect="fade" start="0" end="100" time="0" condition="true">Conditional</animation>
+			</control>
+			<!-- thumb -->
+			<control type="largeimage">
+				<posy>411</posy>
+				<posx>111</posx>
+				<width>373</width>
+				<height>213</height>
+				<texture border="20" background="true">frames/frame_episode_large.png</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">stretch</aspectratio>
+				<animation effect="fade" start="0" end="100" time="0" condition="true">Conditional</animation>
+			</control>			
+			<control type="largeimage">
+				<posy>417</posy>
+				<posx>117</posx>
+				<width>360</width>
+				<height>200</height>
+				<texture diffuse="frames/mask_episode_large.png" background="false">$INFO[ListItem.Thumb]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+				<animation effect="fade" start="0" end="100" time="0" condition="true">Conditional</animation>
+			</control>
+			<!-- Infos Left -->
+			<control type="grouplist">
+				<orientation>vertical</orientation>
+				<itemgap>6</itemgap>
+				<posy>62</posy>
+				<posx>560</posx>
+				<!-- Title -->
+				<control type="label">
+					<width>570</width>
+					<height>44</height>
+					<label>$INFO[ListItem.TVShowTitle]</label>
+					<font>aller_3_38</font>
+					<textcolor>greyl</textcolor>
+					<visible>true</visible>
+				</control>
+				<!-- Title Episode & Watched/Unwatched indicator -->
+				<control type="grouplist">
+					<width>600</width>
+					<height>44</height>
+					<align>left</align>
+					<usecontrolcoords>true</usecontrolcoords>
+					<orientation>horizontal</orientation>
+					<itemgap>20</itemgap>
+					<control type="label">
+						<width min="29" max="450">auto</width>
+						<height>44</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>aller_3_38</font>
+						<textcolor>greyl</textcolor>
+						<visible>true</visible>
+					</control>
+					<control type="image">
+						<posy>5</posy>
+						<width>30</width>
+						<height>30</height>
+						<texture>overlay icons/showcase/$INFO[ListItem.Overlay]</texture>
+					</control>
+				</control>
+				<!-- Season, Episode -->
+				<control type="label">
+					<width>600</width>
+					<height>25</height>
+					<label>$LOCALIZE[31141] $INFO[ListItem.Season] &#xB7; $LOCALIZE[31114, &#xB7; ] $INFO[ListItem.Episode]$INFO[ListItem.Date, &#xB7; ]</label>
+					<font>aller_2_18</font>
+					<include>LeftInfoFormatGreyd</include>
+					<visible>!IsEmpty(ListItem.Season)</visible>
+				</control>
+				<control type="label">
+					<width>600</width>
+					<height>25</height>
+					<label>$LOCALIZE[31145] &#xB7; $LOCALIZE[31114, &#xB7; ] $INFO[ListItem.Episode]$INFO[ListItem.Date, &#xB7; ]</label>
+					<font>aller_2_18</font>
+					<include>LeftInfoFormatGreyd</include>
+					<visible>IsEmpty(ListItem.Season)</visible>
+				</control>
+				<!-- Unavailable indicator -->
+				<include>UnavailableIndicator</include>
+			</control>
+			<!-- Infos Right -->
+			<control type="group">
+				<posy>68</posy>
+				<!-- MPAA flag -->
+				<control type="image">
+					<posy>-4</posy>
+					<posx>100r</posx>
+					<width>60</width>
+					<height>30</height>
+					<texture>$INFO[Listitem.Art(mediaTag::contentRating)]</texture>
+					<aspectratio align="right" aligny="center">keep</aspectratio>
+					<colordiffuse>greyl</colordiffuse>
+					<animation effect="fade" start="0" end="100" time="0" condition="true">Conditional</animation>
+					<visible>true</visible>
+				</control>
+				<!-- DurationStr -->
+				<control type="label">
+					<posy>46</posy>
+					<posx>40r</posx>
+					<width>200</width>
+					<height>40</height>
+					<align>right</align>
+					<label>$INFO[ListItem.DurationStr]</label>
+					<font>aller_3_38</font>
+					<textcolor>greyl</textcolor>
+					<visible>true</visible>
+				</control>
+				<!-- Star Rating -->
+				<control type="image">
+					<posy>95</posy>
+					<posx>140r</posx>
+					<width>100</width>
+					<height>20</height>
+					<texture>$INFO[ListItem.StarRating]</texture>
+					<aspectratio align="right" aligny="center">keep</aspectratio>
+					<visible>IsEmpty(ListItem.Property(hasUserRating))</visible>
+				</control>
+				<control type="image">
+					<posy>95</posy>
+					<posx>140r</posx>
+					<width>100</width>
+					<height>20</height>
+					<texture>$INFO[ListItem.StarRating]</texture>
+					<aspectratio align="right" aligny="center">keep</aspectratio>
+					<colordiffuse>red</colordiffuse>
+					<visible>!IsEmpty(ListItem.Property(hasUserRating))</visible>
+				</control>
+			</control>
+			<!-- Director -->
+			<control type="grouplist">
+				<posy>268</posy>
+				<posx>560</posx>
+				<orientation>horizontal</orientation>
+				<itemgap>10</itemgap>
+				<control type="label">
+					<label>[UPPERCASE]$LOCALIZE[31135][/UPPERCASE]</label>
+					<include>LeftInfoFormatGrey</include>
+				</control>
+				<control type="label">
+					<label>$INFO[ListItem.Director]</label>
+					<include>LeftInfoFormatGreyd</include>
+				</control>
+			</control>
+			<!-- Audio & Subtitles buttons -->
+			<control type="group" id="999">
+				<defaultcontrol always="true">19101</defaultcontrol>
+				<!-- Audio -->
+				<control type="grouplist">
+					<posy>298</posy>
+					<posx>560</posx>
+					<orientation>horizontal</orientation>
+					<itemgap>10</itemgap>
+					<control type="label">
+						<textoffsetx>0</textoffsetx>						
+						<label>[UPPERCASE]$LOCALIZE[32002][/UPPERCASE]</label>
+						<include>LeftInfoFormatGrey</include>
+					</control>
+					<control type="label">
+						<label>$INFO[ListItem.Property(SelectedAudioStream)]</label>
+						<include>LeftInfoFormatGreyd</include>
+					</control>
+				</control>
+				<!-- Subtitles -->
+				<control type="grouplist">
+					<posy>328</posy>
+					<posx>560</posx>
+					<orientation>horizontal</orientation>
+					<itemgap>10</itemgap>
+					<control type="label">
+						<textoffsetx>0</textoffsetx>
+						<label>[UPPERCASE]$LOCALIZE[31133][/UPPERCASE]</label>
+						<include>LeftInfoFormatGrey</include>
+					</control>
+					<control type="label">
+						<label>$INFO[ListItem.Property(SelectedSubtitleStream)]</label>
+						<include>LeftInfoFormatGreyd</include>
+					</control>
+				</control>
+			</control>			
+			<!-- plot -->
+			<control type="textbox">
+				<posy>415</posy>
+				<posx>560</posx>
+				<width>685</width>
+				<height>198</height>
+				<label>$VAR[ListItemFullInfoPlot]</label>	           
+	            <font>aller_3_18</font>
+		        <textcolor>greyd</textcolor>
+		        <shadowcolor>FF999999</shadowcolor>
+				<autoscroll delay="10000" time="3000" repeat="5000">true</autoscroll>				
+			</control>			
+			<!-- Media Flags -->	
+            <control type="group">    
+                <posx>60</posx>
+                <posy>51</posy>
+            	<include>MediaFlagsWhiteRight</include>	
+            </control>
+			<!-- Time -->
+            <control type="group"> 
+                <posx>-1100</posx>
+                <posy>685</posy>
+            	<include>ClockWhite</include>	
+            </control>
+		</control>
+	</include>
+	
+	<!-- Pre-play Movie -->
+	<include name="Preplay_Movie">		
+		<!-- extras -->
+		<include>Bg_Posters</include>		
+		<control type="group">
+			<animation effect="slide" start="0" end="257" time="500" condition="Control.HasFocus(30)">Conditional</animation>
+			<posx>-264</posx>
+			<posy>350</posy>
+			<control type="group">
+				<posx>0</posx>
+				<posy>20</posy>
+				<control type="label">
+					<posx>36</posx>
+					<posy>220</posy>
+					<label>$LOCALIZE[41008] &#xB7; $INFO[Container(30).NumItems]</label>
+					<font>aller_3_38</font>
+					<textcolor>greyl</textcolor>
+				</control>
+				<control type="group">
+					<posy>68</posy>
+					<posx>26</posx>
+					<control type="list" id="30">
+						<width>260</width>
+						<height>600</height>
+						<onleft>998</onleft>
+						<onright>998</onright>
+						<onup>30</onup>
+						<ondown>30</ondown>
+						<pagecontrol>61</pagecontrol>
+						<scrolltime>200</scrolltime>
+						<itemlayout height="200">
+							<include>ExtraThumb</include>
+							<include>ExtraThumbCard</include>
+							<include>ExtraThumbSelectedBorder</include>
+							<control type="label">
+								<include>ExtraTypeTitle</include>
+								<include>LeftInfoFormatGreyd</include>
+							</control>
+							<!--control type="label">
+								<include>ExtraTitle</include>
+								<include>LeftInfoFormatGreyd</include>
+							</control-->
+							<include>ExtraSecondTitle</include>
+						</itemlayout>
+						<focusedlayout height="200">
+							<include>ExtraThumb</include>
+							<include>ExtraThumbCard</include>
+							<include>ExtraThumbSelectedBorder</include>
+							<include>ExtraIconPlay</include>
+							<control type="label">
+								<include>ExtraTypeTitle</include>
+								<include>LeftInfoFormatGreyd</include>
+							</control>
+							<!--control type="label">
+								<include>ExtraTitle</include>
+								<include>LeftInfoFormatGreyd</include>
+							</control-->
+							<include>ExtraSecondTitle</include>							
+						</focusedlayout>
+					</control>					
+				</control>
+			</control>
+		</control>
+		<!-- /extras -->
+		<control type="group">
+			<posy>-28</posy>
+			<visible>Container.PlexContent(Movie) | [Container.PlexContent(Channel) + ListItem.Type(movie)]</visible>			
+			<animation effect="slide" start="0" end="197" time="480" condition="Control.HasFocus(30)">Conditional</animation>
+			<!-- backgrounds -->
+			<control type="group">
+				<control type="largeimage">
+					<posy>419</posy>
+					<posx>510</posx>
+					<width>16</width>
+					<height>195</height>
+					<texture>left menu/separator_indicator.png</texture>
+					<aspectratio>scale</aspectratio>
+					<visible>!IsEmpty(ListItem.Plot)</visible>
+				</control>				
+			</control>
+			<!-- poster -->
+			<include>MoviePosterBig</include>
+			<!-- Infos Left -->
+			<control type="grouplist">
+				<orientation>vertical</orientation>
+				<itemgap>15</itemgap>
+				<posy>66</posy>
+				<posx>560</posx>
+				<!-- Title & Watched/Unwatched indicator -->
+				<control type="grouplist">
+					<width>570</width>
+					<height>44</height>
+					<align>left</align>
+					<usecontrolcoords>true</usecontrolcoords>
+					<orientation>horizontal</orientation>
+					<itemgap>20</itemgap>
+					<control type="label">
+						<width min="29" max="500">auto</width>
+						<height>44</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>aller_3_38</font>
+						<textcolor>greyl</textcolor>
+						<visible>true</visible>
+					</control>
+					<control type="image">
+						<posy>5</posy>
+						<width>30</width>
+						<height>30</height>
+						<texture>overlay icons/showcase/$INFO[ListItem.Overlay]</texture>
+					</control>
+				</control>
+				<!-- Genre -->
+				<control type="label">
+					<width>530</width>
+					<height>15</height>
+					<label>[UPPERCASE]$INFO[ListItem.Genre][/UPPERCASE]</label>
+					<font>aller_2_18</font>
+					<include>LeftInfoFormatGreyd</include>		            
+					<visible>true</visible>
+				</control>
+				<!-- DurationStr -->
+				<control type="label">
+					<width>600</width>
+					<height>15</height>
+					<label>$INFO[ListItem.DurationStr]</label>
+					<font>aller_2_18</font>
+					<include>LeftInfoFormatGreyd</include>					
+					<visible>true</visible>
+				</control>
+				<!-- Unavailable indicator -->
+				<include>UnavailableIndicator</include>
+			</control>
+			<!-- Infos Right -->
+			<control type="group">
+				<posy>68</posy>
+				<!-- Year -->
+				<control type="label">
+					<posy>0</posy>
+					<posx>40r</posx>
+					<width>200</width>
+					<height>40</height>
+					<align>right</align>
+					<label>$INFO[ListItem.Year]</label>
+					<font>aller_3_38</font>
+					<textcolor>greyl</textcolor>
+					<visible>true</visible>
+				</control>
+				<!-- MPAA flag -->
+				<control type="image">
+					<posy>50</posy>
+					<posx>142r</posx>
+					<width>100</width>
+					<height>20</height>
+					<texture>$INFO[Listitem.Art(mediaTag::contentRating)]</texture>
+					<aspectratio align="right" aligny="center">keep</aspectratio>
+					<colordiffuse>greyl</colordiffuse>
+					<visible>true</visible>
+				</control>
+				<!-- Star Rating -->
+				<control type="image">
+					<posy>80</posy>
+					<posx>140r</posx>
+					<width>100</width>
+					<height>20</height>
+					<texture>$INFO[ListItem.StarRating]</texture>
+					<aspectratio align="right" aligny="center">keep</aspectratio>
+					<visible>IsEmpty(ListItem.Property(hasUserRating)) + [IsEmpty(ListItem.Property(audienceRatingPercent)) | Skin.HasSetting(HideRottenTomatoesRating)]</visible>
+				</control>
+				<control type="image">
+					<posy>80</posy>
+					<posx>140r</posx>
+					<width>100</width>
+					<height>20</height>
+					<texture>$INFO[ListItem.StarRating]</texture>
+					<aspectratio align="right" aligny="center">keep</aspectratio>
+					<colordiffuse>red</colordiffuse>
+					<visible>!IsEmpty(ListItem.Property(hasUserRating))</visible>
+				</control>
+				<!-- RT Rating -->
+				<control type="grouplist">
+					<visible>!IsEmpty(ListItem.Property(audienceRatingPercent)) + IsEmpty(ListItem.Property(hasUserRating)) + !Skin.HasSetting(HideRottenTomatoesRating)</visible>
+					<posy>82</posy>
+					<posx>240r</posx>
+					<width>200</width>
+					<height>24</height>
+					<orientation>horizontal</orientation>
+					<align>right</align>
+					<control type="image">
+						<width>24</width>
+						<height>24</height>
+						<texture>$INFO[ListItem.Property(ratingImage)]</texture>
+						<aspectratio align="right" aligny="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<height>28</height>
+						<width min="20" max="80">auto</width>
+						<label>$INFO[ListItem.Property(ratingPercent)]%  </label>
+					</control>
+					<control type="image">
+						<width>24</width>
+						<height>24</height>
+						<texture>$INFO[ListItem.Property(audienceRatingImage)]</texture>
+						<aspectratio align="right" aligny="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<height>28</height>
+						<width min="20" max="80">auto</width>
+						<label>$INFO[ListItem.Property(audienceRatingPercent)]%</label>
+					</control>
+				</control>
+				<control type="grouplist">
+					<visible>!IsEmpty(ListItem.Property(audienceRatingPercent)) + !IsEmpty(ListItem.Property(hasUserRating)) + !Skin.HasSetting(HideRottenTomatoesRating)</visible>
+					<posy>110</posy>
+					<posx>240r</posx>
+					<width>200</width>
+					<height>24</height>
+					<orientation>horizontal</orientation>
+					<align>right</align>
+					<control type="image">
+						<width>24</width>
+						<height>24</height>
+						<texture>$INFO[ListItem.Property(ratingImage)]</texture>
+						<aspectratio align="right" aligny="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<height>28</height>
+						<width min="20" max="80">auto</width>
+						<label>$INFO[ListItem.Property(ratingPercent)]%  </label>
+					</control>
+					<control type="image">
+						<width>24</width>
+						<height>24</height>
+						<texture>$INFO[ListItem.Property(audienceRatingImage)]</texture>
+						<aspectratio align="right" aligny="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<height>28</height>
+						<width min="20" max="80">auto</width>
+						<label>$INFO[ListItem.Property(audienceRatingPercent)]%</label>
+					</control>
+				</control>
+			</control>
+			<!-- Director -->
+			<control type="grouplist">
+			<visible>!IsEmpty(ListItem.Director)</visible>
+				<posy>238</posy>
+				<posx>560</posx>
+				<orientation>horizontal</orientation>
+				<itemgap>20</itemgap>
+				<control type="label">
+					<label>[UPPERCASE]$LOCALIZE[31135][/UPPERCASE]</label>
+					<include>LeftInfoFormatGrey</include>
+				</control>
+				<control type="label">
+					<label>$INFO[ListItem.Director]</label>
+					<include>LeftInfoFormatGreyd</include>
+				</control>
+			</control>
+			<!-- Cast -->
+			<control type="grouplist">
+			<visible>!IsEmpty(ListItem.Cast)</visible>
+				<posy>268</posy>
+				<posx>560</posx>
+				<orientation>horizontal</orientation>
+				<itemgap>20</itemgap>
+				<control type="label">
+					<label>[UPPERCASE]$LOCALIZE[31134][/UPPERCASE]</label>
+					<include>LeftInfoFormatGrey</include>
+				</control>
+				<control type="label">
+					<label>$INFO[ListItem.Cast]</label>
+					<include>LeftInfoFormatGreyd</include>
+				</control>
+			</control>
+			<!-- Audio & Subtitles buttons -->
+			<control type="group" id="999">
+				<defaultcontrol always="true">19101</defaultcontrol>
+				<!-- Audio -->
+				<control type="grouplist">
+					<posy>298</posy>
+					<posx>560</posx>
+					<orientation>horizontal</orientation>
+					<itemgap>20</itemgap>
+					<control type="label">
+						<textoffsetx>0</textoffsetx>						
+						<label>[UPPERCASE]$LOCALIZE[32002][/UPPERCASE]</label>
+						<include>LeftInfoFormatGrey</include>
+					</control>
+					<control type="label">
+						<label>$INFO[ListItem.Property(SelectedAudioStream)]</label>
+						<include>LeftInfoFormatGreyd</include>
+					</control>
+				</control>
+				<!-- Subtitles -->
+				<control type="grouplist">
+					<posy>328</posy>
+					<posx>560</posx>
+					<orientation>horizontal</orientation>
+					<itemgap>20</itemgap>
+					<control type="label">
+						<textoffsetx>0</textoffsetx>						
+						<label>[UPPERCASE]$LOCALIZE[31133][/UPPERCASE]</label>
+						<include>LeftInfoFormatGrey</include>
+					</control>
+					<control type="label">
+						<label>$INFO[ListItem.Property(SelectedSubtitleStream)]</label>
+						<include>LeftInfoFormatGreyd</include>
+					</control>
+				</control>
+			</control>
+			<!-- plot -->
+			<control type="textbox">
+				<posy>415</posy>
+				<posx>560</posx>
+				<width>685</width>
+				<height>198</height>
+				<label>$VAR[ListItemFullInfoPlot]</label>	           
+	            <font>aller_3_18</font>
+		        <textcolor>greyd</textcolor>
+		        <shadowcolor>FF999999</shadowcolor>
+				<autoscroll delay="10000" time="3000" repeat="5000">true</autoscroll>			
+			</control>			
+			<!-- Media Flags -->	
+            <control type="group">    
+                <posx>60</posx>
+                <posy>51</posy>
+            	<include>MediaFlagsWhiteRight</include>	
+            </control>
+			<!-- Time -->
+            <control type="group"> 
+                <posx>-1100</posx>
+                <posy>685</posy>
+            	<include>ClockWhite</include>	
+            </control>
+		</control>
+	</include>	
+</includes>

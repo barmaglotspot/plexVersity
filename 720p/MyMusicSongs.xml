@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="502">
+	<defaultcontrol always="true">50</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+    <views>50,51,52,53,54,55,56,57</views>
+<controls>
+
+	<!--Views-->
+	<include>Music_List</include>  <!-- 50 -->
+	<include>Music_Low_List</include>  <!-- 51 -->
+	<include>Music_Right_List</include>  <!-- 52 --> 
+	<include>Music_Fanart_List</include>  <!-- 53 -->
+	<include>Music_Big_List</include>  <!-- 54 --> 
+	<include>Music_Showcase</include>  <!-- 55 -->
+	<include>Music_Wall</include>  <!-- 56 -->
+	<include>Music_Posters</include>  <!-- 57 -->
+	
+	<!-- Kyo Left Side Menu -->
+    <include>Left_Side_Menu</include>
+	
+	<!-- Kyo ScrollLabel -->
+    <include>ScrollLabel</include>
+	
+</controls>  
+</window>

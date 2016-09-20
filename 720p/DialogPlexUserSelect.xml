@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="2000">
+	<defaultcontrol>3</defaultcontrol>
+	<onload>Dialog.Close(numericinput)</onload>
+	<!-- View_Dialogs.xml  -->
+	<controls>
+		<!-- View_Dialogs.xml  -->
+		<include>DialogUserSwitch</include>
+		<!--<include>PinUserSwitch</include> -->		
+	</controls>
+</window>

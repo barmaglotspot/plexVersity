@@ -1,0 +1,199 @@
+<window id="12">
+<defaultcontrol always="false">-</defaultcontrol>
+<allowoverlay>no</allowoverlay>
+
+<controls>
+<!--Background-->  
+   	<control type="image">
+		<posx>0</posx>
+		<posy>0</posy>
+        <texture>settings_bg.png</texture>
+		<aspectratio>keep</aspectratio>
+	</control>
+	
+	<control type="label">
+		<posx>1140</posx>
+		<posy>35</posy>
+		<font>aller_4_28</font>
+		<align>left</align>
+    	<label>$INFO[System.time]</label>
+		<textcolor>greym</textcolor>
+	</control> 
+	
+	<control type="label">
+	    <posx>30</posx>
+		<posy>50</posy>
+		<width>800</width>
+		<height>30</height>
+		<font>aller_4_38</font>
+		<textcolor>greym</textcolor>
+		<label>[UPPERCASE]$LOCALIZE[31955][/UPPERCASE]</label>
+	</control>
+	
+	<control type="grouplist">
+    		<posx>30</posx>
+    		<posy>157</posy>
+		<width>260</width>
+    		<height>600</height>
+    		<itemgap>31</itemgap>
+    		<orientation>vertical</orientation>
+	    <control type="label">
+        	<description>Skin</description>
+	    		<width>150</width>
+	       	<label>[UPPERCASE]$LOCALIZE[41011][/UPPERCASE]</label>
+			<include>settingsbuttonlabel</include>
+			<visible>!Window.IsActive(56)</visible>
+		</control>
+	    <control type="label">
+        	<description>Skin</description>
+	    		<width>150</width>
+	       	<label>[UPPERCASE]$LOCALIZE[41011][/UPPERCASE]</label>
+			<textcolor>blue</textcolor>
+			<include>settingsbuttonlabel</include>
+			<visible>Window.IsActive(56)</visible>
+		</control>
+		<control type="label">
+			<description>Appearance</description>
+	    		<width>220</width>
+			<label>[UPPERCASE]$LOCALIZE[31601][/UPPERCASE]</label>
+			<include>settingsbuttonlabel</include>
+			<visible>!Window.IsActive(AppearanceSettings)</visible>
+		</control>
+		<control type="label">
+			<description>Appearance</description>
+	    		<width>220</width>
+			<label>[UPPERCASE]$LOCALIZE[31601][/UPPERCASE]</label>
+			<textcolor>blue</textcolor>
+			<include>settingsbuttonlabel</include>
+			<visible>Window.IsActive(AppearanceSettings)</visible>
+		</control>
+		<control type="label">
+			<description>Playback</description>
+	    		<width>220</width>
+			<label>[UPPERCASE]$LOCALIZE[41012][/UPPERCASE]</label>
+			<include>settingsbuttonlabel</include>
+			<visible>!Window.IsActive(MyVideosSettings)</visible>
+		</control>
+		<control type="label">
+			<description>Playback</description>
+	    		<width>220</width>
+			<label>[UPPERCASE]$LOCALIZE[41012][/UPPERCASE]</label>
+			<textcolor>blue</textcolor>
+			<include>settingsbuttonlabel</include>
+			<visible>Window.IsActive(MyVideosSettings)</visible>
+		</control>		
+		<control type="label">
+			<description>System</description>
+	    		<width>150</width>
+			<label>[UPPERCASE]$LOCALIZE[41013][/UPPERCASE]</label>
+			<include>settingsbuttonlabel</include>
+			<visible>!Window.IsActive(SystemSettings)</visible>
+		</control>
+		<control type="label">
+			<description>System</description>
+	    		<width>150</width>
+			<label>[UPPERCASE]$LOCALIZE[41013][/UPPERCASE]</label>
+			<textcolor>blue</textcolor>
+			<include>settingsbuttonlabel</include>
+			<visible>Window.IsActive(SystemSettings)</visible>
+		</control>
+		<control type="label">
+			<description>Network</description>
+	    		<width>172</width>
+			<label>[UPPERCASE]$LOCALIZE[41014][/UPPERCASE]</label>
+			<include>settingsbuttonlabel</include>
+			<visible>!Window.IsActive(18)</visible>
+		</control>
+		<control type="label">
+			<description>Network</description>
+	    		<width>172</width>
+			<label>[UPPERCASE]$LOCALIZE[41014][/UPPERCASE]</label>
+			<textcolor>blue</textcolor>
+			<include>settingsbuttonlabel</include>
+			<visible>Window.IsActive(18)</visible>
+		</control>
+	</control>
+	
+  	<!-- Kyo Settings List -->
+	<control type="grouplist" id="3">
+		<animation effect="fade" time="200" start="0" end="100">WindowOpen</animation>
+		<animation effect="fade" time="200" start="100" end="0">WindowClose</animation>
+		<description>Button Area</description>
+    		<posx>325</posx>
+		<posy>157</posy>
+    		<width>350</width>
+    		<height>480</height>
+	    	<itemgap>31</itemgap>
+    		<onleft>Plex.ActivateWindow(4997)</onleft>
+	    	<onright>5</onright>
+    		<onup>3</onup>
+	    	<ondown>3</ondown>
+    		<orientation>vertical</orientation>
+	</control>
+	
+    <!-- Kyo Settings List -->
+	<control type="grouplist" id="5">
+		<animation effect="fade" time="200" start="0" end="100">WindowOpen</animation>
+		<animation effect="fade" time="200" start="100" end="0">WindowClose</animation>
+		<description>Control Area</description>
+    		<posx>625</posx>
+    		<posy>157</posy>
+    		<width>675</width>
+    		<height>480</height>
+    		<itemgap>31</itemgap>
+    		<onleft>3</onleft>
+    		<onright>998</onright>
+    		<onup>5</onup>
+    		<ondown>5</ondown>
+    		<orientation>vertical</orientation>
+	</control>
+	
+	<control type="button" id="7">
+   		<textcolor>greym</textcolor>
+		<focusedcolor>blue</focusedcolor>
+   		<font>aller_3_21</font>
+		<aligny>center</aligny>
+   		<align>left</align>
+   		<disabledcolor>greyd</disabledcolor>
+		<textoffsetx>27</textoffsetx>
+	</control>
+	<control type="radiobutton" id="8">
+		<description>Default Radio Button</description>
+   		<font>aller_3_21</font>
+   		<textcolor>greym</textcolor>
+		<focusedcolor>blue</focusedcolor>
+   		<align>left</align>
+   		<disabledcolor>greyd</disabledcolor>
+   		<pulseonselect>false</pulseonselect>
+   		<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+   		<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+		<textoffsetx>27</textoffsetx>
+		<radioposx>625</radioposx>
+	</control>
+	<control type="spincontrolex" id="9">
+		<description>Default Spin Control</description>    	
+   	 	<font>aller_3_21</font>
+   	 	<textcolor>greym</textcolor>
+		<focusedcolor>blue</focusedcolor>
+   		<align>left</align>    		
+   		<textureup>ArrowUpNF.png</textureup>
+    	<texturedown>ArrowDownNF.png</texturedown>
+   		<textureupfocus>ArrowUpFo.png</textureupfocus>
+    	<texturedownfocus>ArrowDownFo.png</texturedownfocus>
+   		<disabledcolor>greyd</disabledcolor>
+   		<aligny>center</aligny>
+    	<reverse>yes</reverse>
+   		<pulseonselect>false</pulseonselect>
+		<textoffsetx>27</textoffsetx>
+	</control>
+	<control type="button" id="10">
+		<width>290</width>
+		<font>aller_2_c_22</font>
+	    <textcolor>greym</textcolor>
+		<focusedcolor>blue</focusedcolor>
+		<aligny>center</aligny>
+   		<disabledcolor>FF444444</disabledcolor>
+    	<align>left</align>
+	</control>
+</controls>
+</window>

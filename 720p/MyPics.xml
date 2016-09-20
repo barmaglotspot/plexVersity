@@ -1,0 +1,444 @@
+<window id="2">
+<!---------------------------------------- View Slide List --------------------------------------->
+<defaultcontrol always="true">50</defaultcontrol>
+<allowoverlay>yes</allowoverlay>
+   
+<controls>
+
+<control type="group">
+	<visible>Control.IsVisible(50)</visible>
+	
+<!-- Background Vertical -->
+	<include>Background_V</include> 
+	
+<!-- Time -->
+<control type="group">   
+	<include>ClockGrey</include>	
+</control>	
+	
+<!-- Media Flags -->	
+<control type="group">   
+    <posx>60</posx>
+    <posy>23</posy>
+	<include>MediaFlagsGreyRight</include>	
+</control>
+	
+<!-- Numbers Items and Section -->
+    <include>ItemsSectionWhite</include>
+	
+<!-- Kyo ScrollLabel -->
+    <include>ScrollLabel</include>
+	
+<!-- Scrollbar -->
+    <include>scrollbar</include>
+
+<!-- Poster -->
+<control type="group">
+		<posx>0</posx>
+		<posy>10</posy>
+	<control type="image">
+		<posx>39</posx>
+		<posy>204</posy>
+		<aspectratio>keep</aspectratio>
+	    <texture>frames/frame_album_large.png</texture>		
+	</control>
+	<control type="image">
+		<posx>46</posx>
+		<posy>210</posy>
+		<width>280</width>
+		<height>280</height>
+		<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+	    <texture diffuse="frames/mask_album_large.png">$INFO[ListItem.Thumb]</texture>		
+	</control>
+</control>	
+	
+<!-- List Slide -->	
+	<control type="fixedlist" id="50">
+		<posx>390</posx>
+		<posy>70</posy>
+		<width>771</width>
+		<height>550</height>
+		<onleft>23</onleft>
+		<onright>Control.setFocus(998)</onright>
+		<onup>50</onup>
+		<ondown>50</ondown>
+		<focusposition>3</focusposition>
+		<pagecontrol>23</pagecontrol>
+		<viewtype label="List">List</viewtype>
+		<scrolltime>200</scrolltime>
+      	<itemlayout condition="Container.Content(photos)" height="45">
+			<control type="label">
+				<posx>90</posx>
+				<posy>25</posy>
+				<width>680</width>
+				<height>30</height>
+				<font>aller_3_23</font>
+				<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<textcolor>greyl</textcolor>
+				<scroll>false</scroll>
+			</control>
+		</itemlayout>
+		<focusedlayout condition="Container.Content(photos)" height="85">
+			<control type="label">
+			    <posx>40</posx>
+				<posy>40</posy>
+			    <width>700</width>
+			    <height>30</height>
+				<font>aller_4_40</font>
+			    <textcolor>greyd</textcolor>
+			    <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+		    </control>
+	    </focusedlayout>
+	</control>
+
+
+</control>
+
+<!---------------------------------------- View Low List Slide --------------------------------------->	
+<control type="group">
+	<visible>Control.IsVisible(51)</visible>
+	
+<!-- Background -->
+<control type="group">
+	<include>Background_H</include>
+</control>
+
+<!-- Time -->
+<control type="group">   
+	<include>ClockWhite</include>	
+</control>
+
+<!-- Numbers Items and Section -->
+    <include>ItemsSectionGrey</include>
+	
+<!-- Media Flags -->	
+<control type="group">   
+    <posx>60</posx>
+    <posy>23</posy>
+	<include>MediaFlagsGreyRight</include>	
+</control>
+
+<!-- Kyo ScrollLabel -->
+    <include>ScrollLabel</include>
+
+<!-- Scrollbar -->
+    <include>scrollbar_h</include>
+
+<!-- Big Thumb -->
+<control type="group">
+		<posx>75</posx>
+		<posy>50</posy>
+	<control type="image">
+		<posx>34</posx>
+		<posy>28</posy>
+		<height>-</height>
+		<width>-</width>
+		<aspectratio>keep</aspectratio>
+	    <texture>frames/frame_album_xlarge.png</texture>
+	</control>
+	<control type="image">
+		<posx>40</posx>
+		<posy>33</posy>
+		<width>410</width>
+		<height>410</height>
+		<align>center</align>
+		<aligny>center</aligny>
+		<texture diffuse="frames/mask_album_xlarge.png">$INFO[ListItem.Thumb]</texture>
+		<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+	</control>
+</control>
+
+<!-- Title Label -->		
+	<control type="label">
+		<posx>590</posx>
+		<posy>220</posy>
+		<width>650</width>
+		<height>30</height>
+		<font>aller_3_30</font>
+		<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+		<textcolor>greym</textcolor>
+		<scroll>false</scroll>
+	</control>
+	
+<!-- Low List Slide -->				
+	<control type="fixedlist" id="51">
+		<posx>-15</posx>
+		<posy>540</posy>
+		<width>1300</width>
+		<height>500</height>
+		<onup>Control.setFocus(998)</onup>
+		<ondown>23</ondown>
+		<pagecontrol>23</pagecontrol>
+		<focusposition>4</focusposition>
+		<scrolltime>200</scrolltime>
+		<viewtype label="icon">icon</viewtype>
+		<orientation>horizontal</orientation>
+      		<itemlayout condition="Container.Content(photos)" height="200" width="147">
+			<control type="image">
+				<posx>34</posx>
+				<posy>28</posy>
+				<height>-</height>
+				<width>-</width>
+				<aspectratio>keep</aspectratio>
+			    <texture>frames/uframe_album_small.png</texture>
+			</control>
+			<control type="image">
+				<posx>40</posx>
+				<posy>33</posy>
+				<width>111</width>
+				<height>111</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<texture diffuse="frames/mask_album_small.png">$INFO[ListItem.Thumb]</texture>
+				<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+			</control>
+		</itemlayout>
+		<focusedlayout condition="Container.Content(photos)" height="200" width="147">
+			<control type="image">
+				<posx>34</posx>
+				<posy>28</posy>
+				<height>-</height>
+				<width>-</width>
+				<aspectratio>keep</aspectratio>
+			    <texture>frames/frame_album_small.png</texture>
+			</control>
+			<control type="image">
+				<posx>40</posx>
+				<posy>33</posy>
+				<width>111</width>
+				<height>111</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<texture diffuse="frames/mask_album_small.png">$INFO[ListItem.Thumb]</texture>
+				<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+			</control>
+	      	</focusedlayout>
+	</control>
+</control>
+
+<!---------------------------------------- View Slide Right List --------------------------------------->	
+<control type="group">
+	<visible>Control.IsVisible(52)</visible>
+	
+<!-- Background Right List -->
+	<include>Bg_Right_List</include> 
+
+<!-- Time -->
+<control type="group">   
+	<include>ClockGrey</include>	
+</control>
+	
+<!-- Numbers Items and Section -->
+    <include>ItemsSectionGrey</include>
+	
+<!-- Kyo ScrollLabel -->
+    <include>ScrollLabel</include>
+	
+<control type="group">	
+
+<!-- Title Label -->		
+	<control type="label">
+		<posx>475</posx>
+		<posy>460</posy>
+		<width>350</width>
+		<height>30</height>
+		<font>aller_3_30</font>
+		<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+		<textcolor>greyl</textcolor>
+		<scroll>false</scroll>
+	</control>
+    <control type="image">	
+	<posx>370</posx>
+	<posy>493</posy>
+   		<description>Separator</description>
+   		<width>455</width>
+		<height>1</height>
+		<texture>views/Separator_Columns.png</texture>
+		<colordiffuse>58353533</colordiffuse>		
+   	</control>	
+</control>
+
+<!-- Big Thumb -->
+<control type="group">
+		<posx>15</posx>
+		<posy>130</posy>
+	<control type="image">
+		<posx>34</posx>
+		<posy>28</posy>
+		<height>-</height>
+		<width>-</width>
+		<aspectratio>keep</aspectratio>
+	    <texture>frames/frame_album_xlarge.png</texture>
+	</control>
+	<control type="image">
+		<posx>40</posx>
+		<posy>33</posy>
+		<width>410</width>
+		<height>410</height>
+		<align>center</align>
+		<aligny>center</aligny>
+		<texture diffuse="frames/mask_album_xlarge.png">$INFO[ListItem.Thumb]</texture>
+		<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+	</control>
+</control>
+
+<control type="group">                                          
+
+    <control type="scrollbar" id="23">
+		<description>banner_v</description>
+		<posx>1235</posx>
+		<posy>95</posy>
+		<height>480</height>
+		<onleft>52</onleft>
+		<onright>Control.setFocus(998)</onright>
+		<visible allowhiddenfocus="true">Control.HasFocus(23)</visible>
+	</control>
+	
+	<!-- Right List Slide -->			
+	<control type="fixedlist" id="52">                 
+		<posx>110</posx>
+		<posy>98</posy>
+		<width>1240</width>
+		<height>555</height>
+		<onleft>Control.setFocus(998)</onleft>		
+		<onright>23</onright>
+		<onup>52</onup>
+		<ondown>52</ondown>		
+		<pagecontrol>23</pagecontrol>
+		<viewtype label="Right List">Right List</viewtype>
+		<scrolltime>200</scrolltime>
+      	<itemlayout condition="Container.Content(photos)" height="35">
+			<control type="label">
+        		<posx>1100</posx>	       		
+          		<height>30</height>
+				<width>395</width>
+				<font>aller_3_20</font>
+        		<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+        		<textcolor>greyl</textcolor>
+				<align>right</align>
+	       		<scroll>false</scroll>				
+        	</control>
+			<control type="image">
+				<posx>695</posx>	       		
+          		<height>1</height>
+				<width>410</width>
+			    <texture>views/separator.png</texture>
+			</control>
+		</itemlayout>
+		<focusedlayout condition="Container.Content(photos)" height="80">
+			<control type="label">
+			    <posx>1100</posx>
+				<posy>6</posy>
+		        <width>1200</width>
+			    <height>30</height>
+				<font>aller_4_40</font>			    
+			    <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<textcolor>greyd</textcolor>		        
+				<align>right</align>
+		    </control>
+	      	</focusedlayout>
+	    </control>	
+	</control>
+</control>
+
+<!---------------------------------------- View Wall Slide --------------------------------------->
+<control type="group">
+<visible>Control.IsVisible(56)</visible>
+<!--Background-->
+<control type="group">
+	<include>Background_H</include>
+</control>
+
+<!-- Title Label -->	
+	<control type="label">
+      	<posx>180</posx>
+	    <posy>510</posy>
+	    <width>920</width>
+	    <height>135</height>
+		<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>	     
+	   	<font>aller_3_38</font>
+		<align>center</align>
+		<textcolor>greyl</textcolor>		
+	</control>
+	
+<!--Panel-->	
+	<control type="panel" id="56">
+		<posx>0</posx>
+		<posy>100</posy>
+		<width>1280</width>
+		<height>420</height>
+		<onleft>23</onleft>
+		<onright>Control.setFocus(998)</onright>
+		<onup>56</onup>
+		<ondown>56</ondown>
+		<focusposition>4</focusposition>
+		<pagecontrol>23</pagecontrol>
+		<viewtype label="icon">icon</viewtype>
+		<scrolltime>200</scrolltime>
+      	<itemlayout condition="Container.Content(plugins)" height="207" width="207">
+			<control type="image">
+				<posx>29</posx>
+				<posy>9</posy>
+				<aspectratio>keep</aspectratio>
+		        <texture border="20" background="true">frames/uframe_album_medium.png</texture>
+			</control>
+			<control type="image">
+				<posx>35</posx>
+				<posy>14</posy>
+				<width>162</width>
+				<height>162</height>
+		        <texture diffuse="frames/mask_album_medium.png" background="false">$INFO[ListItem.Thumb]</texture>
+				<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+			</control>
+		</itemlayout>
+		<focusedlayout condition="Container.Content(plugins)"  height="230" width="210">
+			<control type="image">
+				<posx>29</posx>
+				<posy>9</posy>
+				<aspectratio>keep</aspectratio>
+				<texture>frames/frame_album_medium.png</texture>
+			</control>
+			<control type="image">
+				<posx>35</posx>
+				<posy>14</posy>
+				<width>162</width>
+				<height>162</height>
+		        <texture diffuse="frames/mask_album_medium.png" background="false">$INFO[ListItem.Thumb]</texture>
+				<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+			</control>
+	    </focusedlayout>
+	</control>
+	
+		<control type="label">		
+			<posx>42</posx>
+			<posy>618</posy>
+		    <width>1200</width>
+		    <height>30</height>
+			<font>aller_4_48</font>
+			<align>left</align>
+			<textcolor>FFFFFFFF</textcolor>
+		    <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+			<visible>!Container.Content(plugincontent) + [Container.Content(plugins) | Container.Content(photo)]</visible>
+		</control>
+		<control type="label">		
+			<posx>42</posx>
+			<posy>618</posy>
+		    <width>600</width>
+		    <height>30</height>
+			<font>aller_4_30</font>
+			<align>left</align>
+			<textcolor>FFFFFFFF</textcolor>
+		    <label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+			<visible>Container.Content(plugincontent)</visible>
+		</control>
+</control>
+
+<!-- Kyo Left Side Menu -->
+    <include>Left_Side_Menu</include>
+	
+<!-- Time -->
+    <include>ClockGrey</include>
+	
+</controls>
+
+</window>

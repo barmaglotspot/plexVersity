@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes> 
+
+<include file="Defaults.xml" />
+<include file="CommonViews.xml" />
+<include file="Includes_Backgrounds.xml" />
+<include file="Variables.xml" />
+<include file="Includes_Items_Flags.xml" />
+<include file="Includes_Left_Side_Menu.xml"/>
+<include file="Includes_Top_Info_Menu.xml"/>
+<include file="Includes_Home.xml"/>
+
+<!-- Kyo Animations -->
+<include file="Includes_Animations.xml"/>
+
+<!-- Kyo SimDiscArt -->
+<include file="Includes_SimDiscArt.xml"/>
+	
+<!-- Views -->
+<include file="Views.xml"/>
+<include file="View_OSD.xml"/>
+<include file="View_Dialogs.xml" />
+<include file="View_Search.xml" />
+<include file="View_Now_Playing.xml"/>
+<include file="View_List.xml" />
+<include file="View_Low_List.xml"/>
+<include file="View_Right_List.xml"/>
+<include file="View_Fanart_List.xml"/>
+<include file="View_Big_List.xml"/>
+<include file="View_Showcase.xml"/>
+<include file="View_Wall.xml"/>
+<include file="View_Posters.xml"/>
+<include file="View_Preplay.xml"/>
+<include file="View_Dialogs.xml"/>
+
+    <include name="GlobalSearch">
+    	<control type="image">
+    		<posy>75</posy>
+    		<posx>-217</posx>
+    		<width>184</width>
+    		<height>32</height>
+    		<aspectratio>keep</aspectratio>
+    		<texture>left-menu-search-field-bg.png</texture>
+    		<animation effect="fade" start="100" end="0" time="100" condition="Window.IsActive(10202)">Conditional</animation>
+    	</control>
+    </include>
+    
+    <!--Scrollbar-->
+    <include name="scrollbar">
+    	<control type="scrollbar" id="23">
+    		<description>banner_v</description>
+    		<posx>395</posx>
+    		<posy>62</posy>
+    		<height>550</height>
+    		<onleft>Control.setFocus(998)</onleft>
+    		<onright>50</onright>
+    		<visible allowhiddenfocus="true">Control.HasFocus(23)</visible>
+    	</control>
+    </include>	
+    
+    <!--Scrollbar Horizontal-->
+    <include name="scrollbar_h">
+    	<control type="scrollbar" id="23">
+    		<description>banner_v</description>
+    		<posx>30</posx>
+    		<posy>519</posy>
+    		<height>18</height>
+    		<width>1220</width>
+    		<onup>50</onup>
+    		<ondown>Control.setFocus(998)</ondown>			
+    		<visible allowhiddenfocus="true">Control.HasFocus(23)</visible>
+    		<showonepage>true</showonepage>
+    		<orientation>horizontal</orientation>
+    		<height>8</height>
+    		<texturesliderbackground border="8,1,8,1">views/scrollBackgroundHorizontal.png</texturesliderbackground>
+    		<texturesliderbar border="10,1,10,1">views/scrollbarGripHorizontal.png</texturesliderbar>
+    		<texturesliderbarfocus border="10,1,10,1">views/scrollbarGripHorizontal.png</texturesliderbarfocus>
+    		<textureslidernib border="1">-</textureslidernib>
+    		<textureslidernibfocus border="1">-</textureslidernibfocus>
+    	</control>
+    </include>
+    
+    <!-- Kyo Artist Logo -->
+    <include name="ArtistLogo">
+        <control type="image"> 
+    	    <posx>130</posx>
+    	    <posy>160</posy>
+    	    <width>243</width>
+    	    <height>73</height>
+    	    <texture background="true">artistartwork/$INFO[Listitem.Artist]/logo.png</texture>
+    	    <aspectratio scalediffuse="false">keep</aspectratio>
+    	    <animation effect="fade" start="0" end="85" time="0" condition="true">Conditional</animation>    		
+        </control>	
+    </include>
+	
+	<!-- Kyo Artist Now Playing Logo -->
+	<include name="NowPlayingLogo">
+		<control type="image">
+			<posx>930</posx>
+			<posy>130</posy>
+			<width>270</width>
+			<height>100</height>
+			<texture>artistartwork/$INFO[MusicPlayer.Artist]/logo.png</texture>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
+		</control>
+	</include>
+	
+	<!-- BG Artist Logo Small -->
+	<include name="BGArtistLogoSmall">
+	    <control type="image">
+	    	<posx>0</posx>
+	    	<posy>0</posy>
+			<width>195</width>
+			<height>55</height>
+            <texture background="true">views/BG_Artist_Logo_Small.png</texture>
+			<animation effect="fade" start="0" end="85" time="100" condition="true">Conditional</animation>	    	
+	    </control>
+	</include>
+	
+	<!-- Kyo Artist Logo Small -->
+    <include name="ArtistLogoSmall">
+		<control type="image"> 
+    	    <posx>0</posx>
+    	    <posy>0</posy>
+    	    <width>145</width>
+    	    <height>46</height>
+    	    <texture background="true">artistartwork/$INFO[Listitem.Artist]/logo.png</texture>
+    	    <aspectratio scalediffuse="false">keep</aspectratio>
+    	    <animation effect="fade" start="0" end="85" time="100" condition="true">Conditional</animation>		    
+		</control>
+	</include>
+    
+	<!-- Scroll Label -->
+	<include name="ScrollLabel">
+		<control type="group">
+			<visible>Container.Scrolling + !Skin.HasSetting(ScrollIndicator)</visible>			
+			<posx>1168</posx>
+			<posy>286</posy>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>150</width>
+				<height>130</height>
+				<texture border="35">BG_Scroll_Label.png</texture>
+			</control>
+			<control type="label">
+				<posx>3</posx>
+				<posy>3</posy>
+				<width>160</width>
+				<height>120</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.SortLetter]</label>
+				<textcolor>greyl</textcolor>
+				<font>aller_4_50</font>
+			</control>
+		</control>
+	</include>
+	
+<include name="keyboardButton">
+	<font>aller_2_24</font>
+	<textcolor>greyl</textcolor>
+	<focusedcolor>blue</focusedcolor>
+</include>
+
+
+<include name="popup">
+	<animation type="WindowOpen">
+		<effect type="zoom" start="90" end="100" center="640,360" tween="back" time="200"/>
+		<effect type="fade" start="0" end="100" time="200"/>
+	</animation>
+	<animation type="WindowClose">
+		<effect type="zoom" start="100" end="90" center="640,360" time="100"/>
+		<effect type="fade" start="100" end="0" time="100"/>
+	</animation>
+</include>
+
+<include name="fade">
+	<animation type="WindowOpen">
+		<effect type="fade" start="0" end="100" time="200"/>
+	</animation>
+	<animation type="WindowClose">
+		<effect type="fade" start="100" end="0" time="200"/>
+	</animation>
+</include>
+
+<include name="fade_vh">
+		<animation effect="fade" end="100" time="200" delay="0">Visible</animation>
+		<animation effect="fade" end="0" time="200" delay="0">Hidden</animation>
+</include>
+
+
+<include name="settingsbuttonlabel">
+    <textcolor>greym</textcolor>
+	<font>aller_4_30</font>
+	<aligny>center</aligny>
+	<align>left</align>
+	<focusedcolor>blue</focusedcolor>
+	<disabledcolor>55FFFFFF</disabledcolor>
+</include>
+<include name="viewmenubutton">
+    	<posx>100</posx>
+    	<posy>100</posy>
+		<width>500</width>
+    	<height>36</height>
+    	<align>center</align>
+    	<aligny>center</aligny>
+    	<font>aller_2_24</font>
+    	<textcolor>AA777777</textcolor>
+    	<focusedcolor>blue</focusedcolor>
+    	<disabledcolor>blue</disabledcolor>
+    	<pulseonselect>false</pulseonselect>
+</include>
+
+<include name="quit1">
+	<onclick>dialog.close(all,true)</onclick>
+	<onclick>Plex.Shutdown()</onclick>
+</include>
+<include name="sleep1">
+	<onclick>dialog.close(all,true)</onclick>
+	<onclick>SetFocus(300)</onclick>
+	<onclick>Plex.Suspend()</onclick>
+</include>
+<include name="shutdown1">
+	<onclick>dialog.close(all,true)</onclick>
+	<onclick>Plex.Powerdown()</onclick>
+</include>
+<include name="popup1">
+	<onclick>Plex.ActivateWindow(98)</onclick>
+</include>  
+</includes>

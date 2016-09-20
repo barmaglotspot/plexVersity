@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="10094"> <!-- Kyo PlayListSelection -->                               
+	<defaultcontrol>50</defaultcontrol>
+	<views>50</views>
+	<allowoverlay>yes</allowoverlay>
+	<onload>Skin.SetString(SectionType,playlists)</onload>
+	<onunload>Skin.Reset(SectionType)</onunload>
+	<controls>	  
+		<control type="largeimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<fadetime>400</fadetime>
+			<aspectratio>scale</aspectratio>
+			<texture background="true">$INFO[ListItem.CompositeImage(width=1280;height=720;cols=6;rows=2)]</texture>			
+			<visible>ListItem.Type(videoplaylist) | ListItem.Type(videoplayqueue)</visible>
+		</control>
+		<control type="largeimage">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<fadetime>400</fadetime>
+			<aspectratio>scale</aspectratio>
+			<texture background="true">$INFO[ListItem.CompositeImage(width=1280;height=720;cols=4;rows=2)]</texture>
+			<visible>ListItem.Type(musicplaylist) | ListItem.Type(musicplayqueue)</visible>
+		</control>
+	
+	<include>View_List</include>
+	
+	<!--Poster-->	
+	  <control type="group">
+	  <posy>105</posy>
+	    <control type="image">
+			<posx>40</posx>
+			<posy>111</posy>
+			<width>293</width>
+		    <height>293</height>
+			<aspectratio>keep</aspectratio>
+			<texture border="20" background="true">frames/frame_album_large.png</texture>
+			<visible>ListItem.Type(videoplaylist) | ListItem.Type(videoplayqueue) | ListItem.Type(musicplaylist) | ListItem.Type(musicplayqueue)</visible>
+		</control>
+		<control type="image">
+			<posx>46</posx>
+			<posy>116</posy>			
+		    <width>280</width>
+		    <height>280</height>
+			<texture diffuse="frames/mask_album_large.png" background="false">$INFO[ListItem.CompositeImage(width=1280;height=720;cols=4;rows=2)]</texture>
+			<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+			<visible>ListItem.Type(videoplaylist) | ListItem.Type(videoplayqueue)</visible>
+		</control>		
+		<control type="image">
+			<posx>46</posx>
+			<posy>116</posy>			
+		    <width>280</width>
+		    <height>280</height>
+			<texture diffuse="frames/mask_album_large.png" background="false">$INFO[ListItem.CompositeImage(width=1280;height=720;cols=4;rows=2)]</texture>
+			<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+			<visible>ListItem.Type(musicplaylist) | ListItem.Type(musicplayqueue)</visible>
+		</control>
+	 </control>
+	 
+	    <!-- Kyo ScrollLabel -->
+        <include>ScrollLabel</include>
+	
+   </controls>
+</window>

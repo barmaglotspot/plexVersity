@@ -1,0 +1,674 @@
+<includes>
+
+<!---------------------------------------- View Wall Video --------------------------------------->
+<include name="View_Wall">        
+
+<control type="group">
+	<visible>Control.IsVisible(56)</visible>
+	
+<!-- Background View Wall -->
+	<include>Bg_Wall</include>
+
+<!-- Media Flags -->	
+<control type="group"> 
+    <include>WallDelayAnimation</include>				
+    <posx>60</posx>
+    <posy>23</posy>
+	<include>MediaFlagsWhiteRight</include>	
+</control>
+
+<!-- Time -->
+    <control type="group">
+	<include>WallDelayAnimation</include>
+    	<posx>-1110</posx>
+    	<posy>653</posy>
+    	<include>ClockWhite</include>	
+    </control>
+
+<!-- Numbers Items and Section -->
+    <control type="group">
+	<include>WallDelayAnimation</include>
+        <posx>100</posx>
+        <posy>653</posy>
+        <include>ItemsSectionWhite</include>
+    </control>
+	
+<control type="group"> 
+   <posx>25</posx>
+   
+   <control type="scrollbar" id="23">
+		<description>banner_v</description>
+		<posx>-15</posx>
+		<posy>50</posy>
+		<height>590</height>
+		<onleft>Control.setFocus(998)</onleft>
+		<onright>56</onright>
+		<visible allowhiddenfocus="true">Control.HasFocus(23)</visible>
+	</control>
+	
+	<!-- Wall Video -->			
+	<control type="panel" id="56">                 
+		<posx>5</posx>
+            <viewtype label="Wall">Wall</viewtype>			
+			<width>1300</width>
+			<height>760</height>			
+			<onleft>23</onleft>			
+			<onright>Control.setFocus(998)</onright>
+			<onup>56</onup>
+			<ondown>56</ondown>
+			<orientation>vertical</orientation>            
+            <pagecontrol>23</pagecontrol>
+            <preloaditems>10</preloaditems>
+            <scrolltime tween="cubic">200</scrolltime>            
+      	<itemlayout height="355" width="244"> 
+	        <control type="label">			
+				<animation effect="rotate" tween="cubic" center="auto" end="90" condition="true">Conditonal</animation>
+       	    	<posx>0</posx>
+       	    	<posy>68</posy>
+         	    <height>208</height>
+		    	<width>240</width>
+		    	<font>aller_3_20</font>
+       	    	<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<align>left</align>
+				<aligny>top</aligny>
+       	    	<textcolor>greyl</textcolor>					
+       	    	<scroll>false</scroll>
+		    	<visible>IsEmpty(Container.Property(mixedParents))</visible>
+       	    </control>
+			
+		    <!-- HD Tag -->
+		    <control type="image">
+		    	<posx>213</posx>
+		    	<posy>22</posy>
+		    	<width>44</width>
+		        <height>94</height>
+		    	<aspectratio>keep</aspectratio>
+		    	<texture>$INFO[Listitem.Property(mediaTag-videoResolution),views/,.png]</texture>
+		    	<visible>!Skin.HasSetting(HDIcon)</visible>
+		    </control>		    
+		    <!-- Poster -->
+		    <control type="image">
+		    	<posx>38</posx>
+		    	<posy>29</posy>
+		    	<width>180</width>
+		        <height>280</height>
+		    	<aspectratio>keep</aspectratio>
+		    	<texture border="20" background="true">frames/frame_movie_large_2.png</texture>
+		    	<visible>!Container.Content(episodes)</visible>
+		    </control>
+		    <control type="image">			
+		    	<posx>46</posx>
+		    	<posy>48</posy>
+		    	<width>165</width>
+		        <height>241</height>
+		    	<texture diffuse="frames/mask_movie_large_2.png" background="false">$INFO[ListItem.Thumb]</texture>
+		    	<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+		    	<visible>!Container.Content(episodes)</visible>
+		    </control> 
+			<control type="image">
+				<posx>38</posx>
+		    	<posy>39</posy>
+		    	<width>180</width>
+		        <height>259</height>
+				<aspectratio aligny="top">stretch</aspectratio>
+				<texture border="5" background="true">Clearcases/$INFO[Listitem.Property(mediaTag-videoResolution)].png</texture>
+				<visible>!Skin.HasSetting(ShowClearCases)</visible>
+			</control>
+			<!-- Watched/Unwatched -->
+			<control type="image">
+			    <posx>177</posx>
+                <posy>55</posy> 
+                <width>28</width>
+	            <height>24</height>                        
+                <texture>$VAR[IconOverlay0Var]</texture>
+				<visible>!Skin.HasSetting(WatUnwIndicator) + !Container.Content(channel)</visible>
+            </control>
+			
+			<!-- Dim Unfocused -->
+            <control type="image">
+                <posx>38</posx>
+		    	<posy>29</posy>
+		    	<width>180</width>
+		        <height>280</height>		    	
+                <colordiffuse>67FFFFFF</colordiffuse>
+                <texture border="1">views/wall/dim_unfocused.png</texture>                
+            </control>
+		</itemlayout> 		
+		<focusedlayout height="355" width="244">
+	        <control type="label">			
+				<animation effect="rotate" tween="cubic" center="auto" end="90" condition="true">Conditonal</animation>
+       	    	<posx>0</posx>
+       	    	<posy>68</posy>
+         	    <height>208</height>
+		    	<width>240</width>
+		    	<font>aller_3_20</font>
+       	    	<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<align>left</align>
+				<aligny>top</aligny>
+       	    	<textcolor>blue</textcolor>
+				<selectedcolor>blue</selectedcolor>
+       	    	<scroll>false</scroll>
+		    	<visible>IsEmpty(Container.Property(mixedParents))</visible>
+       	    </control>
+			
+            <!-- HD Tag -->
+		    <control type="image">
+		    	<posx>213</posx>
+		    	<posy>22</posy>
+		    	<width>44</width>
+		        <height>94</height>
+		    	<aspectratio>keep</aspectratio>
+		    	<texture>$INFO[Listitem.Property(mediaTag-videoResolution),views/,.png]</texture>
+		    	<visible>!Skin.HasSetting(HDIcon)</visible>
+		    </control>		    
+		    <!-- Poster -->
+		    <control type="image">
+		    	<posx>38</posx>
+		    	<posy>29</posy>
+		    	<width>180</width>
+		        <height>280</height>
+		    	<aspectratio>keep</aspectratio>
+		    	<texture border="20" background="true">frames/frame_movie_large_2.png</texture>
+		    	<visible>!Container.Content(episodes)</visible>
+		    </control>
+		    <control type="image">
+		    	<posx>46</posx>
+		    	<posy>48</posy>
+		    	<width>165</width>
+		        <height>241</height>
+		    	<texture diffuse="frames/mask_movie_large_2.png" background="false">$INFO[ListItem.Thumb]</texture>
+		    	<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+		    	<visible>!Container.Content(episodes)</visible>
+		    </control>
+			<control type="image">
+				<posx>38</posx>
+		    	<posy>39</posy>
+		    	<width>180</width>
+		        <height>259</height>
+				<aspectratio aligny="top">stretch</aspectratio>
+				<texture border="5" background="true">Clearcases/$INFO[Listitem.Property(mediaTag-videoResolution)].png</texture>
+				<visible>!Skin.HasSetting(ShowClearCases)</visible>
+			</control>
+			<control type="image">
+		    	<posx>39</posx>
+		    	<posy>26</posy>
+		    	<width>178</width>
+		        <height>285</height>
+		    	<aspectratio>keep</aspectratio>
+		    	<texture diffuse="frames/mask_movie_large_2.png">views/wall/movie_offset.png</texture>
+		    	<visible>!Skin.HasSetting(BorderPoster)</visible>
+		    </control>
+			<!-- Watched/Unwatched -->
+			<control type="image">
+			    <posx>177</posx>
+                <posy>55</posy> 
+                <width>28</width>
+	            <height>24</height>                        
+                <texture>$VAR[IconOverlay0Var]</texture>
+				<visible>!Skin.HasSetting(WatUnwIndicator) + !Container.Content(channel)</visible>
+            </control>			
+	       </focusedlayout>		
+	      </control>         
+		</control>
+
+	    <!-- Kyo Info Popup Wall -->
+        <control type="group">
+	        <visible>!IsEmpty(ListItem(0).Plot) + !Container.Scrolling + !Skin.HasSetting(InfoPopupWall)</visible>
+			<include>WallDelayAnimation</include>
+		    <animation effect="slide" start="0,0" end="265,-5" time="50" condition="Container(56).Column(0) + Container(56).Row(0)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="507,-5" time="50" condition="Container(56).Column(1) + Container(56).Row(0)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="749,-5" time="50" condition="Container(56).Column(2) + Container(56).Row(0)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="368,-5" time="50" condition="Container(56).Column(3) + Container(56).Row(0)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="615,-5" time="50" condition="Container(56).Column(4) + Container(56).Row(0)">Conditional</animation>	
+            <animation effect="slide" start="0,0" end="145,156" time="50" condition="Container(56).Column(0) + Container(56).Row(1)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="388,156" time="50" condition="Container(56).Column(1) + Container(56).Row(1)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="632,156" time="50" condition="Container(56).Column(2) + Container(56).Row(1)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="503,156" time="50" condition="Container(56).Column(3) + Container(56).Row(1)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="745,156" time="50" condition="Container(56).Column(4) + Container(56).Row(1)">Conditional</animation>
+			
+		    
+			<control type="image">
+			    <description>Background Info Menu Wall Left</description>
+	            <posx>-24</posx>
+	            <posy>-8</posy>   	        	
+   	        	<width>450</width>
+	        	<height>245</height>
+				<aspectratio aligny="top">stretch</aspectratio>
+	        	<texture>views/wall/bg_info_wall_l.png</texture>
+				<visible>Container(56).Column(0) | Container(56).Column(1) | Container(56).Column(2) + Container(56).Row(0)</visible>
+				<visible>!Container(56).Column(0) + !Container(56).Column(1) + !Container(56).Column(2) | !Container(56).Row(1)</visible>
+   	        </control>
+			<control type="image">	
+			    <description>Background Info Menu Wall Right</description>
+	            <posx>-24</posx>
+	            <posy>-8</posy>   	        	
+   	        	<width>450</width>
+	        	<height>245</height>
+				<aspectratio aligny="top">stretch</aspectratio>
+	        	<texture>views/wall/bg_info_wall_r.png</texture>
+				<visible>Container(56).Column(3) | Container(56).Column(4) + Container(56).Row(0)</visible>
+				<visible>!Container(56).Column(3) + !Container(56).Column(4) | !Container(56).Row(1)</visible>
+   	        </control>
+			<control type="image">	
+			    <description>Background Info Menu Wall Left</description>
+	            <posx>-24</posx>
+	            <posy>-8</posy>   	        	
+   	        	<width>450</width>
+	        	<height>245</height>
+				<aspectratio aligny="top">stretch</aspectratio>
+	        	<texture>views/wall/bg_info_wall_l2.png</texture>
+				<visible>Container(56).Column(0) | Container(56).Column(1) | Container(56).Column(2) + Container(56).Row(1)</visible>
+				<visible>!Container(56).Column(0) + !Container(56).Column(1) + !Container(56).Column(2) | !Container(56).Row(0)</visible>
+   	        </control>
+			<control type="image">
+			    <description>Background Info Menu Wall Right</description>
+	            <posx>-24</posx>
+	            <posy>-8</posy>   	        	
+   	        	<width>450</width>
+	        	<height>245</height>
+				<aspectratio aligny="top">stretch</aspectratio>
+	        	<texture>views/wall/bg_info_wall_r2.png</texture>
+				<visible>Container(56).Column(3) | Container(56).Column(4) + Container(56).Row(1)</visible>
+				<visible>!Container(56).Column(3) + !Container(56).Column(4) | !Container(56).Row(0)</visible>
+   	        </control>
+			
+			<!-- Star Rating -->
+			<control type="image">	
+                <posx>22</posx>
+	            <posy>36</posy>		        
+                <height>17</height>
+                <texture>views/star.png</texture>
+                <colordiffuse>98353533</colordiffuse>       
+		        <visible>!IsEmpty(ListItem.Property(Rating)) + !Container.Content(seasons)</visible>
+            </control>  				
+			<control type="label">
+			    <posx>50</posx>
+			    <posy>30</posy>
+				<width>315</width>				
+				<font>aller_2_18</font>
+				<label>[UPPERCASE]$INFO[ListItem.RatingAndVotes] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
+				<textcolor>98353533</textcolor>
+				<selectedcolor>98353533</selectedcolor>	
+				<visible>!Container.Content(tvshows) + !Container.Content(seasons)</visible>
+			</control>
+			<control type="label">
+				<posx>50</posx>
+			    <posy>30</posy>
+				<width>315</width>
+				<font>aller_2_18</font>
+				<label>[UPPERCASE]$INFO[ListItem.Rating] &#xB7; $INFO[ListItem.Year] &#xB7; $LOCALIZE[31137] $LOCALIZE[31139]: $INFO[ListItem.Property(UnWatchedEpisodes)] &#xB7; $INFO[ListItem.Episode][/UPPERCASE]</label>
+				<textcolor>98353533</textcolor>
+				<selectedcolor>98353533</selectedcolor>
+				<visible>Container.Content(tvshows) + !Container.Content(seasons)</visible>
+			</control>
+			<control type="label">
+				<posx>50</posx>
+			    <posy>30</posy>
+				<width>315</width>
+				<font>aller_2_18</font>
+				<label>[UPPERCASE]$LOCALIZE[31137] $LOCALIZE[31139]: $INFO[ListItem.Property(UnWatchedEpisodes)] &#xB7; $INFO[ListItem.Episode][/UPPERCASE]</label>
+				<textcolor>98353533</textcolor>
+				<selectedcolor>98353533</selectedcolor>
+				<visible>Container.Content(seasons) + !Container.Content(tvshows)</visible>
+			</control>			
+			<control type="image">
+				<posx>38</posx>
+	       		<posy>60</posy>
+          		<height>1</height>
+				<width>330</width>
+			    <texture>views/Separator_Columns.png</texture>
+				<colordiffuse>98353533</colordiffuse>
+			</control>
+            <!-- Plot Video -->
+	        <control type="textbox">					
+             	<posx>29</posx>
+                <posy>68</posy>
+	            <width>343</width>
+	            <height>131</height>
+	        	<label>$VAR[ListItemFullInfoPlot]</label>
+	            <visible>true</visible>
+	            <font>aller_1_15</font>
+	            <textcolor>greyd</textcolor>
+	        	<align>justify</align>
+	            <autoscroll delay="14000" time="2500" repeat="10000">true</autoscroll>		
+	        </control>
+        </control>
+    </control>
+</include>
+
+<!---------------------------------------- View Music Wall Video --------------------------------------->
+<include name="Music_Wall">
+
+<control type="group">
+	<visible>Control.IsVisible(56)</visible>
+	
+<!-- Background Music Wall -->
+	<include>Bg_Wall</include>
+
+<!-- Media Flags -->	
+<control type="group"> 
+    <include>WallDelayAnimation</include>				
+    <posx>60</posx>
+    <posy>23</posy>
+	<include>MediaFlagsWhiteRight</include>	
+</control>
+
+<!-- Time -->
+    <control type="group">
+	<include>WallDelayAnimation</include>
+    	<posx>-1110</posx>
+    	<posy>653</posy>
+    	<include>ClockWhite</include>	
+    </control>
+
+<!-- Numbers Items and Section -->
+    <control type="group">
+	<include>WallDelayAnimation</include>
+        <posx>100</posx>
+        <posy>653</posy>
+        <include>ItemsSectionWhite</include>
+    </control>
+	
+<control type="group"> 
+   <posx>25</posx>
+  
+   <control type="scrollbar" id="23">
+		<description>banner_v</description>
+		<posx>-15</posx>
+		<posy>50</posy>
+		<height>590</height>
+		<onleft>Control.setFocus(998)</onleft>
+		<onright>56</onright>
+		<visible allowhiddenfocus="true">Control.HasFocus(23)</visible>
+	</control>
+	
+	<!-- Wall Music -->			
+	<control type="panel" id="56">                 
+		<posx>5</posx>		
+            <viewtype label="Wall">Wall</viewtype>			
+			<width>1300</width>
+			<height>760</height>			
+			<onleft>23</onleft>			
+			<onright>Control.setFocus(998)</onright>
+			<onup>56</onup>
+			<ondown>56</ondown>
+			<orientation>vertical</orientation>
+			<pagecontrol>23</pagecontrol>
+            <preloaditems>10</preloaditems>
+            <scrolltime tween="cubic">200</scrolltime>            
+      	<itemlayout height="355" width="244" condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs)"> 
+	        <control type="label">	
+			<!-- animation type="Conditional" reversible="false" condition="!Container.OnNext + !Container.OnPrevious">
+                    <effect type="fade" end="100" time="400" delay="0" />			
+                </animation -->
+				<animation effect="rotate" tween="cubic" center="auto" end="90" condition="true">Conditonal</animation>
+       	    	<posx>0</posx>
+       	    	<posy>68</posy>
+         	    <height>211</height>
+		    	<width>240</width>
+		    	<font>aller_3_20</font>
+       	    	<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<align>left</align>
+				<aligny>top</aligny>
+       	    	<textcolor>greyl</textcolor>					
+       	    	<scroll>false</scroll>
+		    	<visible>IsEmpty(Container.Property(mixedParents))</visible>
+       	    </control>			
+			<!-- Poster -->
+	        <control type="image">	        	
+	        	<posx>36</posx>
+	        	<posy>75</posy>
+				<width>220</width>
+	        	<height>220</height>
+	        	<aspectratio>keep</aspectratio>
+	        	<texture>frames/frame_album_large.png</texture>
+	        	<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(plugins) | Container.Content(plugincontent)</visible>
+	        </control>
+	        <control type="image">
+	        	<posx>41</posx>
+	        	<posy>80</posy>
+	        	<width>210</width>
+	        	<height>210</height>
+	        	<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+	            <texture diffuse="frames/mask_album_large.png">$INFO[ListItem.Thumb]</texture>
+	        	<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(plugins) | Container.Content(plugincontent)</visible>
+	        </control> 
+			<control type="image">
+				<posx>36</posx>
+			    <posy>75</posy>
+			    <width>220</width>
+				<height>220</height>
+				<aspectratio aligny="top">stretch</aspectratio>
+				<texture border="5" background="true">$VAR[MusicCasesVar]</texture>
+				<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+			</control>	
+			<control type="group">		    
+		        <!-- BG Artist Logo Small -->	
+	            <control type="group">
+	            	<posx>52</posx>
+	            	<posy>217</posy>			
+                    <include>BGArtistLogoSmall</include>
+	            	<visible>!Skin.HasSetting(ArtistLogo)</visible>
+	            </control>		
+		        <!-- Artist Logo Small -->	
+	            <control type="group">
+	            	<posx>77</posx>
+	            	<posy>222</posy>	
+                    <include>ArtistLogoSmall</include>
+	            	<visible>!Skin.HasSetting(ArtistLogo)</visible>
+	            </control>
+		    </control>
+			
+			<!-- Dim Unfocused -->
+            <control type="image">
+                <posx>36</posx>
+	        	<posy>75</posy>
+				<width>220</width>
+	        	<height>220</height>
+	        	<aspectratio>stretch</aspectratio>		    	
+                <colordiffuse>67FFFFFF</colordiffuse>
+                <texture border="1">views/wall/dim_unfocused.png</texture>                
+            </control>
+		</itemlayout> 		
+		<focusedlayout height="355" width="244" condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs)">
+	        <control type="label">
+			<!-- animation type="Conditional" reversible="false" condition="!Container.OnNext + !Container.OnPrevious">
+                    <effect type="fade" end="100" time="400" delay="0" />			
+                </animation -->
+				<animation effect="rotate" tween="cubic" center="auto" end="90" condition="true">Conditonal</animation>
+       	    	<posx>0</posx>
+       	    	<posy>68</posy>
+         	    <height>211</height>
+		    	<width>240</width>
+		    	<font>aller_3_20</font>
+       	    	<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+				<align>left</align>
+				<aligny>top</aligny>
+       	    	<textcolor>blue</textcolor>
+				<selectedcolor>blue</selectedcolor>
+       	    	<scroll>false</scroll>
+		    	<visible>IsEmpty(Container.Property(mixedParents))</visible>
+       	    </control>			
+		    <!-- Poster -->
+	        <control type="image">
+	        	<visible>!IsEmpty(ListItem.Thumb)</visible>
+	        	<posx>36</posx>
+	        	<posy>75</posy>
+				<width>220</width>
+	        	<height>220</height>
+	        	<aspectratio>keep</aspectratio>
+	        	<texture>frames/frame_album_large.png</texture>
+	        	<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(plugins) | Container.Content(plugincontent)</visible>
+	        </control>
+	        <control type="image">
+	        	<posx>41</posx>
+	        	<posy>80</posy>
+	        	<width>210</width>
+	        	<height>210</height>
+	        	<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+	            <texture diffuse="frames/mask_album_large.png">$INFO[ListItem.Thumb]</texture>
+	        	<visible>Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(plugins) | Container.Content(plugincontent)</visible>
+	        </control> 
+			<control type="image">
+				<posx>36</posx>
+			    <posy>75</posy>
+			    <width>220</width>
+				<height>220</height>
+				<aspectratio aligny="top">stretch</aspectratio>
+				<texture border="5" background="true">$VAR[MusicCasesVar]</texture>
+				<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+			</control>
+			<control type="group">		    
+		        <!-- BG Artist Logo Small -->	
+	            <control type="group">
+	            	<posx>52</posx>
+	            	<posy>217</posy>			
+                    <include>BGArtistLogoSmall</include>
+	            	<visible>!Skin.HasSetting(ArtistLogo)</visible>
+	            </control>		
+		        <!-- Artist Logo Small -->	
+	            <control type="group">
+	            	<posx>77</posx>
+	            	<posy>222</posy>	
+                    <include>ArtistLogoSmall</include>
+	            	<visible>!Skin.HasSetting(ArtistLogo)</visible>
+	            </control>
+		    </control>
+			<control type="image">
+		    	<posx>35</posx>
+		    	<posy>76</posy>
+		    	<width>220</width>
+		        <height>220</height>
+		    	<aspectratio>stretch</aspectratio>
+		    	<texture diffuse="frames/mask_movie_large_2.png">views/wall/movie_offset.png</texture>
+		    	<visible>!Skin.HasSetting(BorderPoster)</visible>
+		    </control>
+	       </focusedlayout>		
+	      </control>  
+        </control>
+		
+	    <!-- Kyo Info Popup Wall -->
+        <control type="group">
+	        <visible>!Container.Scrolling + !Skin.HasSetting(InfoPopupWall)</visible>
+		    <include>WallDelayAnimation</include>
+		    <animation effect="slide" start="0,0" end="295,-5" time="50" condition="Container(56).Column(0) + Container(56).Row(0)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="537,-5" time="50" condition="Container(56).Column(1) + Container(56).Row(0)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="779,-5" time="50" condition="Container(56).Column(2) + Container(56).Row(0)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="371,-5" time="50" condition="Container(56).Column(3) + Container(56).Row(0)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="615,-5" time="50" condition="Container(56).Column(4) + Container(56).Row(0)">Conditional</animation>	
+            <animation effect="slide" start="0,0" end="178,186" time="50" condition="Container(56).Column(0) + Container(56).Row(1)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="421,186" time="50" condition="Container(56).Column(1) + Container(56).Row(1)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="665,186" time="50" condition="Container(56).Column(2) + Container(56).Row(1)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="503,186" time="50" condition="Container(56).Column(3) + Container(56).Row(1)">Conditional</animation>
+		    <animation effect="slide" start="0,0" end="745,186" time="50" condition="Container(56).Column(4) + Container(56).Row(1)">Conditional</animation>
+			
+		    
+			<control type="image">
+			    <description>Background Info Menu Wall Left</description>
+	            <posx>-24</posx>
+	            <posy>-8</posy>   	        	
+   	        	<width>450</width>
+	        	<height>245</height>
+				<aspectratio aligny="top">stretch</aspectratio>
+	        	<texture>views/wall/bg_info_wall_l.png</texture>
+				<visible>Container(56).Column(0) | Container(56).Column(1) | Container(56).Column(2) + Container(56).Row(0)</visible>
+				<visible>!Container(56).Column(0) + !Container(56).Column(1) + !Container(56).Column(2) | !Container(56).Row(1)</visible>
+   	        </control>
+			<control type="image">	
+			    <description>Background Info Menu Wall Right</description>
+	            <posx>-24</posx>
+	            <posy>-8</posy>   	        	
+   	        	<width>450</width>
+	        	<height>245</height>
+				<aspectratio aligny="top">stretch</aspectratio>
+	        	<texture>views/wall/bg_info_wall_r.png</texture>
+				<visible>Container(56).Column(3) | Container(56).Column(4) + Container(56).Row(0)</visible>
+				<visible>!Container(56).Column(3) + !Container(56).Column(4) | !Container(56).Row(1)</visible>
+   	        </control>
+			<control type="image">	
+			    <description>Background Info Menu Wall Left</description>
+	            <posx>-24</posx>
+	            <posy>-8</posy>   	        	
+   	        	<width>450</width>
+	        	<height>245</height>
+				<aspectratio aligny="top">stretch</aspectratio>
+	        	<texture>views/wall/bg_info_wall_l2.png</texture>
+				<visible>Container(56).Column(0) | Container(56).Column(1) | Container(56).Column(2) + Container(56).Row(1)</visible>
+				<visible>!Container(56).Column(0) + !Container(56).Column(1) + !Container(56).Column(2) | !Container(56).Row(0)</visible>
+   	        </control>
+			<control type="image">
+			    <description>Background Info Menu Wall Right</description>
+	            <posx>-24</posx>
+	            <posy>-8</posy>   	        	
+   	        	<width>450</width>
+	        	<height>245</height>
+				<aspectratio aligny="top">stretch</aspectratio>
+	        	<texture>views/wall/bg_info_wall_r2.png</texture>
+				<visible>Container(56).Column(3) | Container(56).Column(4) + Container(56).Row(1)</visible>
+				<visible>!Container(56).Column(3) + !Container(56).Column(4) | !Container(56).Row(0)</visible>
+   	        </control>
+			
+			<!-- Star Rating -->
+			<control type="image">	
+                <posx>22</posx>
+	            <posy>36</posy>		        
+                <height>17</height>
+                <texture>views/star.png</texture>
+                <colordiffuse>98353533</colordiffuse>       
+		        <visible>!IsEmpty(ListItem.Property(Rating)) + !Container.Content(seasons)</visible>
+            </control>  				
+			<control type="label">
+			    <posx>50</posx>
+			    <posy>30</posy>
+				<width>315</width>				
+				<font>aller_2_18</font>
+				<label>[UPPERCASE]$INFO[ListItem.RatingAndVotes] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
+				<textcolor>98353533</textcolor>
+				<selectedcolor>98353533</selectedcolor>	
+				<visible>!Container.Content(tvshows) + !Container.Content(seasons)</visible>
+			</control>
+			<control type="label">
+				<posx>50</posx>
+			    <posy>30</posy>
+				<width>315</width>
+				<font>aller_2_18</font>
+				<label>[UPPERCASE]$INFO[ListItem.Rating] &#xB7; $INFO[ListItem.Year] &#xB7; $LOCALIZE[31137] $LOCALIZE[31139]: $INFO[ListItem.Property(UnWatchedEpisodes)] &#xB7; $INFO[ListItem.Episode][/UPPERCASE]</label>
+				<textcolor>98353533</textcolor>
+				<selectedcolor>98353533</selectedcolor>
+				<visible>Container.Content(tvshows) + !Container.Content(seasons)</visible>
+			</control>
+			<control type="label">
+				<posx>50</posx>
+			    <posy>30</posy>
+				<width>315</width>
+				<font>aller_2_18</font>
+				<label>[UPPERCASE]$LOCALIZE[31137] $LOCALIZE[31139]: $INFO[ListItem.Property(UnWatchedEpisodes)] &#xB7; $INFO[ListItem.Episode][/UPPERCASE]</label>
+				<textcolor>98353533</textcolor>
+				<selectedcolor>98353533</selectedcolor>
+				<visible>Container.Content(seasons) + !Container.Content(tvshows)</visible>
+			</control>			
+			<control type="image">
+				<posx>38</posx>
+	       		<posy>60</posy>
+          		<height>1</height>
+				<width>330</width>
+			    <texture>views/Separator_Columns.png</texture>
+				<colordiffuse>98353533</colordiffuse>
+			</control>
+            <!-- Summary Music -->
+	        <control type="textbox">					
+             	<posx>24</posx>
+                <posy>65</posy>
+	            <width>353</width>
+	            <height>131</height>
+	        	<label>$VAR[ListItemFullInfoPlot]</label>
+	            <visible>true</visible>
+	            <font>aller_1_15</font>
+	            <textcolor>greyd</textcolor>
+	        	<align>justify</align>
+	            <autoscroll delay="14000" time="2500" repeat="10000">true</autoscroll>		
+	        </control>
+        </control>
+    </control>
+</include>
+</includes>

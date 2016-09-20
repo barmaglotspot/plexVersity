@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>	
+	<include name="NowPlayingCoverTitle">
+		<control type="group">
+		    <control type="group">  <!--cdArt Kyo -->
+			<posx>40</posx>
+			<posy>50</posy>
+				<description>CDArt</description>
+				<visible>Player.HasMusicPlaylist + Skin.HasSetting(ShowDiscArtNowPlaying)</visible>
+			<animation effect="slide" start="-50" end="100,0" time="1000"  easing="out" delay="1000">WindowOpen</animation>
+	        <animation effect="slide" start="100,0" end="-60" time="400"  easing="in" delay="1000">WindowClose</animation>
+	            <control type="image">	            
+	                <width>320</width>
+	                <height>320</height>	                
+	                <texture fallback="artistartwork/_cdArt_missing/cdArt_missing.png">artistartwork/_cdArt/$INFO[MusicPlayer.Artist]-$INFO[MusicPlayer.Album]-cdart.png</texture> 
+	                <aspectratio align="center">keep</aspectratio>
+	                <animation effect="rotate" end="-360" center="auto" time="4000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+	            </control>
+			</control>
+			<!--Cover active -->
+			<control type="group">				
+				<control type="image">
+				<animation effect="slide" start="0,0" end="60,0" time="500" condition="!Skin.HasSetting(ShowDiscArtNowPlaying)">Conditional</animation>
+					<posx>-20</posx>
+					<posy>48</posy>
+					<width>325</width>
+					<height>325</height>
+					<texture diffuse="frames/mask_album_large.png">$INFO[MusicPlayer.Cover]</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<visible>Skin.HasSetting(ShowMusicCaseNowPlaying) | !Skin.HasSetting(ShowDiscArtNowPlaying)</visible>
+				</control>
+				<control type="image">
+				<animation effect="slide" start="0,0" end="60,0" time="500" condition="!Skin.HasSetting(ShowDiscArtNowPlaying)">Conditional</animation>
+					<posx>-20</posx>
+					<posy>48</posy>
+					<width>325</width>
+					<height>325</height>
+					<texture diffuse="now playing/cdcover_masksquare.png">$INFO[MusicPlayer.Cover]</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<visible>!Skin.HasSetting(ShowMusicCaseNowPlaying) + Skin.HasSetting(ShowDiscArtNowPlaying)</visible>
+				</control>
+				<control type="image">
+				<animation effect="slide" start="0,0" end="60,0" time="500" condition="!Skin.HasSetting(ShowDiscArtNowPlaying)">Conditional</animation>
+		            <posx>-21</posx>
+					<posy>47</posy>
+					<width>327</width>
+					<height>327</height>
+		            <aspectratio>keep</aspectratio>
+		            <texture border="1">$VAR[MusicCasesVar]</texture>
+		            <visible>Skin.HasSetting(ShowMusicCaseNowPlaying)</visible>
+	            </control>
+				<include>NowPlayingLogo</include>	<!-- Kyo Logo Mod -->
+				<control type="group">
+					<posx>480</posx>
+					<posy>190</posy>
+					<control type="label">
+						<posy>0</posy>
+						<width>700</width>
+						<font>aller_3_38</font>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Artist]</label>
+						<align>left</align>
+						<shadowcolor>ff999999</shadowcolor>
+					</control>
+					<control type="label">
+						<posy>55</posy>
+						<width>700</width>
+						<font>aller_3_30</font>
+						<textcolor>blue</textcolor>
+						<label>$INFO[MusicPlayer.Title]</label>
+						<align>left</align>
+						<shadowcolor>ff999999</shadowcolor>
+					</control>
+					<control type="label">
+						<posy>105</posy>
+						<width>700</width>
+						<font>aller_3_30</font>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Album]</label>
+						<align>left</align>
+						<shadowcolor>ff999999</shadowcolor>
+					</control>
+				</control>
+			</control>			
+		</control>
+	</include>
+	<include name="NowPlayingMusicPlayList">
+			<control type="group">			
+				<posy>20</posy>
+				<posx>0</posx>				
+				<!--1 -->
+				<control type="group">
+					<visible>Player.HasAudio + MusicPlayer.Offset(1).Exists</visible>
+					<posy>0</posy>
+					<control type="label">
+						<posy>-1</posy>
+						<posx>32r</posx>
+						<height>200</height>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>aller_2_13</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(1).PlayListPosition]</label>
+					</control>
+					<control type="label">
+						<posy>-1</posy>
+						<posx>100r</posx>
+						<width>500</width>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<font>aller_2_16</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(1).Artist]</label>
+					</control>
+					<control type="label">
+						<posy>23</posy>
+						<posx>100r</posx>
+						<width>500</width>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<font>aller_2_16</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(1).Title]</label>
+					</control>
+					<control type="image">
+						<posx>87r</posx>
+						<posy>0</posy>
+						<width>47</width>
+						<height>47</height>
+						<texture background="true">default-square-small.png</texture>
+						<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
+					</control>
+					<control type="image">
+						<posx>87r</posx>
+						<posy>0</posy>
+						<width>47</width>
+						<height>47</height>
+						<texture>$INFO[MusicPlayer.Offset(1).Cover]</texture>
+						<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
+					</control>
+				</control>
+				<!--2 -->
+				<control type="group">
+					<posy>60</posy>
+					<visible>Player.HasAudio + MusicPlayer.Offset(2).Exists</visible>
+					<control type="label">
+						<posy>-1</posy>
+						<posx>32r</posx>
+						<height>200</height>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>aller_2_13</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(2).PlayListPosition]</label>
+					</control>
+					<control type="label">
+						<posy>-1</posy>
+						<posx>100r</posx>
+						<width>500</width>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<font>aller_2_16</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(2).Artist]</label>
+					</control>
+					<control type="label">
+						<posy>23</posy>
+						<posx>100r</posx>
+						<width>500</width>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<font>aller_2_16</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(2).Title]</label>
+					</control>
+					<control type="image">
+						<posx>87r</posx>
+						<posy>0</posy>
+						<width>47</width>
+						<height>47</height>
+						<texture background="true">default-square-small.png</texture>
+						<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
+					</control>
+					<control type="image">
+						<posx>87r</posx>
+						<posy>0</posy>
+						<width>47</width>
+						<height>47</height>
+						<texture>$INFO[MusicPlayer.Offset(2).Cover]</texture>
+						<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
+					</control>
+				</control>
+				<!--3 -->
+				<control type="group">
+					<posy>120</posy>
+					<visible>Player.HasAudio + MusicPlayer.Offset(3).Exists</visible>
+					<control type="label">
+						<posy>-1</posy>
+						<posx>32r</posx>
+						<height>200</height>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>aller_2_13</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(3).PlayListPosition]</label>
+					</control>
+					<control type="label">
+						<posy>-1</posy>
+						<posx>100r</posx>
+						<width>500</width>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<font>aller_2_16</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(3).Artist]</label>
+					</control>
+					<control type="label">
+						<posy>23</posy>
+						<posx>100r</posx>
+						<width>500</width>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<font>aller_2_16</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(3).Title]</label>
+					</control>
+					<control type="image">
+						<posx>87r</posx>
+						<posy>0</posy>
+						<width>47</width>
+						<height>47</height>
+						<texture background="true">default-square-small.png</texture>
+						<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
+					</control>
+					<control type="image">
+						<posx>87r</posx>
+						<posy>0</posy>
+						<width>47</width>
+						<height>47</height>
+						<texture>$INFO[MusicPlayer.Offset(3).Cover]</texture>
+						<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
+					</control>
+				</control>
+				<!--4 -->
+				<control type="group">
+					<posy>180</posy>
+					<visible>Player.HasAudio + MusicPlayer.Offset(4).Exists</visible>
+					<control type="label">
+						<posy>-1</posy>
+						<posx>32r</posx>
+						<height>200</height>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>aller_2_13</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(4).PlayListPosition]</label>
+					</control>
+					<control type="label">
+						<posy>-1</posy>
+						<posx>100r</posx>
+						<width>500</width>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<font>aller_2_16</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(4).Artist]</label>
+					</control>
+					<control type="label">
+						<posy>23</posy>
+						<posx>100r</posx>
+						<width>500</width>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<font>aller_2_16</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(4).Title]</label>
+					</control>
+					<control type="image">
+						<posx>87r</posx>
+						<posy>0</posy>
+						<width>47</width>
+						<height>47</height>
+						<texture background="true">default-square-small.png</texture>
+						<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
+					</control>
+					<control type="image">
+						<posx>87r</posx>
+						<posy>0</posy>
+						<width>47</width>
+						<height>47</height>
+						<texture>$INFO[MusicPlayer.Offset(4).Cover]</texture>
+						<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
+					</control>
+				</control>
+				<!--5 -->
+				<control type="group">
+					<posy>240</posy>
+					<visible>Player.HasAudio + MusicPlayer.Offset(5).Exists</visible>
+					<control type="label">
+						<posy>-1</posy>
+						<posx>32r</posx>
+						<height>200</height>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>aller_2_13</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(5).PlayListPosition]</label>
+					</control>
+					<control type="label">
+						<posy>-1</posy>
+						<posx>100r</posx>
+						<width>500</width>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<font>aller_2_16</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(5).Artist]</label>
+					</control>
+					<control type="label">
+						<posy>23</posy>
+						<posx>100r</posx>
+						<width>500</width>
+						<scroll>false</scroll>
+						<height>23</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<font>aller_2_16</font>
+						<shadowcolor>ff999999</shadowcolor>
+						<textcolor>greyl</textcolor>
+						<label>$INFO[MusicPlayer.Offset(5).Title]</label>
+					</control>
+					<control type="image">
+						<posx>87r</posx>
+						<posy>0</posy>
+						<width>47</width>
+						<height>47</height>
+						<texture background="true">default-square-small.png</texture>
+						<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
+					</control>
+					<control type="image">
+						<posx>87r</posx>
+						<posy>0</posy>
+						<width>47</width>
+						<height>47</height>
+						<texture>$INFO[MusicPlayer.Offset(5).Cover]</texture>
+						<aspectratio scalediffuse="false" align="right" aligny="top">scale</aspectratio>
+					</control>
+				</control>
+			</control>
+	</include>
+	<include name="PauseIcon">
+		<control type="group">
+			<control type="image">				
+				<height>200</height>
+				<height>300</height>
+				<texture>now playing/pause.png</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+				<animation effect="fade" end="90" condition="true">Conditional</animation>
+			</control>			
+		</control>
+	</include>
+	<include name="ProgressBar">		
+      	<description>Progress Bar</description>
+       	<width>550</width>
+        <height>16</height>
+   		<aligny>center</aligny>
+       	<texturebg>osd/ProgressBackLong.png</texturebg>
+        <lefttexture>osd/ProgressLeftLong.png</lefttexture>
+        <midtexture>osd/ProgressMidLong.png</midtexture>
+	    <righttexture>osd/ProgressRightLong.png</righttexture>
+      	<overlaytexture>-</overlaytexture>
+		<info>Player.Progress</info>
+	</include>
+	
+	<!-- full now playing  -->
+	<include name="NowPlaying">
+		<control type="largeimage">	<!-- Kyo Artist Fanart Background  -->		
+	        <description>Artist Fanart Background</description>
+			<width>1280</width>
+		    <height>720</height>			
+			<texture background="true">artistartwork/$INFO[MusicPlayer.Artist]/fanart.jpg</texture>				
+			<!--<animation effect="fade" end="70" time="0" condition="true">conditional</animation> -->
+		</control>
+		
+		<!-- TrackList  -->						
+			<control type="group">
+				<visible>Skin.HasSetting(ShowMusicPlaylist)</visible>
+				<animation effect="fade" end="100" time="800">Visible</animation>
+				<animation effect="fade" end="0" time="500">Hidden</animation>
+				<control type="largeimage">
+		            <posx>845</posx>
+			        <posy>0</posy>			
+			        <width>440</width>
+			        <height>387</height>			
+			        <texture>now playing/background_playlist.png</texture>			
+		        </control>
+				<include>NowPlayingMusicPlayList</include>				
+			</control>		
+		
+		    <!-- background Image  -->		
+		    <control type="largeimage">
+		        <posx>0</posx>
+		    	<posy>386</posy>			
+		    	<width>1280</width>
+		    	<height>394</height>			
+		    	<texture>now playing/background.png</texture>			
+		    </control>		
+		    
+		    <control type="group">  <!-- Kyo Media Infos -->
+		        <posx>-10</posx>
+		    	<posy>144</posy>
+		    <control type="fadelabel"> <!-- Kyo Media Info -->
+		    	<width>1380</width>
+		    	<scroll>true</scroll>
+		    	<scrollout>true</scrollout>
+		    	<font>NowPlaying_Font</font>
+		    	<pauseatend>200</pauseatend>
+		    	<aligny>center</aligny>
+		    	<label>                      $INFO[Player.Title]</label>
+		    	<label>                      $INFO[MusicPlayer.Artist]</label>
+		    	<label>                      $INFO[MusicPlayer.Album]</label>
+		    	<textcolor>1FFFFFFF</textcolor>			
+		    	<resetonlabelchange>true</resetonlabelchange>			
+		    </control>
+		    <control type="fadelabel"> <!-- Kyo Media Info -->
+		        <posx>160</posx>
+		    	<width>1280</width>
+		    	<scroll>true</scroll>
+		    	<scrollout>true</scrollout>
+		    	<font>NowPlaying_Font</font>
+		    	<pauseatend>200</pauseatend>
+		    	<aligny>center</aligny>
+		    	<label>               $INFO[MusicPlayer.Artist]</label>
+		    	<label>               $INFO[MusicPlayer.Album]</label>
+		    	<label>               $INFO[Player.Title]</label>
+		    	<textcolor>1FFFFFFF</textcolor>
+		    	<textoffsetx>20</textoffsetx>
+		    	<resetonlabelchange>true</resetonlabelchange>			
+		    	<animation effect="rotate" tween="cubic" time="720" center="auto" end="90" condition="true">Conditonal</animation>
+		    </control>		
+	    </control>
+	
+		<control type="group">			
+			<posx>36</posx>
+			<posy>20</posy>
+			<!-- cover view  -->
+			<control type="group">
+				<visible>true</visible>
+				<control type="label">
+					<posx>240</posx>
+					<posy>640</posy>
+					<width>500</width>
+					<textcolor>greyl</textcolor>
+					<font>aller_3_24</font>
+					<label>$INFO[MusicPlayer.time]</label>
+					<shadowcolor>ff999999</shadowcolor>
+				</control>
+				<control type="progress">
+					<posx>338</posx>
+					<posy>648</posy>
+					<include>ProgressBar</include>
+				</control>
+				<control type="label">
+					<posx>918</posx>
+					<posy>640</posy>
+					<width>100</width>
+					<textcolor>greyl</textcolor>
+					<font>aller_3_24</font>
+					<label>$INFO[MusicPlayer.Duration]</label>
+					<shadowcolor>ff999999</shadowcolor>
+				</control>
+				<control type="group">
+					<posx>0</posx>
+					<posy>245</posy>
+					<include>NowPlayingCoverTitle</include>
+				</control>
+			</control>
+		</control>
+		<!-- paused  -->
+		<control type="group">
+			<visible>Player.Paused + !Skin.HasSetting(HideOSDPausedNowPlaying)</visible>
+			<animation effect="slide" start="0,0" end="60,0" time="500" condition="!Skin.HasSetting(ShowDiscArtNowPlaying)">Conditional</animation>
+			<animation effect="fade" end="100" time="300">Visible</animation>
+			<animation effect="fade" end="0" time="300">Hidden</animation>			
+			<control type="group">
+			    <posx>49</posx>
+				<posy>350</posy>			    				
+				<include>PauseIcon</include>
+			</control>
+		</control>
+		<!-- osd  -->
+		<control type="group">
+			<!-- move if flipped  -->
+			<!--<animation effect="slide" start="0,0" end="-430,0" time="1000" condition="MusicPlayer.NowPlayingFlipped">Conditional</animation> -->
+			<posy>623</posy>
+			<posx>296</posx>
+
+			<control type="group" id="300">
+			    <posx>53</posx>
+				<posy>-14</posy>				
+				<!-- repeat  -->
+				<control type="group">
+					<posy>11</posy>
+					<posx>110</posx>
+					<include>OSDRepeatButton</include>
+				</control>
+				<!-- shuffle  -->
+				<control type="group">
+					<posy>11</posy>
+					<posx>159</posx>
+					<include>OSDShuffleButton</include>
+				</control>
+				<!-- previous  -->
+				<control type="group">
+					<posy>11</posy>
+					<posx>208</posx>
+					<include>OSDPreviousButton</include>
+				</control>
+				<!-- play/pause  -->
+				<control type="group">
+					<posy>11</posy>
+					<posx>257</posx>
+					<include>OSDPlayButton</include>
+				</control>
+				<!-- next  -->
+				<control type="group">
+					<posy>11</posy>
+					<posx>306</posx>
+					<include>OSDNextButton</include>
+				</control>
+				<!-- stop  -->
+				<control type="group">
+					<posy>11</posy>
+					<posx>355</posx>
+					<include>OSDStopButton</include>
+				</control>
+				<!-- pq  -->
+				<control type="group">
+					<posy>11</posy>
+					<posx>404</posx>
+					<include>OSDPlayqueueButton</include>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

@@ -1,0 +1,3784 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+<include name="View_Showcase">
+
+<control type="group">
+	<visible>Control.IsVisible(55)</visible>
+	
+<!-- Background View Showcase -->
+    <include>Bg_Showcase</include>	
+
+<!-- Kyo Top Info Menu -->
+    <include>Top_Info_Menu</include>	
+	
+<!-- Time -->
+<control type="group">   
+	<include>ClockGrey</include>	
+</control>
+
+<!-- Simulate DiscArt -->
+    <include>SimDiscArtShowcase</include>
+	
+<!-- Numbers Items and Section -->
+    <include>ItemsSectionGrey</include>		
+	
+<!-- Media Flags -->	
+<control type="group">    
+    <posx>60</posx>
+    <posy>23</posy>
+	<include>MediaFlagsWhiteRight</include>	
+</control>
+
+		<control type="group">
+		<posx>-20</posx>
+	    <posy>318</posy>
+		
+		<control type="label">
+	        <posx>60</posx>
+			<posy>-173</posy>
+			<height>30</height>
+	        <width>790</width>		       
+			<font>aller_4_40</font>
+			<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+	        <textcolor>greyl</textcolor>	
+			<selectedcolor>greyl</selectedcolor>
+	    </control>
+		
+		<control type="scrollbar" id="23">
+    		<description>banner_h</description>
+    		<posx>45</posx>
+    		<posy>333</posy>
+    		<height>18</height>
+    		<width>1220</width>
+    		<onup>50</onup>
+    		<ondown>Control.setFocus(998)</ondown>
+    		<visible allowhiddenfocus="true">Control.HasFocus(23)</visible>
+    		<showonepage>true</showonepage>
+    		<orientation>horizontal</orientation>
+    		<height>8</height>
+    		<texturesliderbackground border="8,1,8,1">views/scrollBackgroundHorizontal.png</texturesliderbackground>
+    		<texturesliderbar border="10,1,10,1">views/scrollbarGripHorizontal.png</texturesliderbar>
+    		<texturesliderbarfocus border="10,1,10,1">views/scrollbarGripHorizontal.png</texturesliderbarfocus>
+    		<textureslidernib border="1">-</textureslidernib>
+    		<textureslidernibfocus border="1">-</textureslidernibfocus>
+    	</control>	
+	    
+	    <control type="wraplist" id="55">                                                                                         
+			<include>Window_OpenClose_Animation</include>
+			<description>List to control coverflow movement</description>			
+			<posx>490</posx>
+			<posy>150</posy>
+			<width>306</width>
+			<height>440</height>
+			<onleft>50</onleft>
+			<onright>50</onright>
+			<onup>Control.setFocus(999)</onup>
+			<ondown>23</ondown>
+			<viewtype label="List">List</viewtype>
+			<pagecontrol>23</pagecontrol>
+			<orientation>horizontal</orientation>
+			<scrolltime>250</scrolltime>
+			<focusedposition>3</focusedposition>
+			<itemlayout height="1" width="1">
+			</itemlayout>
+			<focusedlayout height="440" width="300">			
+			</focusedlayout>
+		</control>		
+		
+		<camera x="650" y="630" />
+		<control type="group" id="7001"> 
+			<include>Window_OpenClose_Animation</include>			
+			<visible>Control.IsVisible(55) + Container.OnNext</visible>
+			<animation effect="slide" end="-100,0" time="230" reversible="false">Hidden</animation>
+			<control type="group">
+				<posx>-20</posx>
+				<visible>Container.OnNext</visible>
+				<animation effect="fade" start="100" end="0" time="230" reversible="false">Hidden</animation>
+				<animation effect="rotatey" center="-240" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-7).FolderPath)</visible>                                          					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-7Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-7Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-7Var]</texture>
+					</control>					
+				</control>				
+			</control>
+			<control type="group">
+				<posx>80</posx>
+				<animation effect="fade" start="0" end="100" delay="0" time="230" reversible="false">Visible</animation>
+				<animation effect="rotatey" center="-140" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-6).FolderPath)</visible>				
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-6Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-6Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-6Var]</texture>
+					</control>	
+				</control>				
+			</control>
+			<control type="group">
+				<posx>180</posx>				
+				<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-5).FolderPath)</visible>				
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-5Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-5Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-5Var]</texture>
+					</control>	
+				</control>				
+			</control>
+			<control type="group">
+				<posx>280</posx>
+				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-4).FolderPath)</visible>				
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-4Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-4Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-4Var]</texture>
+					</control>	
+				</control>				
+			</control>
+			<control type="group">
+				<posx>380</posx>
+				<animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-3).FolderPath)</visible>				
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-3Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-3Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-3Var]</texture>
+					</control>	
+				</control>				
+			</control>
+			<control type="group">
+				<posx>480</posx>
+				<animation effect="rotatey" center="260" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-2).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-2Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-2Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-2Var]</texture>
+					</control>					
+				</control>			
+			</control>
+			<control type="group">
+				<posx>1100</posx>
+				<visible>!Container.OnNext</visible>
+				<animation effect="fade" start="0" end="100" delay="0" time="230" reversible="false">Visible</animation>
+				<animation effect="rotatey" center="1620" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(6).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem6Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases6Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem6Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay6Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>	
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>1000</posx>								
+				<animation effect="rotatey" center="1520" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(5).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem5Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases5Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem5Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay5Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>900</posx>								
+				<animation effect="rotatey" center="1420" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(4).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem4Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases4Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem4Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay4Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>800</posx>								
+				<animation effect="rotatey" center="1320" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(3).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem3Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases3Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem3Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay3Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>700</posx>
+				<animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(2).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem2Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases2Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem2Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay2Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>600</posx>
+				<animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(1).FolderPath)</visible>
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem1Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases1Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem1Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay1Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.OnNext</visible>
+				<animation effect="slide" end="100,0" time="230" reversible="false">Hidden</animation>
+				<control type="group">
+					<posx>500</posx>
+					<visible>Container.OnNext</visible>
+					<animation effect="rotatey" center="1080" start="0" end="-50" time="230" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+					<animation effect="rotatey" center="1080" start="0" end="50" time="0" condition="true">Conditional</animation>
+					<control type="group">
+						<visible>!IsEmpty(Container(55).ListItemNoWrap(0).FolderPath)</visible>						
+						<control type="image">
+			                <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+					    	<height>314</height>
+			                <aspectratio>stretch</aspectratio>
+			                <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		                </control>
+					    <control type="image">
+					    	<posx>58</posx>
+					    	<posy>15</posy>
+					    	<width>208</width>
+					    	<height>300</height>
+					    	<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem0Var]</texture>
+					    	<aspectratio aligny="bottom">stretch</aspectratio>					    	
+					    </control>
+						<control type="image">
+						    <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+						    <height>314</height>
+						    <aspectratio aligny="top">stretch</aspectratio>
+						    <texture>$VAR[ClearCases0Var]</texture>
+						    <visible>!Skin.HasSetting(ShowClearCases)</visible>
+					    </control>
+						<control type="image">
+					        <posx>56</posx>
+					        <posy>318</posy>
+					        <width>212</width>
+					        <height>314</height>
+					        <aspectratio aligny="top">stretch</aspectratio>
+					        <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem0Var]</texture>
+					    </control>
+						<control type="image">
+                            <width>28</width>
+	                        <height>24</height>
+                            <posx>227</posx>
+                            <posy>28</posy> 
+                            <texture>$VAR[IconOverlay0Var]</texture>
+							<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                        </control>
+					</control>
+				</control>
+				<control type="group">
+					<posx>490</posx>
+					<visible>Container.OnNext</visible>
+					<animation effect="rotatey" center="280" start="0" end="-60" time="230" reversible="false" tween="quadratic" easing="out">Hidden</animation>
+					    <control type="group">
+					    	<visible>!IsEmpty(Container(55).ListItemNoWrap(-1).FolderPath)</visible>						
+					    <control type="image">
+			                <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+					    	<height>314</height>
+			                <aspectratio>stretch</aspectratio>
+			                <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		                </control>
+					    <control type="image">
+					    	<posx>58</posx>
+					    	<posy>15</posy>
+					    	<width>208</width>
+					    	<height>300</height>
+					    	<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-1Var]</texture>
+					    	<aspectratio aligny="bottom">stretch</aspectratio>					    	
+					    </control>
+						<control type="image">
+						    <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+						    <height>314</height>
+						    <aspectratio aligny="top">stretch</aspectratio>
+						    <texture>$VAR[ClearCases-1Var]</texture>
+						    <visible>!Skin.HasSetting(ShowClearCases)</visible>
+					    </control>
+						<control type="image">
+					        <posx>56</posx>
+					        <posy>318</posy>
+					        <width>212</width>
+					        <height>314</height>
+					        <aspectratio aligny="top">stretch</aspectratio>
+					        <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-1Var]</texture>
+					    </control>
+						<control type="image">
+                            <width>28</width>
+	                        <height>24</height>
+                            <posx>227</posx>
+                            <posy>28</posy> 
+                            <texture>$VAR[IconOverlay-1Var]</texture>
+							<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                        </control>
+					</control>
+				</control>
+			</control>
+		</control>
+		<control type="group" id="7002">		    
+			<include>Window_OpenClose_Animation</include>			
+			<visible>Control.IsVisible(55) + Container.OnPrevious</visible>
+			<animation effect="slide" end="100,0" time="230" reversible="false">Hidden</animation>
+			<control type="group">
+				<posx>1000</posx>
+				<visible>Container.OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="230" reversible="false">Hidden</animation>
+				<animation effect="rotatey" center="1520" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(7).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem7Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases7Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem7Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>900</posx>
+				<animation effect="fade" start="0" end="100" delay="0" time="230" reversible="false">Visible</animation>
+				<animation effect="rotatey" center="1420" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(6).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem6Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases6Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem6Var]</texture>
+					</control>
+					<control type="image">
+					    <animation effect="fade" start="0" end="100" delay="0" time="230" reversible="false">Visible</animation>
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay6Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>800</posx>				
+				<animation effect="rotatey" center="1320" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(5).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem5Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases5Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem5Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay5Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>700</posx>
+				<animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(4).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem4Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases4Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem4Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay4Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>600</posx>
+				<animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(3).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem3Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases3Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem3Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay3Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>500</posx>
+				<animation effect="rotatey" center="1020" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(2).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem2Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases2Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem2Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay2Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>-120</posx>
+				<visible>!Container.OnPrevious</visible>
+				<animation effect="fade" start="0" end="100" time="230" reversible="false">Visible</animation>
+				<animation effect="rotatey" center="-340" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-6).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-6Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-6Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-6Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>-20</posx>								
+				<animation effect="rotatey" center="-240" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-5).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-5Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-5Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-5Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>80</posx>								
+				<animation effect="rotatey" center="-140" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-4).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-4Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-4Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-4Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>180</posx>								
+				<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-3).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-3Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-3Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-3Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>280</posx>
+				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-2).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-2Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-2Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-2Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>380</posx>
+				<animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-1).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-1Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-1Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>56</posx>
+					    <posy>318</posy>
+					    <width>212</width>
+					    <height>314</height>
+					    <aspectratio aligny="top">stretch</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-1Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.OnPrevious</visible>
+				<animation effect="slide" end="-100,0" time="230" reversible="false">Hidden</animation>
+				<control type="group">
+					<posx>480</posx>
+					<visible>Container.OnPrevious</visible>
+					<animation effect="rotatey" center="280" start="-40" end="0" time="230" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+					<animation effect="rotatey" center="980" start="0" end="10" time="0" condition="true">Conditional</animation>
+					<control type="group">
+						<visible>!IsEmpty(Container(55).ListItemNoWrap(0).FolderPath)</visible>						
+						<control type="image">
+			                <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+					    	<height>314</height>
+			                <aspectratio>stretch</aspectratio>
+			                <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		                </control>
+					    <control type="image">
+					    	<posx>58</posx>
+					    	<posy>15</posy>
+					    	<width>208</width>
+					    	<height>300</height>
+					    	<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem0Var]</texture>
+					    	<aspectratio aligny="bottom">stretch</aspectratio>					    	
+					    </control>
+						<control type="image">
+						    <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+						    <height>314</height>
+						    <aspectratio aligny="top">stretch</aspectratio>
+						    <texture>$VAR[ClearCases0Var]</texture>
+						    <visible>!Skin.HasSetting(ShowClearCases)</visible>
+					    </control>
+						<control type="image">
+						    <posx>56</posx>
+						    <posy>318</posy>
+						    <width>212</width>
+						    <height>314</height>
+						    <aspectratio aligny="top">stretch</aspectratio>
+						    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem0Var]</texture>
+					    </control>
+						<control type="image">
+                            <width>28</width>
+	                        <height>24</height>
+                            <posx>227</posx>
+                            <posy>28</posy> 
+                            <texture>$VAR[IconOverlay0Var]</texture>
+							<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                        </control>
+					</control>
+				</control>
+				<control type="group">
+					<posx>490</posx>
+					<visible>Container.OnPrevious</visible>
+					<animation effect="rotatey" center="980" start="0" end="60" time="230" reversible="false" tween="quadratic" easing="out">Hidden</animation>
+					    <control type="group">
+					    	<visible>!IsEmpty(Container(55).ListItemNoWrap(1).FolderPath)</visible>						
+					    <control type="image">
+			                <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+					    	<height>314</height>
+			                <aspectratio>stretch</aspectratio>
+			                <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		                </control>
+					    <control type="image">
+					    	<posx>58</posx>
+					    	<posy>15</posy>
+					    	<width>208</width>
+					    	<height>300</height>
+					    	<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem1Var]</texture>
+					    	<aspectratio aligny="bottom">stretch</aspectratio>					    	
+					    </control>
+						<control type="image">
+						    <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+						    <height>314</height>
+						    <aspectratio aligny="top">stretch</aspectratio>
+						    <texture>$VAR[ClearCases1Var]</texture>
+						    <visible>!Skin.HasSetting(ShowClearCases)</visible>
+					    </control>
+						<control type="image">
+						    <posx>56</posx>
+						    <posy>318</posy>
+						    <width>212</width>
+						    <height>314</height>
+						    <aspectratio aligny="top">stretch</aspectratio>
+						    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem1Var]</texture>
+					    </control>
+						<control type="image">
+                            <width>28</width>
+	                        <height>24</height>
+                            <posx>227</posx>
+                            <posy>28</posy> 
+                            <texture>$VAR[IconOverlay1Var]</texture>
+							<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                        </control>
+					</control>
+				</control>
+			</control>
+		</control>                                                                    
+		<control type="group" id="7000">		    
+			<include>Window_OpenClose_Animation</include>			
+			<visible>Control.IsVisible(55) + !Control.IsVisible(7001)  + !Control.IsVisible(7002)</visible>
+			<control type="group">
+				<posx>-20</posx>
+				<animation effect="rotatey" center="-240" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-6).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-6Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-6Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+						<posx>56</posx>
+						<posy>318</posy>
+						<width>212</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-6Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>80</posx>
+				<animation effect="rotatey" center="-140" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-5).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-5Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-5Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+						<posx>56</posx>
+						<posy>318</posy>
+						<width>212</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-5Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>180</posx>
+				<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-4).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-4Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-4Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+						<posx>56</posx>
+						<posy>318</posy>
+						<width>212</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-4Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>280</posx>
+				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-3).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-3Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-3Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+						<posx>56</posx>
+						<posy>318</posy>
+						<width>212</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-3Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>380</posx>
+				<animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-2).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-2Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-2Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+						<posx>56</posx>
+						<posy>318</posy>
+						<width>212</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-2Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>480</posx>
+				<animation effect="rotatey" center="260" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-1).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem-1Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases-1Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+						<posx>56</posx>
+						<posy>318</posy>
+						<width>212</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem-1Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>1000</posx>
+				<animation effect="rotatey" center="1520" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(6).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem6Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases6Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+						<posx>56</posx>
+						<posy>318</posy>
+						<width>212</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem6Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay6Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>900</posx>
+				<animation effect="rotatey" center="1420" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(5).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem5Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases5Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+						<posx>56</posx>
+						<posy>318</posy>
+						<width>212</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem5Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay5Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>800</posx>
+				<animation effect="rotatey" center="1320" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(4).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem4Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases4Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+						<posx>56</posx>
+						<posy>318</posy>
+						<width>212</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem4Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay4Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>700</posx>
+				<animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(3).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem3Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases3Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+						<posx>56</posx>
+						<posy>318</posy>
+						<width>212</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem3Var]</texture>
+					</control>	
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay3Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>600</posx>
+				<animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(2).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem2Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases2Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+						<posx>56</posx>
+						<posy>318</posy>
+						<width>212</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem2Var]</texture>
+					</control>	
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay2Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>500</posx>
+				<animation effect="rotatey" center="1020" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(1).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem1Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases1Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+						<posx>56</posx>
+						<posy>318</posy>
+						<width>212</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem1Var]</texture>
+					</control>
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay1Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				</control>
+			</control>
+			<control type="group">
+				<posx>490</posx>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(0).FolderPath)</visible>
+					<!-- HD Tag -->
+		            <control type="image">
+		            	<posx>266</posx>
+		            	<posy>-7</posy>
+		            	<width>44</width>
+		                <height>94</height>
+		            	<aspectratio>keep</aspectratio>
+		            	<texture>$INFO[Listitem.Property(mediaTag-videoResolution),views/,.png]</texture>
+		            	<visible>!Skin.HasSetting(HDIcon)</visible>
+		            </control>
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+			            <aspectratio>stretch</aspectratio>
+			            <texture border="20" background="true">frames/frame_movie_large_2.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>300</height>
+						<texture background="true" fallback="default-poster.png" diffuse="frames/mask_album_large.png">$VAR[ShowcaseItem0Var]</texture>
+						<aspectratio aligny="bottom">stretch</aspectratio>						
+					</control>	
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture>$VAR[ClearCases0Var]</texture>
+						<visible>!Skin.HasSetting(ShowClearCases)</visible>
+					</control>
+					<control type="image">
+						<posx>56</posx>
+						<posy>318</posy>
+						<width>212</width>
+						<height>314</height>
+						<aspectratio aligny="top">stretch</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[ShowcaseItem0Var]</texture>
+					</control>					
+					<control type="image">
+                        <width>28</width>
+	                    <height>24</height>
+                        <posx>227</posx>
+                        <posy>28</posy> 
+                        <texture>$VAR[IconOverlay0Var]</texture>
+						<visible>!Skin.HasSetting(WatUnwIndicator)</visible>
+                    </control>
+				 </control>
+			  </control>			
+		   </control>
+	    </control>		                
+	 </control>	  
+</include>
+    
+<include name="Music_Showcase">                                                                           
+
+<control type="group">
+	<visible>Control.IsVisible(55)</visible>
+	
+<!-- Kyo Left Side Menu -->
+    <include>Bg_Showcase</include>	
+
+<!-- Kyo Top Info Menu -->
+    <include>Music_Top_Info_Menu</include>	
+	
+<!-- Time -->
+<control type="group">   
+	<include>ClockGrey</include>	
+</control>
+	
+<!-- Numbers Items and Section -->
+    <include>ItemsSectionGrey</include>		
+	
+<!-- Media Flags -->	
+<control type="group">    
+    <posx>60</posx>
+    <posy>23</posy>
+	<include>MediaFlagsWhiteRight</include>	
+</control>
+
+		<control type="group">
+		<posx>-20</posx>
+	    <posy>406</posy>
+		
+		<control type="label">
+	        <posx>60</posx>
+			<posy>-305</posy>
+			<height>30</height>
+	        <width>790</width>		       
+			<font>aller_4_40</font>
+			<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+	        <textcolor>greyl</textcolor>	
+			<selectedcolor>greyl</selectedcolor>
+	    </control>		
+		
+		<control type="label">
+		    <posx>480</posx>
+		    <posy>-70</posy>
+	        <width>340</width>
+	        <height>30</height>
+		    <font>aller_4_30</font>
+		    <textcolor>greyl</textcolor>
+		    <label>[UPPERCASE]$INFO[Container.SecondTitle][/UPPERCASE]</label>
+		    <visible>Container.Content(albums)</visible>
+		    <align>center</align>
+        </control>
+	    <control type="label">
+	        <posx>480</posx>
+		    <posy>-70</posy>
+	        <width>340</width>
+	        <height>30</height>
+		    <font>aller_4_30</font>
+	        <textcolor>greyl</textcolor>
+	        <label>[UPPERCASE]$INFO[Container.FirstTitle][/UPPERCASE]</label>
+		    <visible>Container.Content(songs)</visible>
+		    <align>center</align>
+        </control>
+	    <control type="label">
+	        <posx>290</posx>
+		    <posy>-35</posy>
+	        <width>740</width>
+	        <height>30</height>
+		    <font>aller_2_24</font>
+	        <textcolor>greyl</textcolor>
+	        <label>[UPPERCASE]$INFO[Container.SecondTitle][/UPPERCASE]</label>
+		    <visible>Container.Content(songs)</visible>
+		    <align>center</align>
+        </control>	
+		
+		<control type="scrollbar" id="23">
+    		<description>banner_h</description>
+    		<posx>45</posx>
+    		<posy>243</posy>
+    		<height>18</height>
+    		<width>1220</width>
+    		<onup>50</onup>
+    		<ondown>Control.setFocus(998)</ondown>
+    		<visible allowhiddenfocus="true">Control.HasFocus(23)</visible>
+    		<showonepage>true</showonepage>
+    		<orientation>horizontal</orientation>
+    		<height>8</height>
+    		<texturesliderbackground border="8,1,8,1">views/scrollBackgroundHorizontal.png</texturesliderbackground>
+    		<texturesliderbar border="10,1,10,1">views/scrollbarGripHorizontal.png</texturesliderbar>
+    		<texturesliderbarfocus border="10,1,10,1">views/scrollbarGripHorizontal.png</texturesliderbarfocus>
+    		<textureslidernib border="1">-</textureslidernib>
+    		<textureslidernibfocus border="1">-</textureslidernibfocus>
+    	</control>	
+	    
+	    <control type="wraplist" id="55">                                                                                         
+			<include>Window_OpenClose_Animation</include>
+			<description>List to control coverflow movement</description>			
+			<posx>490</posx>
+			<posy>150</posy>
+			<width>306</width>
+			<height>440</height>
+			<onleft>50</onleft>
+			<onright>50</onright>
+			<onup>Control.setFocus(997)</onup>
+			<ondown>23</ondown>
+			<viewtype label="List">List</viewtype>
+			<pagecontrol>23</pagecontrol>
+			<orientation>horizontal</orientation>
+			<scrolltime>250</scrolltime>
+			<focusedposition>3</focusedposition>
+			<itemlayout height="1" width="1">
+			</itemlayout>
+			<focusedlayout height="440" width="300">			
+			</focusedlayout>
+		</control>		
+		
+		<camera x="650" y="630" />
+		<control type="group" id="7001"> 
+			<include>Window_OpenClose_Animation</include>			
+			<visible>Control.IsVisible(55) + Container.OnNext</visible>
+			<animation effect="slide" end="-100,0" time="230" reversible="false">Hidden</animation>
+			<control type="group">
+				<posx>-20</posx>
+				<visible>Container.OnNext</visible>
+				<animation effect="fade" start="100" end="0" time="230" reversible="false">Hidden</animation>
+				<animation effect="rotatey" center="-240" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-7).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-7Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-7Var]</texture>
+					</control>					
+				</control>				
+			</control>
+			<control type="group">
+				<posx>80</posx>
+				<animation effect="fade" start="0" end="100" delay="0" time="230" reversible="false">Visible</animation>
+				<animation effect="rotatey" center="-140" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-6).FolderPath)</visible>				
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-6Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-6Var]</texture>
+					</control>	
+				</control>				
+			</control>
+			<control type="group">
+				<posx>180</posx>				
+				<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-5).FolderPath)</visible>				
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-5Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-5Var]</texture>
+					</control>	
+				</control>				
+			</control>
+			<control type="group">
+				<posx>280</posx>
+				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-4).FolderPath)</visible>				
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-4Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-4Var]</texture>
+					</control>	
+				</control>				
+			</control>
+			<control type="group">
+				<posx>380</posx>
+				<animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-3).FolderPath)</visible>				
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-3Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-3Var]</texture>
+					</control>	
+				</control>				
+			</control>
+			<control type="group">
+				<posx>480</posx>
+				<animation effect="rotatey" center="260" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-2).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-2Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-2Var]</texture>
+					</control>					
+				</control>			
+			</control>
+			<control type="group">
+				<posx>1100</posx>
+				<visible>!Container.OnNext</visible>
+				<animation effect="fade" start="0" end="100" delay="0" time="230" reversible="false">Visible</animation>
+				<animation effect="rotatey" center="1620" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(6).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem6Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem6Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>1000</posx>								
+				<animation effect="rotatey" center="1520" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(5).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem5Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem5Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>900</posx>								
+				<animation effect="rotatey" center="1420" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(4).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem4Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem4Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>800</posx>								
+				<animation effect="rotatey" center="1320" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(3).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem3Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem3Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>700</posx>
+				<animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(2).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem2Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem2Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>600</posx>
+				<animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(1).FolderPath)</visible>
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem1Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem1Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.OnNext</visible>
+				<animation effect="slide" end="100,0" time="230" reversible="false">Hidden</animation>
+				<control type="group">
+					<posx>500</posx>
+					<visible>Container.OnNext</visible>
+					<animation effect="rotatey" center="1080" start="0" end="-50" time="230" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+					<animation effect="rotatey" center="1080" start="0" end="50" time="0" condition="true">Conditional</animation>
+					<control type="group">
+						<visible>!IsEmpty(Container(55).ListItemNoWrap(0).FolderPath)</visible>						
+						<control type="image">
+			                <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+					    	<height>220</height>
+			                <aspectratio>keep</aspectratio>
+			                <texture>frames/frame_album_large.png</texture>			            
+		                </control>
+					    <control type="image">
+					    	<posx>58</posx>
+					    	<posy>15</posy>
+					    	<width>208</width>
+					    	<height>208</height>
+					    	<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem0Var]</texture>
+					    	<aspectratio aligny="bottom">keep</aspectratio>					    	
+					    </control>
+						<control type="image">
+						    <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+						    <height>220</height>
+						    <aspectratio aligny="top">keep</aspectratio>
+						    <texture>$VAR[MusicCasesVar]</texture>
+						    <visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					    </control>
+						<control type="image">
+					        <posx>55</posx>
+						    <posy>229</posy>
+						    <width>214</width>
+					        <height>220</height>
+					        <aspectratio aligny="top">keep</aspectratio>
+					        <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem0Var]</texture>
+					    </control>						
+					</control>
+				</control>
+				<control type="group">
+					<posx>490</posx>
+					<visible>Container.OnNext</visible>
+					<animation effect="rotatey" center="280" start="0" end="-60" time="230" reversible="false" tween="quadratic" easing="out">Hidden</animation>
+					    <control type="group">
+					    	<visible>!IsEmpty(Container(55).ListItemNoWrap(-1).FolderPath)</visible>						
+					    <control type="image">
+			                <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+					    	<height>220</height>
+			                <aspectratio>keep</aspectratio>
+			                <texture>frames/frame_album_large.png</texture>			            
+		                </control>
+					    <control type="image">
+					    	<posx>58</posx>
+					    	<posy>15</posy>
+					    	<width>208</width>
+					    	<height>208</height>
+					    	<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-1Var]</texture>
+					    	<aspectratio aligny="bottom">keep</aspectratio>					    	
+					    </control>
+						<control type="image">
+						    <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+						    <height>220</height>
+						    <aspectratio aligny="top">keep</aspectratio>
+						    <texture>$VAR[MusicCasesVar]</texture>
+						    <visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					    </control>
+						<control type="image">
+					        <posx>55</posx>
+						    <posy>229</posy>
+						    <width>214</width>
+					        <height>220</height>
+					        <aspectratio aligny="top">keep</aspectratio>
+					        <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-1Var]</texture>
+					    </control>						
+					</control>
+				</control>
+			</control>
+		</control>
+		<control type="group" id="7002">		    
+			<include>Window_OpenClose_Animation</include>			
+			<visible>Control.IsVisible(55) + Container.OnPrevious</visible>
+			<animation effect="slide" end="100,0" time="230" reversible="false">Hidden</animation>
+			<control type="group">
+				<posx>1000</posx>
+				<visible>Container.OnPrevious</visible>
+				<animation effect="fade" start="100" end="0" time="230" reversible="false">Hidden</animation>
+				<animation effect="rotatey" center="1520" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(7).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem7Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem7Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>900</posx>
+				<animation effect="fade" start="0" end="100" delay="0" time="230" reversible="false">Visible</animation>
+				<animation effect="rotatey" center="1420" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(6).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem6Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem6Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>800</posx>				
+				<animation effect="rotatey" center="1320" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(5).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem5Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem5Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>700</posx>
+				<animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(4).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem4Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem4Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>600</posx>
+				<animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(3).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem3Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem3Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>500</posx>
+				<animation effect="rotatey" center="1020" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(2).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem2Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem2Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>-120</posx>
+				<visible>!Container.OnPrevious</visible>
+				<animation effect="fade" start="0" end="100" time="230" reversible="false">Visible</animation>
+				<animation effect="rotatey" center="-340" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-6).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-6Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-6Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>-20</posx>								
+				<animation effect="rotatey" center="-240" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-5).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-5Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-5Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>80</posx>								
+				<animation effect="rotatey" center="-140" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-4).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-4Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-4Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>180</posx>								
+				<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-3).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-3Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-3Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>280</posx>
+				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-2).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-2Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-2Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>380</posx>
+				<animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-1).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-1Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+					    <posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+					    <height>220</height>
+					    <aspectratio aligny="top">keep</aspectratio>
+					    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-1Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.OnPrevious</visible>
+				<animation effect="slide" end="-100,0" time="230" reversible="false">Hidden</animation>
+				<control type="group">
+					<posx>480</posx>
+					<visible>Container.OnPrevious</visible>
+					<animation effect="rotatey" center="280" start="-40" end="0" time="230" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+					<animation effect="rotatey" center="980" start="0" end="10" time="0" condition="true">Conditional</animation>
+					<control type="group">
+						<visible>!IsEmpty(Container(55).ListItemNoWrap(0).FolderPath)</visible>						
+						<control type="image">
+			                <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+					    	<height>220</height>
+			                <aspectratio>keep</aspectratio>
+			                <texture>frames/frame_album_large.png</texture>			            
+		                </control>
+					    <control type="image">
+					    	<posx>58</posx>
+					    	<posy>15</posy>
+					    	<width>208</width>
+					    	<height>208</height>
+					    	<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem0Var]</texture>
+					    	<aspectratio aligny="bottom">keep</aspectratio>					    	
+					    </control>
+						<control type="image">
+						    <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+						    <height>220</height>
+						    <aspectratio aligny="top">keep</aspectratio>
+						    <texture>$VAR[MusicCasesVar]</texture>
+						    <visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					    </control>
+						<control type="image">
+						    <posx>55</posx>
+						    <posy>229</posy>
+						    <width>214</width>
+						    <height>220</height>
+						    <aspectratio aligny="top">keep</aspectratio>
+						    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem0Var]</texture>
+					    </control>						
+					</control>
+				</control>
+				<control type="group">
+					<posx>490</posx>
+					<visible>Container.OnPrevious</visible>
+					<animation effect="rotatey" center="980" start="0" end="60" time="230" reversible="false" tween="quadratic" easing="out">Hidden</animation>
+					    <control type="group">
+					    	<visible>!IsEmpty(Container(55).ListItemNoWrap(1).FolderPath)</visible>						
+					    <control type="image">
+			                <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+					    	<height>220</height>
+			                <aspectratio>keep</aspectratio>
+			                <texture>frames/frame_album_large.png</texture>			            
+		                </control>
+					    <control type="image">
+					    	<posx>58</posx>
+					    	<posy>15</posy>
+					    	<width>208</width>
+					    	<height>208</height>
+					    	<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem1Var]</texture>
+					    	<aspectratio aligny="bottom">keep</aspectratio>					    	
+					    </control>
+						<control type="image">
+						    <posx>52</posx>
+			                <posy>8</posy>
+			                <width>220</width>
+						    <height>220</height>
+						    <aspectratio aligny="top">keep</aspectratio>
+						    <texture>$VAR[MusicCasesVar]</texture>
+						    <visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					    </control>
+						<control type="image">
+						    <posx>55</posx>
+						    <posy>229</posy>
+						    <width>214</width>
+						    <height>220</height>
+						    <aspectratio aligny="top">keep</aspectratio>
+						    <texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem1Var]</texture>
+					    </control>						
+					</control>
+				</control>
+			</control>
+		</control>                                                                    
+		<control type="group" id="7000">		    
+			<include>Window_OpenClose_Animation</include>			
+			<visible>Control.IsVisible(55) + !Control.IsVisible(7001)  + !Control.IsVisible(7002)</visible>
+			<control type="group">
+				<posx>-20</posx>
+				<animation effect="rotatey" center="-240" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-6).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-6Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+						<posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-6Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>80</posx>
+				<animation effect="rotatey" center="-140" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-5).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-5Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+						<posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-5Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>180</posx>
+				<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-4).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-4Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+						<posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-4Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>280</posx>
+				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-3).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-3Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+						<posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-3Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>380</posx>
+				<animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-2).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-2Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+						<posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-2Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>480</posx>
+				<animation effect="rotatey" center="260" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(-1).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem-1Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+						<posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem-1Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>1000</posx>
+				<animation effect="rotatey" center="1520" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(6).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem6Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+						<posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem6Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>900</posx>
+				<animation effect="rotatey" center="1420" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(5).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem5Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+						<posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem5Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>800</posx>
+				<animation effect="rotatey" center="1320" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(4).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem4Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+						<posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem4Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>700</posx>
+				<animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(3).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem3Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+						<posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem3Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>600</posx>
+				<animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(2).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem2Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+						<posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem2Var]</texture>
+					</control>						
+				</control>
+			</control>
+			<control type="group">
+				<posx>500</posx>
+				<animation effect="rotatey" center="1020" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(1).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem1Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+						<posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem1Var]</texture>
+					</control>					
+				</control>
+			</control>
+			<control type="group">
+				<posx>490</posx>
+				<control type="group">
+					<visible>!IsEmpty(Container(55).ListItemNoWrap(0).FolderPath)</visible>					
+					<control type="image">
+			            <posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+			            <aspectratio>keep</aspectratio>
+			            <texture>frames/frame_album_large.png</texture>			            
+		            </control>
+					<control type="image">
+						<posx>58</posx>
+						<posy>15</posy>
+						<width>208</width>
+						<height>208</height>
+						<texture background="true" fallback="default-poster-square.png" diffuse="frames/mask_album_large.png">$VAR[MusicShowcaseItem0Var]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>						
+					</control>	
+					<control type="image">
+						<posx>52</posx>
+			            <posy>8</posy>
+			            <width>220</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[MusicCasesVar]</texture>
+						<visible>!Skin.HasSetting(ShowMusicCases)</visible>
+					</control>
+					<control type="image">
+						<posx>55</posx>
+						<posy>229</posy>
+						<width>214</width>
+						<height>220</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture background="true" flipy="true" diffuse="views/showcase/diffuse_reflect.png">$VAR[MusicShowcaseItem0Var]</texture>
+					</control>
+					<control type="label">  <!-- Kyo Time Songs -->
+		                <posx>285</posx>
+				        <posy>15</posy>
+			            <width>695</width>
+			            <height>30</height>
+		                <label>: $INFO[ListItem.DurationStr]</label>
+		                <font>aller_2_24</font>
+		                <textcolor>greyl</textcolor>
+		                <align>left</align>
+		                <visible>Container.PlexContent(Songs)</visible>
+	                </control>
+				</control>
+			  </control>			
+		   </control>
+	    </control>		
+		<control type="group">
+		    <animation type="Conditional" reversible="false" condition="!Container.OnNext + !Container.OnPrevious">
+	            <effect type="fade" end="100" time="400" delay="1300" />			
+	        </animation>
+		    <!-- BG Artist Logo Small -->	
+	        <control type="group">
+	        	<posx>537</posx>
+	        	<posy>567</posy>			
+                <include>BGArtistLogoSmall</include>
+	        	<visible>!Skin.HasSetting(ArtistLogo)</visible>
+	        </control>		
+		    <!-- Artist Logo Small -->	
+	        <control type="group">
+	        	<posx>562</posx>
+	        	<posy>572</posy>	
+                <include>ArtistLogoSmall</include>
+	        	<visible>!Skin.HasSetting(ArtistLogo)</visible>
+	        </control>
+		</control>
+	 </control>	  
+  </include> 
+</includes>

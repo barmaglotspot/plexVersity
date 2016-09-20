@@ -1,0 +1,1363 @@
+<window id="56">
+<defaultcontrol always="true">202</defaultcontrol>
+<allowoverlay>yes</allowoverlay>
+  
+<controls> 
+   	<control type="image">
+		<posx>0</posx>
+		<posy>0</posy>
+        <texture>settings_bg.png</texture>
+		<aspectratio>keep</aspectratio>
+	</control>
+	
+  	<control type="label">
+		<posx>1140</posx>
+		<posy>35</posy>
+		<font>aller_4_28</font>
+		<align>left</align>
+		<label>$INFO[System.time]</label>
+		<textcolor>greym</textcolor>
+	</control> 
+	
+	<control type="label">
+	    	<posx>30</posx>
+		<posy>50</posy>
+		<width>800</width>
+		<height>30</height>
+		<font>aller_4_38</font>
+		<textcolor>greym</textcolor>
+		<label>[UPPERCASE]$LOCALIZE[31955][/UPPERCASE]</label>
+	</control>
+	
+	<control type="grouplist">
+    		<posx>30</posx>
+	    	<posy>157</posy>
+		<width>260</width>
+    		<height>600</height>
+	    	<itemgap>31</itemgap>
+    		<orientation>vertical</orientation>
+	    <control type="label">
+			<description>Skin</description>        		
+		    	<width>150</width>
+		    <label>[UPPERCASE]$LOCALIZE[41011][/UPPERCASE]</label>
+			<textcolor>blue</textcolor>
+			<include>settingsbuttonlabel</include>
+		</control>
+		<control type="label">
+			<description>Appearance</description>
+	    		<width>220</width>
+			<label>[UPPERCASE]$LOCALIZE[31601][/UPPERCASE]</label>
+			<include>settingsbuttonlabel</include>
+		</control>
+		<control type="label">
+			<description>Playback</description>
+	    		<width>220</width>
+			<label>[UPPERCASE]$LOCALIZE[41012][/UPPERCASE]</label>
+			<include>settingsbuttonlabel</include>
+		</control>		
+		<control type="label">
+			<description>System</description>
+	    		<width>150</width>
+			<label>[UPPERCASE]$LOCALIZE[41013][/UPPERCASE]</label>
+			<include>settingsbuttonlabel</include>
+		</control>
+		<control type="label">
+			<description>Network</description>
+		    	<width>172</width>
+			<label>[UPPERCASE]$LOCALIZE[41014][/UPPERCASE]</label>
+			<include>settingsbuttonlabel</include>
+		</control>
+	</control>
+	
+<!-- Kyo Skin Settings -->
+<control type="grouplist" id="202">
+	<animation effect="fade" time="200" start="0" end="100">WindowOpen</animation>
+	<animation effect="fade" time="200" start="100" end="0">WindowClose</animation>
+	<posx>325</posx>
+     	<posy>157</posy>
+     	<width>1050</width>
+     	<height>400</height>    	
+    	<onup>202</onup>
+		<ondown>202</ondown>
+    	<onleft>Plex.ActivateWindow(4997)</onleft>   	
+     	<itemgap>31</itemgap>
+     	<scrolltime>200</scrolltime>
+      	<orientation>vertical</orientation>		
+		<control type="button" id="2">
+	<onright>203</onright>
+			<description>Home Screen</description>
+			<posx>0</posx>
+			<posy>100</posy>
+			<width>771</width>
+			<label>$LOCALIZE[41015]</label>
+			<font>aller_2_c_22</font>
+			<textcolor>greym</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<aligny>center</aligny>
+			<disabledcolor>FF444444</disabledcolor>
+			<align>left</align>
+		</control>	
+		<control type="button" id="3">
+	<onright>204</onright>
+		    <description>Custom Backgrounds</description>
+		    <posx>325</posx>
+		    <posy>220</posy>
+		    <width>771</width>
+		    <label>$LOCALIZE[41022]</label>
+			<font>aller_2_c_22</font>
+			<textcolor>greym</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<aligny>center</aligny>
+			<disabledcolor>FF444444</disabledcolor>
+			<align>left</align>
+		</control>
+		<control type="button" id="4">
+	<onright>205</onright>
+			<description>General</description>
+			<posx>0</posx>
+			<posy>100</posy>
+			<width>771</width>
+			<label>$LOCALIZE[31604]</label>
+			<font>aller_2_c_22</font>
+			<textcolor>greym</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<aligny>center</aligny>
+			<disabledcolor>FF444444</disabledcolor>
+			<align>left</align>
+		</control>
+	</control>		
+	
+<!-- Kyo Skin Settings Home Screen -->
+<control type="grouplist" id="203">
+	<animation effect="fade" time="200" start="0" end="100">WindowOpen</animation>
+	<animation effect="fade" time="200" start="100" end="0">WindowClose</animation>
+	<posx>630</posx>
+     	<posy>157</posy>
+     	<width>675</width>
+     	<height>520</height>
+		<onup>203</onup>
+    	<ondown>203</ondown>    	
+    	<onleft>202</onleft>
+    	<onright>noop</onright>
+     	<itemgap>31</itemgap>
+     	<scrolltime>200</scrolltime>
+      	<orientation>vertical</orientation>		
+		<control type="radiobutton" id="9">
+		<description>Enable slideshow Home</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41017]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(slideshow)</onclick>
+			<selected>Skin.HasSetting(slideshow)</selected>
+			<visible>ControlGroup(202).HasFocus(2)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+<!--		<control type="radiobutton" id="10">
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>Turn off tutorial</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(tutorial)</onclick>
+			<selected>!Skin.HasSetting(tutorial)</selected>
+			<visible>ControlGroup(202).HasFocus(2)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control> -->
+		<control type="radiobutton" id="11">
+		<description>Show "Recently Added" First</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41018]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(recentlyaddedfirst)</onclick>
+			<selected>Skin.HasSetting(recentlyaddedfirst)</selected>
+			<visible>ControlGroup(202).HasFocus(2)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>		
+		<!--control type="radiobutton" id="12">
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>Show metadata for focused movie</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(home_metadata)</onclick>
+			<selected>Skin.HasSetting(home_metadata)</selected>
+			<visible>ControlGroup(202).HasFocus(2)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control-->
+		<control type="radiobutton" id="13">
+			<description>Hide Icon Login</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[32020]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>			
+			<onclick>Skin.ToggleSetting(HideLogin)</onclick>
+			<selected>Skin.HasSetting(HideLogin)</selected>
+			<visible>ControlGroup(202).HasFocus(2)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="14">
+			<description>Hide Icon Search</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41010]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>			
+			<onclick>Skin.ToggleSetting(HideSearch)</onclick>
+			<selected>Skin.HasSetting(HideSearch)</selected>
+			<visible>ControlGroup(202).HasFocus(2)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="15">
+		<description>Hide Icon Addon Home</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41016]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(applications)</onclick>
+			<selected>Skin.HasSetting(applications)</selected>
+			<visible>ControlGroup(202).HasFocus(2)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="16">
+		<description>Hide Icon Settings Home</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[32021]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(HideSettings)</onclick>
+			<selected>Skin.HasSetting(HideSettings)</selected>
+			<visible>ControlGroup(202).HasFocus(2)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="17">
+		<description>Hide Icon Quit Home</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[32022]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(HideQuit)</onclick>
+			<selected>Skin.HasSetting(HideQuit)</selected>
+			<visible>ControlGroup(202).HasFocus(2)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="18">
+		<description>Exit Icon: Quit Plex</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>			
+			<label>$LOCALIZE[41019]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(quit)</onclick>
+			<selected>Skin.HasSetting(quit)</selected>
+			<enable>!Skin.HasSetting(sleep) + !Skin.HasSetting(shutdown) + !Skin.HasSetting(pop)</enable>
+			<visible>ControlGroup(202).HasFocus(2)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="19">
+		<description>Exit Icon: Sleep system</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41020]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(sleep)</onclick>
+			<selected>Skin.HasSetting(sleep)</selected>
+			<enable>!Skin.HasSetting(quit) + !Skin.HasSetting(shutdown) + !Skin.HasSetting(pop)</enable>
+			<visible>ControlGroup(202).HasFocus(2)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="20">
+		<description>Exit Icon: Shutdown system</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41021]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(shutdown)</onclick>
+			<selected>Skin.HasSetting(shutdown)</selected>
+			<enable>!Skin.HasSetting(quit) + !Skin.HasSetting(sleep) + !Skin.HasSetting(pop)</enable>
+			<visible>ControlGroup(202).HasFocus(2)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+<!--	<control type="radiobutton" id="21">
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>Exit button: Pop up menu</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(pop)</onclick>
+			<selected>Skin.HasSetting(pop)</selected>
+			<enable>!Skin.HasSetting(quit) + !Skin.HasSetting(sleep) + !Skin.HasSetting(shutdown)</enable>
+			<visible>ControlGroup(202).HasFocus(2)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control> -->	
+		</control>
+		
+<!-- Kyo Skin Settings Custom Backgrounds -->
+<control type="grouplist" id="204">
+	<animation effect="fade" time="200" start="0" end="100">WindowOpen</animation>
+	<animation effect="fade" time="200" start="100" end="0">WindowClose</animation>
+	<posx>630</posx>
+     	<posy>157</posy>
+     	<width>675</width>
+     	<height>520</height>
+    	<onup>204</onup>
+    	<ondown>204</ondown>
+    	<onleft>202</onleft>
+    	<onright>noop</onright>
+     	<itemgap>31</itemgap>
+     	<scrolltime>200</scrolltime>
+      	<orientation>vertical</orientation>		
+		<control type="radiobutton" id="50">  <!-- Kyo Custom Home Background 1 -->
+		<description>Enable Custom Home Background 1</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41023] 1</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(CustomHomeBackground1)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground1File)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground1Path)</onclick>
+			<selected>Skin.HasSetting(CustomHomeBackground1)</selected>
+			<visible>ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="51">
+	    <description>Set Custom Home Background 1 Label</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41024] 1</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground1Label)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetString(CustomHomeBackground1Label)</onclick>			
+			<visible>Skin.HasSetting(CustomHomeBackground1) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="52">
+	    <description>Set Custom Home Background 1 Image</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41025] 1</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground1File)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetFile(CustomHomeBackground1File)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground1) + !Skin.String(CustomHomeBackground1Path) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="53">
+	    <description>Set Custom Home Background 1 Path</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41026] 1</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground1Path)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetPath(CustomHomeBackground1Path)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground1) + !Skin.String(CustomHomeBackground1File) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="54">  <!-- Kyo Custom Home Background 2 -->
+		<description>Enable Custom Home Background 2</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41023] 2</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(CustomHomeBackground2)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground2File)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground2Path)</onclick>
+			<selected>Skin.HasSetting(CustomHomeBackground2)</selected>
+			<visible>ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="55">
+	    <description>Set Custom Home Background 2 Label</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41024] 2</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground2Label)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetString(CustomHomeBackground2Label)</onclick>			
+			<visible>Skin.HasSetting(CustomHomeBackground2) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="56">
+	    <description>Set Custom Home Background 2 Image</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41025] 2</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground2File)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetFile(CustomHomeBackground2File)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground2) + !Skin.String(CustomHomeBackground2Path) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="57">
+	    <description>Set Custom Home Background 2 Path</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41026] 2</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground2Path)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetPath(CustomHomeBackground2Path)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground2) + !Skin.String(CustomHomeBackground2File) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="58">  <!-- Kyo Custom Home Background 3 -->
+		<description>Enable Custom Home Background 3</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41023] 3</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(CustomHomeBackground3)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground3File)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground3Path)</onclick>
+			<selected>Skin.HasSetting(CustomHomeBackground3)</selected>
+			<visible>ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="59">
+	    <description>Set Custom Home Background 3 Label</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41024] 3</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground3Label)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetString(CustomHomeBackground3Label)</onclick>			
+			<visible>Skin.HasSetting(CustomHomeBackground3) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="60">
+	    <description>Set Custom Home Background 3 Image</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41025] 3</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground3File)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetFile(CustomHomeBackground3File)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground3) + !Skin.String(CustomHomeBackground3Path) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="61">
+	    <description>Set Custom Home Background 3 Path</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41026] 3</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground3Path)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetPath(CustomHomeBackground3Path)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground3) + !Skin.String(CustomHomeBackground3File) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="62">  <!-- Kyo Custom Home Background 4 -->
+		<description>Enable Custom Home Background 4</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41023] 4</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(CustomHomeBackground4)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground4File)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground4Path)</onclick>
+			<selected>Skin.HasSetting(CustomHomeBackground4)</selected>
+			<visible>ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="63">
+	    <description>Set Custom Home Background 4 Label</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41024] 4</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground4Label)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetString(CustomHomeBackground4Label)</onclick>			
+			<visible>Skin.HasSetting(CustomHomeBackground4) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="64">
+	    <description>Set Custom Home Background 4 Image</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41025] 4</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground4File)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetFile(CustomHomeBackground4File)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground4) + !Skin.String(CustomHomeBackground4Path) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="65">
+	    <description>Set Custom Home Background 4 Path</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41026] 4</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground4Path)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetPath(CustomHomeBackground4Path)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground4) + !Skin.String(CustomHomeBackground4File) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="66">  <!-- Kyo Custom Home Background 5 -->
+		<description>Enable Custom Home Background 5</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41023] 5</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(CustomHomeBackground5)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground5File)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground5Path)</onclick>
+			<selected>Skin.HasSetting(CustomHomeBackground5)</selected>
+			<visible>ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="67">
+	    <description>Set Custom Home Background 5 Label</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41024] 5</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground5Label)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetString(CustomHomeBackground5Label)</onclick>			
+			<visible>Skin.HasSetting(CustomHomeBackground5) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="68">
+	    <description>Set Custom Home Background 5 Image</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41025] 5</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground5File)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetFile(CustomHomeBackground5File)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground5) + !Skin.String(CustomHomeBackground5Path) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="69">
+	    <description>Set Custom Home Background 5 Path</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41026] 5</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground5Path)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetPath(CustomHomeBackground5Path)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground5) + !Skin.String(CustomHomeBackground5File) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="70">  <!-- Kyo Custom Home Background 6 -->
+		<description>Enable Custom Home Background 6</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41023] 6</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(CustomHomeBackground6)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground6File)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground6Path)</onclick>
+			<selected>Skin.HasSetting(CustomHomeBackground6)</selected>
+			<visible>ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="71">
+	    <description>Set Custom Home Background 6 Label</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41024] 6</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground6Label)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetString(CustomHomeBackground6Label)</onclick>			
+			<visible>Skin.HasSetting(CustomHomeBackground6) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="72">
+	    <description>Set Custom Home Background 6 Image</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41025] 6</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground6File)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetFile(CustomHomeBackground6File)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground6) + !Skin.String(CustomHomeBackground6Path) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="73">
+	    <description>Set Custom Home Background 6 Path</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41026] 6</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground6Path)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetPath(CustomHomeBackground6Path)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground6) + !Skin.String(CustomHomeBackground6File) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="74">  <!-- Kyo Custom Home Background 7 -->
+		<description>Enable Custom Home Background 7</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41023] 7</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(CustomHomeBackground7)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground7File)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground7Path)</onclick>
+			<selected>Skin.HasSetting(CustomHomeBackground7)</selected>
+			<visible>ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="75">
+	    <description>Set Custom Home Background 7 Label</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41024] 7</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground7Label)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetString(CustomHomeBackground7Label)</onclick>			
+			<visible>Skin.HasSetting(CustomHomeBackground7) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="76">
+	    <description>Set Custom Home Background 7 Image</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41025] 7</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground7File)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetFile(CustomHomeBackground7File)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground7) + !Skin.String(CustomHomeBackground7Path) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="77">
+	    <description>Set Custom Home Background 7 Path</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41026] 7</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground7Path)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetPath(CustomHomeBackground7Path)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground7) + !Skin.String(CustomHomeBackground7File) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="78">  <!-- Kyo Custom Home Background 8 -->
+		<description>Enable Custom Home Background 8</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41023] 8</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(CustomHomeBackground8)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground8File)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground8Path)</onclick>
+			<selected>Skin.HasSetting(CustomHomeBackground8)</selected>
+			<visible>ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="79">
+	    <description>Set Custom Home Background 8 Label</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41024] 8</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground7Label)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetString(CustomHomeBackground8Label)</onclick>			
+			<visible>Skin.HasSetting(CustomHomeBackground8) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="80">
+	    <description>Set Custom Home Background 8 Image</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41025] 8</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground8File)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetFile(CustomHomeBackground8File)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground8) + !Skin.String(CustomHomeBackground8Path) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="81">
+	    <description>Set Custom Home Background 8 Path</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41026] 8</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground8Path)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetPath(CustomHomeBackground8Path)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground8) + !Skin.String(CustomHomeBackground8File) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="82">  <!-- Kyo Custom Home Background 9 -->
+		<description>Enable Custom Home Background 9</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41023] 9</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(CustomHomeBackground9)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground9File)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackground9Path)</onclick>
+			<selected>Skin.HasSetting(CustomHomeBackground9)</selected>
+			<visible>ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="83">
+	    <description>Set Custom Home Background 9 Label</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41024] 9</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground9Label)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetString(CustomHomeBackground9Label)</onclick>			
+			<visible>Skin.HasSetting(CustomHomeBackground9) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="84">
+	    <description>Set Custom Home Background 9 Image</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41025] 9</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground9File)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetFile(CustomHomeBackground9File)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground9) + !Skin.String(CustomHomeBackground9Path) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="85">
+	    <description>Set Custom Home Background 9 Path</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41026] 9</label>
+			<label2>$INFO[Skin.String(CustomHomeBackground9Path)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetPath(CustomHomeBackground9Path)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackground9) + !Skin.String(CustomHomeBackground9File) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="86">  <!-- Kyo Custom Home Background System -->
+		<description>Enable Custom Home Background System</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41023] $LOCALIZE[31006] (MENU)</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(CustomHomeBackgroundSystem)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackgroundSystemFile)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackgroundSystemPath)</onclick>
+			<selected>Skin.HasSetting(CustomHomeBackgroundSystem)</selected>
+			<visible>ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>		
+		<control type="button" id="87">
+	    <description>Set Custom Home Background System Image</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41025] $LOCALIZE[31006]</label>
+			<label2>$INFO[Skin.String(CustomHomeBackgroundSystemFile)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetFile(CustomHomeBackgroundSystemFile)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackgroundSystem) + !Skin.String(CustomHomeBackgroundSystemPath) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="88">
+	    <description>Set Custom Home Background System Path</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41026] $LOCALIZE[31006]</label>
+			<label2>$INFO[Skin.String(CustomHomeBackgroundSystemPath)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetPath(CustomHomeBackgroundSystemPath)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackgroundSystem) + !Skin.String(CustomHomeBackgroundSystemFile) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="89">  <!-- Kyo Custom Home Background Quit -->
+		<description>Enable Custom Home Background Quit</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41023] $LOCALIZE[31007] (MENU)</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.ToggleSetting(CustomHomeBackgroundQuit)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackgroundQuitFile)</onclick>
+			<onclick>Skin.Reset(CustomHomeBackgroundQuitPath)</onclick>
+			<selected>Skin.HasSetting(CustomHomeBackgroundQuit)</selected>
+			<visible>ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>		
+		<control type="button" id="90">
+	    <description>Set Custom Home Background Quit Image</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41025] $LOCALIZE[31007]</label>
+			<label2>$INFO[Skin.String(CustomHomeBackgroundQuitFile)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetFile(CustomHomeBackgroundQuitFile)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackgroundQuit) + !Skin.String(CustomHomeBackgroundQuitPath) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="button" id="91">
+	    <description>Set Custom Home Background Quit Path</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[41026] $LOCALIZE[31007]</label>
+			<label2>$INFO[Skin.String(CustomHomeBackgroundQuitPath)]</label2>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>
+			<onclick>Skin.SetPath(CustomHomeBackgroundQuitPath)</onclick>
+			<visible>Skin.HasSetting(CustomHomeBackgroundQuit) + !Skin.String(CustomHomeBackgroundQuitFile) + ControlGroup(202).HasFocus(3)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+     </control>
+
+<!-- Kyo Skin Settings General -->
+<control type="grouplist" id="205">
+	<animation effect="fade" time="200" start="0" end="100">WindowOpen</animation>
+	<animation effect="fade" time="200" start="100" end="0">WindowClose</animation>
+	<posx>630</posx>
+     	<posy>157</posy>
+     	<width>675</width>
+     	<height>520</height>
+		<onup>205</onup>
+    	<ondown>205</ondown>    	
+    	<onleft>202</onleft>
+    	<onright>noop</onright>
+     	<itemgap>31</itemgap>
+     	<scrolltime>200</scrolltime>
+      	<orientation>vertical</orientation>
+		<control type="radiobutton" id="29">
+			<description>Hide Scroll Indicator</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[31231]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>			
+			<onclick>Skin.ToggleSetting(ScrollIndicator)</onclick>
+			<selected>Skin.HasSetting(ScrollIndicator)</selected>
+			<visible>ControlGroup(202).HasFocus(4)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="30">
+			<description>Show Playlist Now Playing Music</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[32017]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>			
+			<onclick>Skin.ToggleSetting(ShowMusicPlaylist)</onclick>
+			<selected>Skin.HasSetting(ShowMusicPlaylist)</selected>
+			<visible>ControlGroup(202).HasFocus(4)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="31">
+			<description>Show Case Now Playing Music</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[32018]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>			
+			<onclick>Skin.ToggleSetting(ShowMusicCaseNowPlaying)</onclick>
+			<selected>Skin.HasSetting(ShowMusicCaseNowPlaying)</selected>
+			<visible>ControlGroup(202).HasFocus(4)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="32">
+			<description>Show DiscArt Now Playing Music</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[32019]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>			
+			<onclick>Skin.ToggleSetting(ShowDiscArtNowPlaying)</onclick>
+			<selected>Skin.HasSetting(ShowDiscArtNowPlaying)</selected>
+			<visible>ControlGroup(202).HasFocus(4)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="33">
+			<description>Hide Paused OSD Now Playing</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[31235]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>			
+			<onclick>Skin.ToggleSetting(HideOSDPausedNowPlaying)</onclick>
+			<selected>Skin.HasSetting(HideOSDPausedNowPlaying)</selected>
+			<visible>ControlGroup(202).HasFocus(4)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+		<control type="radiobutton" id="34">
+			<description>Hide Info OSD Now Playing</description>
+			<posx>50</posx>
+			<posy>100</posy>
+			<width>630</width>
+			<label>$LOCALIZE[31236]</label>
+			<font>aller_3_21</font>
+			<textcolor>greyl</textcolor>
+			<focusedcolor>blue</focusedcolor>
+			<align>left</align>
+			<disabledcolor>greyd</disabledcolor>
+			<textureradiofocus>RadiobuttonFo.png</textureradiofocus>
+			<textureradionofocus>RadiobuttonNF.png</textureradionofocus>			
+			<onclick>Skin.ToggleSetting(HideOSDInfoNowPlaying)</onclick>
+			<selected>Skin.HasSetting(HideOSDInfoNowPlaying)</selected>
+			<visible>ControlGroup(202).HasFocus(4)</visible>
+			<textoffsetx>20</textoffsetx>
+			<radioposx>625</radioposx>
+		</control>
+	</control>	 
+</controls>
+</window>
