@@ -443,7 +443,7 @@
 							<aligny>center</aligny>
 							<label>[UPPERCASE]• $LOCALIZE[41031][/UPPERCASE]</label>
 							<onclick>Container.SetViewMode(53)</onclick>
-							<visible>!Window.IsVisible(10094) + !Container.Content(channels) + !Container.Content(photos)</visible>
+							<visible>!Window.IsVisible(10094) + !Container.Content(channels) + !Container.Content(photos) + !ListItem.Type(photo)</visible>
 						</control>
 						<control type="button" id="1005">
 							<width>225</width>														
@@ -454,7 +454,7 @@
 							<aligny>center</aligny>
 							<label>[UPPERCASE]• $LOCALIZE[41035][/UPPERCASE]</label>
 							<onclick>Container.SetViewMode(54)</onclick>
-							<visible>!Window.IsVisible(10094) + !Container.Content(seasons) + !Container.Content(songs) + !Container.Content(channels) + !Container.Content(photos)</visible>
+							<visible>!Window.IsVisible(10094) + !Container.Content(seasons) + !Container.Content(songs) + !Container.Content(channels) + !Container.Content(photos) + !ListItem.Type(photo)</visible>
 						</control>
 						<control type="button" id="1006">
 							<width>225</width>														
@@ -465,7 +465,7 @@
 							<aligny>center</aligny>
 							<label>[UPPERCASE]• $LOCALIZE[41036][/UPPERCASE]</label>
 							<onclick>Container.SetViewMode(55)</onclick>
-							<visible>!Window.IsVisible(10094) + !Container.Content(homemovies) + !Container.Content(Episodes) + !Container.Content(channel) + !Container.Content(channels) + !Container.Content(photos)</visible>
+							<visible>!Window.IsVisible(10094) + !Container.Content(homemovies) + !Container.Content(Episodes) + !Container.Content(channel) + !Container.Content(channels) + !Container.Content(photos) + !ListItem.Type(photo)</visible>
 						</control>
 						<control type="button" id="1007">
 							<width>225</width>														
@@ -487,7 +487,7 @@
 							<aligny>center</aligny>
 							<label>[UPPERCASE]• $LOCALIZE[41038][/UPPERCASE]</label>
 							<onclick>Container.SetViewMode(57)</onclick>
-							<visible>!Window.IsVisible(10094) + !Container.Content(Episodes) + !Container.Content(channels) + !Container.Content(photos)</visible>
+							<visible>!Window.IsVisible(10094) + !Container.Content(Episodes) + !Container.Content(channels) + !Container.Content(photos) + !ListItem.Type(photo)</visible>
 						</control>
 					   
 					<!--- OPTIONS --->
@@ -527,7 +527,7 @@
 							<label>[UPPERCASE]$LOCALIZE[41033][/UPPERCASE]</label>
 							<onclick>Skin.ToggleSetting(HDIcon)</onclick>
 	                		<selected>Skin.HasSetting(HDIcon)</selected>
-							<visible>!Control.IsVisible(53) + !Window.IsVisible(10094) + !Container.Content(artists) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(channels) + !Container.Content(photos)</visible>
+							<visible>!Control.IsVisible(53) + !Window.IsVisible(10094) + !Container.Content(artists) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(channels) + !Container.Content(photos) + !ListItem.Type(photo)</visible>
 						</control>						
 						<control type="radiobutton" id="1012">  <!-- Show Music Top Info Panel -->
 							<width>225</width>														
@@ -557,7 +557,7 @@
 							<label>[UPPERCASE]$LOCALIZE[31237][/UPPERCASE]</label>
 							<onclick>Skin.ToggleSetting(ShowSimDiscArt)</onclick>
 	                		<selected>Skin.HasSetting(ShowSimDiscArt)</selected>
-							<visible>!Control.IsVisible(53) + !Control.IsVisible(54) + !Control.IsVisible(56) + !Window.IsVisible(10094) + !Container.Content(artists) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(episodes) + !Container.Content(channels) + !Container.Content(channel) + !Container.Content(photos)</visible>
+							<visible>!Control.IsVisible(53) + !Control.IsVisible(54) + !Control.IsVisible(56) + !Window.IsVisible(10094) + !Container.Content(artists) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(episodes) + !Container.Content(channels) + !Container.Content(channel) + !Container.Content(photos) + !ListItem.Type(photo)</visible>
 						</control>
 						<control type="radiobutton" id="1014">  <!-- Show Clear Cases -->
 							<width>225</width>														
@@ -572,7 +572,7 @@
 							<label>[UPPERCASE]$LOCALIZE[32015][/UPPERCASE]</label>
 							<onclick>Skin.ToggleSetting(ShowClearCases)</onclick>
 	                		<selected>Skin.HasSetting(ShowClearCases)</selected>
-							<visible>!Control.IsVisible(53) + !Control.IsVisible(54) + !Window.IsVisible(10094) + !Container.Content(artists) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(channels) + !Container.Content(photos)</visible>
+							<visible>!Control.IsVisible(53) + !Control.IsVisible(54) + !Window.IsVisible(10094) + !Container.Content(artists) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(channels) + !Container.Content(photos) + !ListItem.Type(photo)</visible>
 						</control>
 						<control type="radiobutton" id="1015">  <!-- Show Music Cases -->
 							<width>225</width>														
@@ -587,7 +587,7 @@
 							<label>[UPPERCASE]$LOCALIZE[32015][/UPPERCASE]</label>
 							<onclick>Skin.ToggleSetting(ShowMusicCases)</onclick>
 	                		<selected>Skin.HasSetting(ShowMusicCases)</selected>
-							<visible>!Control.IsVisible(53) + !Control.IsVisible(54) + !Window.IsVisible(10094) + !Container.Content(movies) + !Container.Content(homemovies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(channel) + !Container.Content(channels) + !Container.Content(photos)</visible>
+							<visible>!Control.IsVisible(53) + !Control.IsVisible(54) + !Window.IsVisible(10094) + !Container.Content(movies) + !Container.Content(homemovies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(channel) + !Container.Content(channels) + !Container.Content(photos) + !ListItem.Type(photo)</visible>
 						</control>
 						<control type="radiobutton" id="1016">  <!-- Show Artist Logo -->
 							<width>225</width>														
@@ -602,7 +602,7 @@
 							<label>[UPPERCASE]$LOCALIZE[41034][/UPPERCASE]</label>
 							<onclick>Skin.ToggleSetting(ArtistLogo)</onclick>
 	                		<selected>Skin.HasSetting(ArtistLogo)</selected>
-							<visible>!Window.IsVisible(10094) + !Container.Content(movies) + !Container.Content(homemovies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(channel) + !Container.Content(channels) + !Container.Content(photos)</visible>
+							<visible>!Window.IsVisible(10094) + !Container.Content(movies) + !Container.Content(homemovies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(channel) + !Container.Content(channels) + !Container.Content(photos) + !ListItem.Type(photo)</visible>
 						</control>
 						<control type="radiobutton" id="1017">  <!-- Show Watched/Unwatched Indicator -->
 							<width>225</width>														
@@ -617,7 +617,7 @@
 							<label>[UPPERCASE]$LOCALIZE[31232][/UPPERCASE]</label>
 							<onclick>Skin.ToggleSetting(WatUnwIndicator)</onclick>
 	                		<selected>Skin.HasSetting(WatUnwIndicator)</selected>
-							<visible>!Window.IsVisible(10094) + !Container.Content(artists) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(channel) + !Container.Content(channels) + !Container.Content(photos)</visible>
+							<visible>!Window.IsVisible(10094) + !Container.Content(artists) + !Container.Content(albums) + !Container.Content(songs) + !Container.Content(channel) + !Container.Content(channels) + !Container.Content(photos) + !ListItem.Type(photo)</visible>
 						</control>
 						<control type="radiobutton" id="1018">  <!-- Show Border Poster -->
 							<width>225</width>														
@@ -632,7 +632,7 @@
 							<label>[UPPERCASE]$LOCALIZE[31233][/UPPERCASE]</label>
 							<onclick>Skin.ToggleSetting(BorderPoster)</onclick>
 	                		<selected>Skin.HasSetting(BorderPoster)</selected>
-							<visible>!Container.Content(photos) + [Control.IsVisible(56) | Control.IsVisible(54) | Control.IsVisible(57)]</visible>
+							<visible>!Container.Content(photos) + !ListItem.Type(photo) + [Control.IsVisible(56) | Control.IsVisible(54) | Control.IsVisible(57)]</visible>
 						</control>
 						<control type="radiobutton" id="1019">  <!-- Hide Info Popup Wall -->
 							<width>225</width>														
@@ -647,7 +647,7 @@
 							<label>[UPPERCASE]$LOCALIZE[31234][/UPPERCASE]</label>
 							<onclick>Skin.ToggleSetting(InfoPopupWall)</onclick>
 	                		<selected>Skin.HasSetting(InfoPopupWall)</selected>
-							<visible>Control.IsVisible(56) + !Container.Content(photos)</visible>
+							<visible>Control.IsVisible(56) + !Container.Content(photos) + !ListItem.Type(photo)</visible>
 						</control>
 					</control>
 			    </control>	
