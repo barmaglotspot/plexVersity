@@ -25,7 +25,7 @@
 					<posy>48</posy>
 					<width>325</width>
 					<height>325</height>
-					<texture fallback="artistartwork/_cdArt_missing/cover_missing.png" diffuse="frames/mask_album_large.png">$INFO[MusicPlayer.Cover]</texture>
+					<texture diffuse="frames/mask_album_large.png">$INFO[MusicPlayer.Cover]</texture>
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<visible>Skin.HasSetting(ShowMusicCaseNowPlaying) | !Skin.HasSetting(ShowDiscArtNowPlaying)</visible>
 				</control>
@@ -35,7 +35,7 @@
 					<posy>48</posy>
 					<width>325</width>
 					<height>325</height>
-					<texture fallback="artistartwork/_cdArt_missing/cover_missing.png" diffuse="now playing/cdcover_masksquare.png">$INFO[MusicPlayer.Cover]</texture>
+					<texture diffuse="now playing/cdcover_masksquare.png">$INFO[MusicPlayer.Cover]</texture>
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<visible>!Skin.HasSetting(ShowMusicCaseNowPlaying) + Skin.HasSetting(ShowDiscArtNowPlaying)</visible>
 				</control>
