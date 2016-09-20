@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<includes>	
+<includes>
+	
 	<include name="NowPlayingCoverTitle">
 		<control type="group">
 		    <control type="group">  <!--cdArt Kyo -->
@@ -585,4 +586,5 @@
 			</control>
 		</control>
 	</include>
+	
 </includes>
