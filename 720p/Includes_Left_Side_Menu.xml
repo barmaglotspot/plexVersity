@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-
 	<!-------------------------------------------- Kyo Left Side Menu Preplay ------------------------------------------> 
     <include name="Left_Side_Menu_Preplay">
 		<control type="group" id="995">
