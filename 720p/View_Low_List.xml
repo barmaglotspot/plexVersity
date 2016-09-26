@@ -26,7 +26,7 @@
 <control type="group"> 
     <control type="image">	
 	<posx>860</posx>
-	<posy>514</posy>
+	<posy>515</posy>
    		<description>Separator</description>
    		<width>420</width>
 		<height>1</height>
@@ -73,8 +73,12 @@
 			<texture>$INFO[Listitem.Property(mediaTag-videoResolution),views/,.png]</texture>
 			<visible>!Skin.HasSetting(HDIcon)</visible>
 		</control>
-		<!-- Simulate DiscArt -->
-		<include>SimDiscArtLowList</include>
+		<!-- DiscArt -->
+		<include>DiscArtLowList</include>
+		<!-- Logo Movies -->
+		<include>IncLogoMoviesLowList</include>
+		<!-- ClearArt Movies -->
+		<include>IncClearArtMoviesLowList</include>
 		<!-- Poster -->
 		<control type="image">
 			<posx>38</posx>
