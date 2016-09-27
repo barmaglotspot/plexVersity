@@ -66,7 +66,7 @@
 		</control>
 		<!-- HD Tag -->
 		<control type="image">		
-		<animation effect="slide" start="0" end="-63,-82" time="0" condition="!Skin.HasSetting(ShowSimDiscArt)">Conditional</animation>
+		<animation effect="slide" start="0" end="-63,-82" time="0" condition="!Skin.HasSetting(ShowDiscArt)">Conditional</animation>
 			<posx>374</posx>
 			<posy>132</posy>
 			<width>44</width>
@@ -75,8 +75,12 @@
 			<texture>$INFO[Listitem.Property(mediaTag-videoResolution),views/,.png]</texture>
 			<visible>!Skin.HasSetting(HDIcon) + !Container.Content(episodes)</visible>
 		</control>
-		<!-- Simulate DiscArt -->
-		<include>SimDiscArtRightList</include>
+		<!-- DiscArt -->
+		<include>DiscArtRightList</include>
+		<!-- Logo Movies -->
+		<include>IncLogoMoviesRightList</include>
+		<!-- ClearArt Movies -->
+		<include>IncClearArtMoviesRightList</include>
 		<!-- Poster -->
 		<control type="image">
 			<posx>38</posx>
@@ -302,7 +306,7 @@
 			    <posy>39</posy>
 				<width>1200</width>				
 				<font>aller_2_18</font>
-				<label>[UPPERCASE]$INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre,, &#xB7;] $INFO[ListItem.RatingAndVotes][/UPPERCASE]</label>																																		
+				<label>[UPPERCASE]$INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre,, &#xB7;] $INFO[ListItem.Property(Rating)][/UPPERCASE]</label>																																		
 				<textcolor>98353533</textcolor>
 				<selectedcolor>98353533</selectedcolor>	
 				<align>right</align>
@@ -343,7 +347,7 @@
 			    <posy>39</posy>
 				<width>1200</width>				
 				<font>aller_2_18</font>
-				<label>[UPPERCASE]$INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre,, &#xB7;] $INFO[ListItem.RatingAndVotes][/UPPERCASE]</label>																																		
+				<label>[UPPERCASE]$INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre,, &#xB7;] $INFO[ListItem.Property(Rating)][/UPPERCASE]</label>																																		
 				<textcolor>98353533</textcolor>
 				<selectedcolor>98353533</selectedcolor>	
 				<align>right</align>

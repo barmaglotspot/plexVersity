@@ -35,7 +35,7 @@
 		<height>1</height>
 		<texture>views/Separator_Columns.png</texture>
 		<colordiffuse>58353533</colordiffuse>
-		<visible>!IsEmpty(Listitem.Property(mediaTag-videoCodec)) | !IsEmpty(Listitem.Property(mediaTag-audioCodec)) | !IsEmpty(Listitem.Property(mediaTag-contentRating))</visible>
+		<visible>!IsEmpty(Listitem.Property(mediaTag-videoCodec)) | !IsEmpty(Listitem.Property(mediaTag-audioCodec)) | !IsEmpty(Listitem.Property(Rating))</visible>
    	</control>
 </control>
 
@@ -70,8 +70,12 @@
 			<texture>$INFO[Listitem.Property(mediaTag-videoResolution),views/,.png]</texture>
 			<visible>!Skin.HasSetting(HDIcon)</visible>
 		</control>
-		<!-- Simulate DiscArt -->
-        <include>SimDiscArtList</include>
+		<!-- DiscArt -->
+        <include>DiscArtList</include>
+		<!-- Logo Movies -->
+		<include>IncLogoMoviesList</include>
+		<!-- ClearArt Movies -->
+		<include>IncClearArtMoviesList</include>
 		<!-- Poster -->
 		<control type="image">
 			<posx>28</posx>
@@ -198,7 +202,7 @@
 
 <!-- List Video -->			
 	<control type="fixedlist" id="50"> 
-	<animation effect="slide" start="0" end="-70,0" time="300" condition="Skin.HasSetting(ShowSimDiscArt)">Conditional</animation>
+	<animation effect="slide" start="0" end="-70,0" time="300" condition="Skin.HasSetting(ShowDiscArt)">Conditional</animation>
 		<posx>450</posx>
 		<posy>27</posy>
 		<width>850</width>
@@ -276,7 +280,7 @@
 				<posy>39</posy>
 				<width>800</width>				
 				<font>aller_2_18</font>
-				<label>[UPPERCASE]$INFO[ListItem.RatingAndVotes] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
+				<label>[UPPERCASE]$INFO[ListItem.Property(Rating)] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
 				<textcolor>98353533</textcolor>
 				<selectedcolor>98353533</selectedcolor>					
 			</control>
@@ -315,7 +319,7 @@
 				<posy>39</posy>
 				<width>800</width>				
 				<font>aller_2_18</font>
-				<label>[UPPERCASE]$INFO[ListItem.RatingAndVotes] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
+				<label>[UPPERCASE]$INFO[ListItem.Property(Rating)] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
 				<textcolor>98353533</textcolor>
 				<selectedcolor>98353533</selectedcolor>					
 			</control>

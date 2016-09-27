@@ -291,7 +291,7 @@
 					<textcolor>greyl</textcolor>
 					<visible>true</visible>
 				</control>
-				<!-- Star Rating -->
+				<!-- Set Star Rating -->
 				<control type="image">
 					<posy>95</posy>
 					<posx>140r</posx>
@@ -312,6 +312,25 @@
 					<visible>!IsEmpty(ListItem.Property(hasUserRating))</visible>
 				</control>
 			</control>
+			<!-- Info Star Rating -->
+			    <control type="image">	
+                    <posx>1216</posx>
+	                <posy>196</posy>		        
+                    <height>17</height>
+                    <texture>views/star.png</texture>
+                    <colordiffuse>FF666666</colordiffuse>       
+		            <visible>!IsEmpty(ListItem.Property(Rating))</visible>
+                </control>  				
+			    <control type="label">
+			        <posx>1213</posx>
+			        <posy>190</posy>
+			    	<width>1200</width>				
+			    	<font>aller_2_18</font>
+			    	<label>[UPPERCASE]$INFO[ListItem.Property(Rating)][/UPPERCASE]</label>																																		
+			    	<textcolor>98353533</textcolor>
+			    	<selectedcolor>98353533</selectedcolor>	
+			    	<align>right</align>
+			    </control>
 			<!-- Director -->
 			<control type="grouplist">
 				<posy>268</posy>
@@ -548,7 +567,7 @@
 					<colordiffuse>greyl</colordiffuse>
 					<visible>true</visible>
 				</control>
-				<!-- Star Rating -->
+				<!-- Set Star Rating -->
 				<control type="image">
 					<posy>80</posy>
 					<posx>140r</posx>
@@ -556,7 +575,7 @@
 					<height>20</height>
 					<texture>$INFO[ListItem.StarRating]</texture>
 					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<visible>IsEmpty(ListItem.Property(hasUserRating)) + [IsEmpty(ListItem.Property(audienceRatingPercent)) | Skin.HasSetting(HideRottenTomatoesRating)]</visible>
+					<visible>IsEmpty(ListItem.Property(hasUserRating)) + [IsEmpty(ListItem.Property(audienceRatingPercent))]</visible>
 				</control>
 				<control type="image">
 					<posy>80</posy>
@@ -568,9 +587,28 @@
 					<colordiffuse>red</colordiffuse>
 					<visible>!IsEmpty(ListItem.Property(hasUserRating))</visible>
 				</control>
+				<!-- Info Star Rating -->
+			    <control type="image">	
+                    <posx>1216</posx>
+	                <posy>109</posy>		        
+                    <height>17</height>
+                    <texture>views/star.png</texture>
+                    <colordiffuse>FF666666</colordiffuse>       
+		            <visible>!IsEmpty(ListItem.Property(Rating))</visible>
+                </control>  				
+			    <control type="label">
+			        <posx>1213</posx>
+			        <posy>103</posy>
+			    	<width>1200</width>				
+			    	<font>aller_2_18</font>
+			    	<label>[UPPERCASE]$INFO[ListItem.Property(Rating)][/UPPERCASE]</label>																																		
+			    	<textcolor>98353533</textcolor>
+			    	<selectedcolor>98353533</selectedcolor>	
+			    	<align>right</align>
+			    </control>
 				<!-- RT Rating -->
 				<control type="grouplist">
-					<visible>!IsEmpty(ListItem.Property(audienceRatingPercent)) + IsEmpty(ListItem.Property(hasUserRating)) + !Skin.HasSetting(HideRottenTomatoesRating)</visible>
+					<visible>!IsEmpty(ListItem.Property(audienceRatingPercent)) + IsEmpty(ListItem.Property(hasUserRating))</visible>
 					<posy>82</posy>
 					<posx>240r</posx>
 					<width>200</width>
@@ -601,7 +639,7 @@
 					</control>
 				</control>
 				<control type="grouplist">
-					<visible>!IsEmpty(ListItem.Property(audienceRatingPercent)) + !IsEmpty(ListItem.Property(hasUserRating)) + !Skin.HasSetting(HideRottenTomatoesRating)</visible>
+					<visible>!IsEmpty(ListItem.Property(audienceRatingPercent)) + !IsEmpty(ListItem.Property(hasUserRating))</visible>
 					<posy>110</posy>
 					<posx>240r</posx>
 					<width>200</width>

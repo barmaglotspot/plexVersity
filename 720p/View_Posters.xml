@@ -60,7 +60,7 @@
 	        <posy>39</posy>
 	    	<width>450</width>				
 	    	<font>aller_2_18</font>
-	    	<label>[UPPERCASE]$INFO[ListItem.RatingAndVotes] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
+	    	<label>[UPPERCASE]$INFO[ListItem.Property(Rating)] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
 	    	<textcolor>98353533</textcolor>
 	    	<selectedcolor>98353533</selectedcolor>
 			<visible>Container.Content(movies) | Container.Content(homemovies)</visible>
@@ -228,10 +228,19 @@
                 <texture>$VAR[IconOverlay0Var]</texture>
 				<visible>!Skin.HasSetting(WatUnwIndicator) + !Container.Content(channel)</visible>
             </control>
+			<control type="image">
+				<posx>-3</posx>
+				<posy>34</posy>
+				<width>246</width>
+				<height>360</height>
+				<aspectratio align="center" aligny="bottom">stretch</aspectratio>
+				<texture>views/posters/bg_logo_clearart.png</texture>
+				<visible>Skin.HasSetting(ShowLogoMovies) | Skin.HasSetting(ShowClearArtMovies)</visible>
+			</control>
 		</itemlayout>	
 		<focusedlayout width="298" height="360">
-		    <!-- Simulate DiscArt -->
-		    <include>SimDiscArtPoster</include>	
+		    <!-- DiscArt -->
+		    <include>DiscArtPoster</include>	
 		    <!-- HD Tag -->
 		    <control type="image">
 		    <animation reversible="false" effect="zoom" end="120" center="140,215" time="200">Focus</animation>
@@ -282,7 +291,11 @@
 	            <height>24</height>                        
                 <texture>$VAR[IconOverlay0Var]</texture>
 				<visible>!Skin.HasSetting(WatUnwIndicator) + !Container.Content(channel)</visible>
-            </control>
+            </control>			
+			<!-- Logo Movies -->
+	        <include>IncLogoMoviesPoster</include>	
+             <!-- ClearArt Movies -->
+	        <include>IncClearArtMoviesPoster</include>
 		</focusedlayout>
 	  </control>
     </control>

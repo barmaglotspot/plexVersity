@@ -25,6 +25,12 @@
     <posy>10</posy>
 	<include>MediaFlagsGreyLeft</include>	
 </control>
+
+<!-- Logo Movies -->
+	<include>IncLogoMoviesFanartList</include>
+	
+<!-- ClearArt Movies -->
+	<include>IncClearArtMoviesFanartList</include>
 	
 <control type="group"> 
     <control type="image">	
@@ -284,7 +290,7 @@
 			    <posy>39</posy>
 				<width>810</width>				
 				<font>aller_2_18</font>
-				<label>[UPPERCASE]$INFO[ListItem.RatingAndVotes] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
+				<label>[UPPERCASE]$INFO[ListItem.Property(Rating)] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
 				<textcolor>98353533</textcolor>
 				<selectedcolor>98353533</selectedcolor>					
 			</control>			
@@ -323,7 +329,7 @@
 			    <posy>39</posy>
 				<width>810</width>				
 				<font>aller_2_18</font>
-				<label>[UPPERCASE]$INFO[ListItem.RatingAndVotes] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
+				<label>[UPPERCASE]$INFO[ListItem.Property(Rating)] &#xB7; $INFO[ListItem.DurationStr,, &#xB7;] $INFO[ListItem.Year,, &#xB7;] $INFO[ListItem.Genre][/UPPERCASE]</label>																																		
 				<textcolor>98353533</textcolor>
 				<selectedcolor>98353533</selectedcolor>					
 			</control>

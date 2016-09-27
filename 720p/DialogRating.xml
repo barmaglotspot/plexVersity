@@ -21,7 +21,7 @@
 				<posy>35</posy>
 				<width>366</width>
 				<align>center</align>
-				<label>SET RATING</label>
+				<label>[UPPERCASE]$LOCALIZE[32100][/UPPERCASE]</label><!--Set Rating -->
 				<font>aller_4_c_24</font>
 				<textcolor>greymd</textcolor>
 			</control>
