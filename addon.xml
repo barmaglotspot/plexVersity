@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.plexVersity" version="2.1" name="Versity" provider-name="Kyo">
+<addon id="skin.plexVersity" version="1.0" name="Versity" provider-name="Kyo">
 	<requires>
 		<import addon="xbmc.gui" version="4.0.0"/>		
 	</requires>
