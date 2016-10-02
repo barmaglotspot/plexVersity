@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<!-- Kyo Simulate DiscArt List -->
-	<include name="SimDiscArtList">	
+	<include name="DiscArtList">	
         <control type="group">		
 		<include>ListDiscAnimation</include>
 		<visible>!Container.Content(channel) + !Container.Content(episodes) + !ListItem.Type(videoplaylist) + !ListItem.Type(musicplaylist) + !Skin.HasSetting(ShowSimDiscArt) + !Container.Scrolling</visible>			
@@ -80,7 +80,7 @@
 	</include>
 	
 	<!-- Kyo Simulate DiscArt Low List -->
-	<include name="SimDiscArtLowList">	
+	<include name="DiscArtLowList">	
         <control type="group">
 		<include>LowListDiscAnimation</include>
 		<visible>!Container.Content(channel) + !Container.Content(episodes) + !ListItem.Type(videoplaylist) + !ListItem.Type(musicplaylist) + !Skin.HasSetting(ShowSimDiscArt) + !Container.Scrolling</visible>			
@@ -159,7 +159,7 @@
 	</include>
 	
 	<!-- Kyo Simulate DiscArt Right List -->
-	<include name="SimDiscArtRightList">	
+	<include name="DiscArtRightList">	
         <control type="group">
 		<include>RightListDiscAnimation</include>
 		<visible>!Container.Content(channel) + !Container.Content(episodes) + !ListItem.Type(videoplaylist) + !ListItem.Type(musicplaylist) + !Skin.HasSetting(ShowSimDiscArt) + !Container.Scrolling</visible>			
@@ -238,7 +238,7 @@
 	</include>
 	
 	<!-- Kyo Simulate DiscArt Showcase -->
-	<include name="SimDiscArtShowcase">	
+	<include name="DiscArtShowcase">	
         <control type="group">
 		<animation effect="slide" start="0,135" end="0,0" time="300" condition="!ControlGroup(999).HasFocus()">Conditional</animation>
 		<include>ShowcaseDiscAnimation</include>
@@ -318,7 +318,7 @@
 	</include>
 	
 	<!-- Kyo Simulate DiscArt Poster -->
-	<include name="SimDiscArtPoster">	
+	<include name="DiscArtPoster">	
         <control type="group">
 		<include>PosterDiscAnimation</include>
 		<visible>!Container.Content(channel) + !Container.Content(episodes) + !ListItem.Type(videoplaylist) + !ListItem.Type(musicplaylist) + !Skin.HasSetting(ShowSimDiscArt)</visible>			

@@ -17,7 +17,7 @@
 </control>
 
 <!-- Simulate DiscArt -->
-    <include>SimDiscArtShowcase</include>
+    <include>DiscArtShowcase</include>
 	
 <!-- Numbers Items and Section -->
     <include>ItemsSectionGrey</include>		
